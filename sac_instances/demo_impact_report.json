@@ -1,0 +1,64 @@
+{
+  "report_id": "impact-20261110T185718",
+  "timestamp": "2026-11-10T18:57:18.513593+00:00",
+  "change_event": "auth-service replaced by auth-service-v2 (MFA upgrade)",
+  "service_before": "auth-service",
+  "service_after": "auth-service-v2",
+  "completeness_before": 0.4606,
+  "completeness_after": 0.5095,
+  "delta": 0.0489,
+  "overall_impact": "IMPROVED",
+  "improved_rules_count": 3,
+  "degraded_rules_count": 0,
+  "unchanged_rules_count": 35,
+  "improved_rules": [
+    {
+      "rule_id": "NIST-AC-1-c",
+      "control_title": "POLICY AND PROCEDURES",
+      "status_before": "missing",
+      "status_after": "partial",
+      "score_before": 0.0,
+      "score_after": 0.5,
+      "impact_factor": 0.5,
+      "missing_before": [
+        "review-accounts",
+        "review-compliance"
+      ],
+      "missing_after": [
+        "review-compliance"
+      ],
+      "reason": "Newly satisfied: review-accounts"
+    },
+    {
+      "rule_id": "NIST-AC-5-a",
+      "control_title": "SEPARATION OF DUTIES",
+      "status_before": "missing",
+      "status_after": "satisfied",
+      "score_before": 0.0,
+      "score_after": 1.0,
+      "impact_factor": 0.8,
+      "missing_before": [
+        "control AC-5(a) not in service scope"
+      ],
+      "missing_after": [],
+      "reason": "Added to service scope: AC-5(a)"
+    },
+    {
+      "rule_id": "NIST-AC-6-5",
+      "control_title": "LEAST PRIVILEGE | PRIVILEGED ACCOUNTS",
+      "status_before": "partial",
+      "status_after": "satisfied",
+      "score_before": 0.5,
+      "score_after": 1.0,
+      "impact_factor": 1.0,
+      "missing_before": [
+        "restrict-remote-connections",
+        "rate-limiting"
+      ],
+      "missing_after": [],
+      "reason": "Newly satisfied: restrict-remote-connections, rate-limiting"
+    }
+  ],
+  "degraded_rules": [],
+  "summary": "auth-service replaced by auth-service-v2 (MFA upgrade): completeness IMPROVED from 46.1% to 50.9% (delta +4.9%). 3 rules improved, 0 degraded."
+}

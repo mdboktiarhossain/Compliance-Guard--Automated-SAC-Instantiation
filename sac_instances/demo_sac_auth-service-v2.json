@@ -1,0 +1,2545 @@
+{
+  "sac_instance_id": "sac-auth-service-v2-20261110T185718",
+  "service_id": "auth-service-v2",
+  "service_name": "Authentication Service v2 (MFA)",
+  "timestamp": "2026-11-10T18:57:18.504628+00:00",
+  "total_rules": 38,
+  "satisfied": 5,
+  "partial": 29,
+  "missing": 4,
+  "rule_mappings": [
+    {
+      "rule_id": "NIST-AC-1-a",
+      "source_citation": "AC-1(a)",
+      "control_title": "POLICY AND PROCEDURES",
+      "satisfaction_status": "partial",
+      "confidence": 0.5,
+      "impact_factor": 0.5,
+      "implemented_by": "organization",
+      "evidence": [
+        {
+          "type": "implementation_type",
+          "note": "Organizational/procedural rule. System provides technical support (audit logging, account management) but policy must be implemented by the organization.",
+          "node_id": "auth-service-v2"
+        }
+      ],
+      "missing": [
+        "organizational-policy-implementation"
+      ],
+      "gap_description": "Requires organizational procedures \u2014 system provides technical foundations only."
+    },
+    {
+      "rule_id": "NIST-AC-1-a-1",
+      "source_citation": "AC-1(a)(1)",
+      "control_title": "POLICY AND PROCEDURES",
+      "satisfaction_status": "partial",
+      "confidence": 0.5,
+      "impact_factor": 0.5,
+      "implemented_by": "organization",
+      "evidence": [
+        {
+          "type": "implementation_type",
+          "note": "Organizational/procedural rule. System provides technical support (audit logging, account management) but policy must be implemented by the organization.",
+          "node_id": "auth-service-v2"
+        }
+      ],
+      "missing": [
+        "organizational-policy-implementation"
+      ],
+      "gap_description": "Requires organizational procedures \u2014 system provides technical foundations only."
+    },
+    {
+      "rule_id": "NIST-AC-1-a-2",
+      "source_citation": "AC-1(a)(2)",
+      "control_title": "POLICY AND PROCEDURES",
+      "satisfaction_status": "partial",
+      "confidence": 0.5,
+      "impact_factor": 0.5,
+      "implemented_by": "organization",
+      "evidence": [
+        {
+          "type": "implementation_type",
+          "note": "Organizational/procedural rule. System provides technical support (audit logging, account management) but policy must be implemented by the organization.",
+          "node_id": "auth-service-v2"
+        }
+      ],
+      "missing": [
+        "organizational-policy-implementation"
+      ],
+      "gap_description": "Requires organizational procedures \u2014 system provides technical foundations only."
+    },
+    {
+      "rule_id": "NIST-AC-1-b",
+      "source_citation": "AC-1(b)",
+      "control_title": "POLICY AND PROCEDURES",
+      "satisfaction_status": "partial",
+      "confidence": 0.5,
+      "impact_factor": 0.5,
+      "implemented_by": "organization",
+      "evidence": [
+        {
+          "type": "implementation_type",
+          "note": "Organizational/procedural rule. System provides technical support (audit logging, account management) but policy must be implemented by the organization.",
+          "node_id": "auth-service-v2"
+        }
+      ],
+      "missing": [
+        "organizational-policy-implementation"
+      ],
+      "gap_description": "Requires organizational procedures \u2014 system provides technical foundations only."
+    },
+    {
+      "rule_id": "NIST-AC-1-c",
+      "source_citation": "AC-1(c)",
+      "control_title": "POLICY AND PROCEDURES",
+      "satisfaction_status": "partial",
+      "confidence": 0.5,
+      "impact_factor": 0.5,
+      "implemented_by": "organization",
+      "evidence": [
+        {
+          "type": "capability_match",
+          "node_id": "auth-service-v2",
+          "matched_capability": "review-accounts"
+        }
+      ],
+      "missing": [
+        "review-compliance"
+      ],
+      "gap_description": "Missing capabilities: review-compliance"
+    },
+    {
+      "rule_id": "NIST-AC-2-a",
+      "source_citation": "AC-2(a)",
+      "control_title": "ACCOUNT MANAGEMENT",
+      "satisfaction_status": "partial",
+      "confidence": 0.5,
+      "impact_factor": 0.8,
+      "implemented_by": "organization",
+      "evidence": [
+        {
+          "type": "implementation_type",
+          "note": "Organizational/procedural rule. System provides technical support (audit logging, account management) but policy must be implemented by the organization.",
+          "node_id": "auth-service-v2"
+        }
+      ],
+      "missing": [
+        "organizational-policy-implementation"
+      ],
+      "gap_description": "Requires organizational procedures \u2014 system provides technical foundations only."
+    },
+    {
+      "rule_id": "NIST-AC-2-b",
+      "source_citation": "AC-2(b)",
+      "control_title": "ACCOUNT MANAGEMENT",
+      "satisfaction_status": "partial",
+      "confidence": 0.5,
+      "impact_factor": 0.8,
+      "implemented_by": "organization",
+      "evidence": [
+        {
+          "type": "implementation_type",
+          "note": "Organizational/procedural rule. System provides technical support (audit logging, account management) but policy must be implemented by the organization.",
+          "node_id": "auth-service-v2"
+        }
+      ],
+      "missing": [
+        "organizational-policy-implementation"
+      ],
+      "gap_description": "Requires organizational procedures \u2014 system provides technical foundations only."
+    },
+    {
+      "rule_id": "NIST-AC-2-c",
+      "source_citation": "AC-2(c)",
+      "control_title": "ACCOUNT MANAGEMENT",
+      "satisfaction_status": "partial",
+      "confidence": 0.5,
+      "impact_factor": 0.8,
+      "implemented_by": "organization",
+      "evidence": [
+        {
+          "type": "implementation_type",
+          "note": "Organizational/procedural rule. System provides technical support (audit logging, account management) but policy must be implemented by the organization.",
+          "node_id": "auth-service-v2"
+        }
+      ],
+      "missing": [
+        "organizational-policy-implementation"
+      ],
+      "gap_description": "Requires organizational procedures \u2014 system provides technical foundations only."
+    },
+    {
+      "rule_id": "NIST-AC-2-d",
+      "source_citation": "AC-2(d)",
+      "control_title": "ACCOUNT MANAGEMENT",
+      "satisfaction_status": "partial",
+      "confidence": 0.5,
+      "impact_factor": 0.8,
+      "implemented_by": "organization",
+      "evidence": [
+        {
+          "type": "implementation_type",
+          "note": "Organizational/procedural rule. System provides technical support (audit logging, account management) but policy must be implemented by the organization.",
+          "node_id": "auth-service-v2"
+        }
+      ],
+      "missing": [
+        "organizational-policy-implementation"
+      ],
+      "gap_description": "Requires organizational procedures \u2014 system provides technical foundations only."
+    },
+    {
+      "rule_id": "NIST-AC-2-e",
+      "source_citation": "AC-2(e)",
+      "control_title": "ACCOUNT MANAGEMENT",
+      "satisfaction_status": "partial",
+      "confidence": 0.5,
+      "impact_factor": 0.8,
+      "implemented_by": "organization",
+      "evidence": [
+        {
+          "type": "implementation_type",
+          "note": "Organizational/procedural rule. System provides technical support (audit logging, account management) but policy must be implemented by the organization.",
+          "node_id": "auth-service-v2"
+        }
+      ],
+      "missing": [
+        "organizational-policy-implementation"
+      ],
+      "gap_description": "Requires organizational procedures \u2014 system provides technical foundations only."
+    },
+    {
+      "rule_id": "NIST-AC-2-f",
+      "source_citation": "AC-2(f)",
+      "control_title": "ACCOUNT MANAGEMENT",
+      "satisfaction_status": "partial",
+      "confidence": 0.4,
+      "impact_factor": 0.8,
+      "implemented_by": "organization",
+      "evidence": [
+        {
+          "type": "capability_match",
+          "node_id": "auth-service-v2",
+          "matched_capability": "modify-account"
+        },
+        {
+          "type": "capability_match",
+          "node_id": "auth-service-v2",
+          "matched_capability": "disable-account"
+        },
+        {
+          "type": "capability_match",
+          "node_id": "auth-service-v2",
+          "matched_capability": "create-account"
+        },
+        {
+          "type": "control_scope_match",
+          "node_id": "auth-service-v2",
+          "nist_control": "AC-2(f)",
+          "service_controls": [
+            "AC-2",
+            "AC-2(a)",
+            "AC-2(g)",
+            "AC-3",
+            "AC-3(7)",
+            "AC-5",
+            "AC-6",
+            "AC-6(1)",
+            "AC-6(2)",
+            "AC-6(5)",
+            "AC-6(9)",
+            "AC-6(10)"
+          ]
+        }
+      ],
+      "missing": [
+        "delete-profile",
+        "create-order",
+        "activate-account",
+        "create-profile",
+        "update-profile",
+        "deactivate-account"
+      ],
+      "gap_description": "Missing capabilities: delete-profile, create-order, activate-account, create-profile, update-profile, deactivate-account"
+    },
+    {
+      "rule_id": "NIST-AC-2-g",
+      "source_citation": "AC-2(g)",
+      "control_title": "ACCOUNT MANAGEMENT",
+      "satisfaction_status": "partial",
+      "confidence": 0.75,
+      "impact_factor": 0.8,
+      "implemented_by": "organization",
+      "evidence": [
+        {
+          "type": "capability_match",
+          "node_id": "auth-service-v2",
+          "matched_capability": "audit-trail"
+        },
+        {
+          "type": "capability_match",
+          "node_id": "auth-service-v2",
+          "matched_capability": "monitor-privileged-access"
+        },
+        {
+          "type": "capability_match",
+          "node_id": "auth-service-v2",
+          "matched_capability": "session-tracking"
+        },
+        {
+          "type": "control_scope_match",
+          "node_id": "auth-service-v2",
+          "nist_control": "AC-2(g)",
+          "service_controls": [
+            "AC-2",
+            "AC-2(a)",
+            "AC-2(g)",
+            "AC-3",
+            "AC-3(7)",
+            "AC-5",
+            "AC-6",
+            "AC-6(1)",
+            "AC-6(2)",
+            "AC-6(5)",
+            "AC-6(9)",
+            "AC-6(10)"
+          ]
+        }
+      ],
+      "missing": [
+        "monitor-account-usage"
+      ],
+      "gap_description": "Missing capabilities: monitor-account-usage"
+    },
+    {
+      "rule_id": "NIST-AC-2-h",
+      "source_citation": "AC-2(h)",
+      "control_title": "ACCOUNT MANAGEMENT",
+      "satisfaction_status": "partial",
+      "confidence": 0.5,
+      "impact_factor": 0.8,
+      "implemented_by": "organization",
+      "evidence": [
+        {
+          "type": "implementation_type",
+          "note": "Organizational/procedural rule. System provides technical support (audit logging, account management) but policy must be implemented by the organization.",
+          "node_id": "auth-service-v2"
+        }
+      ],
+      "missing": [
+        "organizational-policy-implementation"
+      ],
+      "gap_description": "Requires organizational procedures \u2014 system provides technical foundations only."
+    },
+    {
+      "rule_id": "NIST-AC-2-h-1",
+      "source_citation": "AC-2(h)(1)",
+      "control_title": "ACCOUNT MANAGEMENT",
+      "satisfaction_status": "partial",
+      "confidence": 0.5,
+      "impact_factor": 0.8,
+      "implemented_by": "organization",
+      "evidence": [
+        {
+          "type": "implementation_type",
+          "note": "Organizational/procedural rule. System provides technical support (audit logging, account management) but policy must be implemented by the organization.",
+          "node_id": "auth-service-v2"
+        }
+      ],
+      "missing": [
+        "organizational-policy-implementation"
+      ],
+      "gap_description": "Requires organizational procedures \u2014 system provides technical foundations only."
+    },
+    {
+      "rule_id": "NIST-AC-2-h-2",
+      "source_citation": "AC-2(h)(2)",
+      "control_title": "ACCOUNT MANAGEMENT",
+      "satisfaction_status": "partial",
+      "confidence": 0.5,
+      "impact_factor": 0.8,
+      "implemented_by": "organization",
+      "evidence": [
+        {
+          "type": "implementation_type",
+          "note": "Organizational/procedural rule. System provides technical support (audit logging, account management) but policy must be implemented by the organization.",
+          "node_id": "auth-service-v2"
+        }
+      ],
+      "missing": [
+        "organizational-policy-implementation"
+      ],
+      "gap_description": "Requires organizational procedures \u2014 system provides technical foundations only."
+    },
+    {
+      "rule_id": "NIST-AC-2-i",
+      "source_citation": "AC-2(i)",
+      "control_title": "ACCOUNT MANAGEMENT",
+      "satisfaction_status": "partial",
+      "confidence": 0.4,
+      "impact_factor": 0.8,
+      "implemented_by": "organization",
+      "evidence": [
+        {
+          "type": "capability_match",
+          "node_id": "auth-service-v2",
+          "matched_capability": "role-based-access"
+        },
+        {
+          "type": "control_scope_match",
+          "node_id": "auth-service-v2",
+          "nist_control": "AC-2(i)",
+          "service_controls": [
+            "AC-2",
+            "AC-2(a)",
+            "AC-2(g)",
+            "AC-3",
+            "AC-3(7)",
+            "AC-5",
+            "AC-6",
+            "AC-6(1)",
+            "AC-6(2)",
+            "AC-6(5)",
+            "AC-6(9)",
+            "AC-6(10)"
+          ]
+        }
+      ],
+      "missing": [
+        "enforce-access-control",
+        "validate-tokens"
+      ],
+      "gap_description": "Missing capabilities: enforce-access-control, validate-tokens"
+    },
+    {
+      "rule_id": "NIST-AC-2-j",
+      "source_citation": "AC-2(j)",
+      "control_title": "ACCOUNT MANAGEMENT",
+      "satisfaction_status": "partial",
+      "confidence": 0.5,
+      "impact_factor": 0.8,
+      "implemented_by": "organization",
+      "evidence": [
+        {
+          "type": "capability_match",
+          "node_id": "auth-service-v2",
+          "matched_capability": "review-accounts"
+        },
+        {
+          "type": "control_scope_match",
+          "node_id": "auth-service-v2",
+          "nist_control": "AC-2(j)",
+          "service_controls": [
+            "AC-2",
+            "AC-2(a)",
+            "AC-2(g)",
+            "AC-3",
+            "AC-3(7)",
+            "AC-5",
+            "AC-6",
+            "AC-6(1)",
+            "AC-6(2)",
+            "AC-6(5)",
+            "AC-6(9)",
+            "AC-6(10)"
+          ]
+        }
+      ],
+      "missing": [
+        "review-compliance"
+      ],
+      "gap_description": "Missing capabilities: review-compliance"
+    },
+    {
+      "rule_id": "NIST-AC-2-k",
+      "source_citation": "AC-2(k)",
+      "control_title": "ACCOUNT MANAGEMENT",
+      "satisfaction_status": "partial",
+      "confidence": 0.5,
+      "impact_factor": 0.8,
+      "implemented_by": "organization",
+      "evidence": [
+        {
+          "type": "capability_match",
+          "node_id": "auth-service-v2",
+          "matched_capability": "role-based-access"
+        },
+        {
+          "type": "control_scope_match",
+          "node_id": "auth-service-v2",
+          "nist_control": "AC-2(k)",
+          "service_controls": [
+            "AC-2",
+            "AC-2(a)",
+            "AC-2(g)",
+            "AC-3",
+            "AC-3(7)",
+            "AC-5",
+            "AC-6",
+            "AC-6(1)",
+            "AC-6(2)",
+            "AC-6(5)",
+            "AC-6(9)",
+            "AC-6(10)"
+          ]
+        }
+      ],
+      "missing": [
+        "enforce-access-control"
+      ],
+      "gap_description": "Missing capabilities: enforce-access-control"
+    },
+    {
+      "rule_id": "NIST-AC-2-l",
+      "source_citation": "AC-2(l)",
+      "control_title": "ACCOUNT MANAGEMENT",
+      "satisfaction_status": "satisfied",
+      "confidence": 1.0,
+      "impact_factor": 0.8,
+      "implemented_by": "organization",
+      "evidence": [
+        {
+          "type": "control_scope_match",
+          "node_id": "auth-service-v2",
+          "nist_control": "AC-2(l)",
+          "service_controls": [
+            "AC-2",
+            "AC-2(a)",
+            "AC-2(g)",
+            "AC-3",
+            "AC-3(7)",
+            "AC-5",
+            "AC-6",
+            "AC-6(1)",
+            "AC-6(2)",
+            "AC-6(5)",
+            "AC-6(9)",
+            "AC-6(10)"
+          ]
+        }
+      ],
+      "missing": [],
+      "gap_description": ""
+    },
+    {
+      "rule_id": "NIST-AC-3",
+      "source_citation": "AC-3",
+      "control_title": "ACCESS ENFORCEMENT",
+      "satisfaction_status": "partial",
+      "confidence": 0.4,
+      "impact_factor": 1.0,
+      "implemented_by": "system",
+      "evidence": [
+        {
+          "type": "control_scope_match",
+          "node_id": "auth-service-v2",
+          "nist_control": "AC-3",
+          "service_controls": [
+            "AC-2",
+            "AC-2(a)",
+            "AC-2(g)",
+            "AC-3",
+            "AC-3(7)",
+            "AC-5",
+            "AC-6",
+            "AC-6(1)",
+            "AC-6(2)",
+            "AC-6(5)",
+            "AC-6(9)",
+            "AC-6(10)"
+          ]
+        }
+      ],
+      "missing": [
+        "enforce-non-privileged-accounts",
+        "enforce-flow-policy",
+        "enforce-access-control"
+      ],
+      "gap_description": "Missing capabilities: enforce-non-privileged-accounts, enforce-flow-policy, enforce-access-control"
+    },
+    {
+      "rule_id": "NIST-AC-3-7",
+      "source_citation": "AC-3(7)",
+      "control_title": "ACCESS ENFORCEMENT | ROLE-BASED ACCESS CONTROL",
+      "satisfaction_status": "partial",
+      "confidence": 0.4,
+      "impact_factor": 1.0,
+      "implemented_by": "system",
+      "evidence": [
+        {
+          "type": "control_scope_match",
+          "node_id": "auth-service-v2",
+          "nist_control": "AC-3(7)",
+          "service_controls": [
+            "AC-2",
+            "AC-2(a)",
+            "AC-2(g)",
+            "AC-3",
+            "AC-3(7)",
+            "AC-5",
+            "AC-6",
+            "AC-6(1)",
+            "AC-6(2)",
+            "AC-6(5)",
+            "AC-6(9)",
+            "AC-6(10)"
+          ]
+        }
+      ],
+      "missing": [
+        "enforce-non-privileged-accounts",
+        "enforce-flow-policy",
+        "enforce-access-control"
+      ],
+      "gap_description": "Missing capabilities: enforce-non-privileged-accounts, enforce-flow-policy, enforce-access-control"
+    },
+    {
+      "rule_id": "NIST-AC-3-8",
+      "source_citation": "AC-3(8)",
+      "control_title": "ACCESS ENFORCEMENT | REVOCATION OF ACCESS AUTHORIZATIONS",
+      "satisfaction_status": "partial",
+      "confidence": 0.4,
+      "impact_factor": 1.0,
+      "implemented_by": "system",
+      "evidence": [
+        {
+          "type": "control_scope_match",
+          "node_id": "auth-service-v2",
+          "nist_control": "AC-3(8)",
+          "service_controls": [
+            "AC-2",
+            "AC-2(a)",
+            "AC-2(g)",
+            "AC-3",
+            "AC-3(7)",
+            "AC-5",
+            "AC-6",
+            "AC-6(1)",
+            "AC-6(2)",
+            "AC-6(5)",
+            "AC-6(9)",
+            "AC-6(10)"
+          ]
+        }
+      ],
+      "missing": [
+        "enforce-non-privileged-accounts",
+        "enforce-flow-policy",
+        "enforce-access-control"
+      ],
+      "gap_description": "Missing capabilities: enforce-non-privileged-accounts, enforce-flow-policy, enforce-access-control"
+    },
+    {
+      "rule_id": "NIST-AC-4",
+      "source_citation": "AC-4",
+      "control_title": "INFORMATION FLOW ENFORCEMENT",
+      "satisfaction_status": "missing",
+      "confidence": 0.0,
+      "impact_factor": 1.0,
+      "implemented_by": "system",
+      "evidence": [],
+      "missing": [
+        "enforce-non-privileged-accounts",
+        "enforce-flow-policy",
+        "enforce-access-control"
+      ],
+      "gap_description": "Service 'auth-service-v2' does not implement AC-4."
+    },
+    {
+      "rule_id": "NIST-AC-4-1",
+      "source_citation": "AC-4(1)",
+      "control_title": "INFORMATION FLOW ENFORCEMENT | OBJECT SECURITY AND PRIVACY ATTRIBUTES",
+      "satisfaction_status": "missing",
+      "confidence": 0.0,
+      "impact_factor": 1.0,
+      "implemented_by": "system",
+      "evidence": [],
+      "missing": [
+        "control AC-4(1) not in service scope"
+      ],
+      "gap_description": "Service 'auth-service-v2' does not implement AC-4(1)."
+    },
+    {
+      "rule_id": "NIST-AC-4-4",
+      "source_citation": "AC-4(4)",
+      "control_title": "INFORMATION FLOW ENFORCEMENT | FLOW CONTROL OF ENCRYPTED INFORMATION",
+      "satisfaction_status": "missing",
+      "confidence": 0.0,
+      "impact_factor": 1.0,
+      "implemented_by": "system",
+      "evidence": [],
+      "missing": [
+        "control AC-4(4) not in service scope"
+      ],
+      "gap_description": "Service 'auth-service-v2' does not implement AC-4(4)."
+    },
+    {
+      "rule_id": "NIST-AC-5-a",
+      "source_citation": "AC-5(a)",
+      "control_title": "SEPARATION OF DUTIES",
+      "satisfaction_status": "satisfied",
+      "confidence": 1.0,
+      "impact_factor": 0.8,
+      "implemented_by": "organization",
+      "evidence": [
+        {
+          "type": "control_scope_match",
+          "node_id": "auth-service-v2",
+          "nist_control": "AC-5(a)",
+          "service_controls": [
+            "AC-2",
+            "AC-2(a)",
+            "AC-2(g)",
+            "AC-3",
+            "AC-3(7)",
+            "AC-5",
+            "AC-6",
+            "AC-6(1)",
+            "AC-6(2)",
+            "AC-6(5)",
+            "AC-6(9)",
+            "AC-6(10)"
+          ]
+        }
+      ],
+      "missing": [],
+      "gap_description": ""
+    },
+    {
+      "rule_id": "NIST-AC-5-b",
+      "source_citation": "AC-5(b)",
+      "control_title": "SEPARATION OF DUTIES",
+      "satisfaction_status": "partial",
+      "confidence": 0.5,
+      "impact_factor": 0.8,
+      "implemented_by": "organization",
+      "evidence": [
+        {
+          "type": "implementation_type",
+          "note": "Organizational/procedural rule. System provides technical support (audit logging, account management) but policy must be implemented by the organization.",
+          "node_id": "auth-service-v2"
+        }
+      ],
+      "missing": [
+        "organizational-policy-implementation"
+      ],
+      "gap_description": "Requires organizational procedures \u2014 system provides technical foundations only."
+    },
+    {
+      "rule_id": "NIST-AC-6",
+      "source_citation": "AC-6",
+      "control_title": "LEAST PRIVILEGE",
+      "satisfaction_status": "satisfied",
+      "confidence": 1.0,
+      "impact_factor": 1.0,
+      "implemented_by": "system",
+      "evidence": [
+        {
+          "type": "control_scope_match",
+          "node_id": "auth-service-v2",
+          "nist_control": "AC-6",
+          "service_controls": [
+            "AC-2",
+            "AC-2(a)",
+            "AC-2(g)",
+            "AC-3",
+            "AC-3(7)",
+            "AC-5",
+            "AC-6",
+            "AC-6(1)",
+            "AC-6(2)",
+            "AC-6(5)",
+            "AC-6(9)",
+            "AC-6(10)"
+          ]
+        }
+      ],
+      "missing": [],
+      "gap_description": ""
+    },
+    {
+      "rule_id": "NIST-AC-6-1",
+      "source_citation": "AC-6(1)",
+      "control_title": "LEAST PRIVILEGE | AUTHORIZE ACCESS TO SECURITY FUNCTIONS",
+      "satisfaction_status": "partial",
+      "confidence": 0.4,
+      "impact_factor": 1.0,
+      "implemented_by": "organization",
+      "evidence": [
+        {
+          "type": "capability_match",
+          "node_id": "auth-service-v2",
+          "matched_capability": "role-based-access"
+        },
+        {
+          "type": "control_scope_match",
+          "node_id": "auth-service-v2",
+          "nist_control": "AC-6(1)",
+          "service_controls": [
+            "AC-2",
+            "AC-2(a)",
+            "AC-2(g)",
+            "AC-3",
+            "AC-3(7)",
+            "AC-5",
+            "AC-6",
+            "AC-6(1)",
+            "AC-6(2)",
+            "AC-6(5)",
+            "AC-6(9)",
+            "AC-6(10)"
+          ]
+        }
+      ],
+      "missing": [
+        "enforce-access-control",
+        "validate-tokens"
+      ],
+      "gap_description": "Missing capabilities: enforce-access-control, validate-tokens"
+    },
+    {
+      "rule_id": "NIST-AC-6-2",
+      "source_citation": "AC-6(2)",
+      "control_title": "LEAST PRIVILEGE | NON-PRIVILEGED ACCESS FOR NONSECURITY FUNCTIONS",
+      "satisfaction_status": "partial",
+      "confidence": 0.5,
+      "impact_factor": 1.0,
+      "implemented_by": "organization",
+      "evidence": [
+        {
+          "type": "implementation_type",
+          "note": "Organizational/procedural rule. System provides technical support (audit logging, account management) but policy must be implemented by the organization.",
+          "node_id": "auth-service-v2"
+        }
+      ],
+      "missing": [
+        "organizational-policy-implementation"
+      ],
+      "gap_description": "Requires organizational procedures \u2014 system provides technical foundations only."
+    },
+    {
+      "rule_id": "NIST-AC-6-5",
+      "source_citation": "AC-6(5)",
+      "control_title": "LEAST PRIVILEGE | PRIVILEGED ACCOUNTS",
+      "satisfaction_status": "satisfied",
+      "confidence": 1.0,
+      "impact_factor": 1.0,
+      "implemented_by": "organization",
+      "evidence": [
+        {
+          "type": "capability_match",
+          "node_id": "auth-service-v2",
+          "matched_capability": "restrict-remote-connections"
+        },
+        {
+          "type": "capability_match",
+          "node_id": "auth-service-v2",
+          "matched_capability": "rate-limiting"
+        },
+        {
+          "type": "control_scope_match",
+          "node_id": "auth-service-v2",
+          "nist_control": "AC-6(5)",
+          "service_controls": [
+            "AC-2",
+            "AC-2(a)",
+            "AC-2(g)",
+            "AC-3",
+            "AC-3(7)",
+            "AC-5",
+            "AC-6",
+            "AC-6(1)",
+            "AC-6(2)",
+            "AC-6(5)",
+            "AC-6(9)",
+            "AC-6(10)"
+          ]
+        }
+      ],
+      "missing": [],
+      "gap_description": ""
+    },
+    {
+      "rule_id": "NIST-AC-6-9",
+      "source_citation": "AC-6(9)",
+      "control_title": "LEAST PRIVILEGE | LOG USE OF PRIVILEGED FUNCTIONS",
+      "satisfaction_status": "partial",
+      "confidence": 0.67,
+      "impact_factor": 1.0,
+      "implemented_by": "system",
+      "evidence": [
+        {
+          "type": "capability_match",
+          "node_id": "auth-service-v2",
+          "matched_capability": "audit-trail"
+        },
+        {
+          "type": "capability_match",
+          "node_id": "auth-service-v2",
+          "matched_capability": "privileged-function-log"
+        },
+        {
+          "type": "control_scope_match",
+          "node_id": "auth-service-v2",
+          "nist_control": "AC-6(9)",
+          "service_controls": [
+            "AC-2",
+            "AC-2(a)",
+            "AC-2(g)",
+            "AC-3",
+            "AC-3(7)",
+            "AC-5",
+            "AC-6",
+            "AC-6(1)",
+            "AC-6(2)",
+            "AC-6(5)",
+            "AC-6(9)",
+            "AC-6(10)"
+          ]
+        }
+      ],
+      "missing": [
+        "log-privileged-functions"
+      ],
+      "gap_description": "Missing capabilities: log-privileged-functions"
+    },
+    {
+      "rule_id": "NIST-AC-6-10",
+      "source_citation": "AC-6(10)",
+      "control_title": "LEAST PRIVILEGE | PROHIBIT NON-PRIVILEGED USERS FROM EXECUTING PRIVILEGED FUNCTIONS",
+      "satisfaction_status": "satisfied",
+      "confidence": 1.0,
+      "impact_factor": 1.0,
+      "implemented_by": "system",
+      "evidence": [
+        {
+          "type": "control_scope_match",
+          "node_id": "auth-service-v2",
+          "nist_control": "AC-6(10)",
+          "service_controls": [
+            "AC-2",
+            "AC-2(a)",
+            "AC-2(g)",
+            "AC-3",
+            "AC-3(7)",
+            "AC-5",
+            "AC-6",
+            "AC-6(1)",
+            "AC-6(2)",
+            "AC-6(5)",
+            "AC-6(9)",
+            "AC-6(10)"
+          ]
+        }
+      ],
+      "missing": [],
+      "gap_description": ""
+    },
+    {
+      "rule_id": "NIST-AC-17-a",
+      "source_citation": "AC-17(a)",
+      "control_title": "REMOTE ACCESS",
+      "satisfaction_status": "partial",
+      "confidence": 0.5,
+      "impact_factor": 0.8,
+      "implemented_by": "organization",
+      "evidence": [
+        {
+          "type": "implementation_type",
+          "note": "Organizational/procedural rule. System provides technical support (audit logging, account management) but policy must be implemented by the organization.",
+          "node_id": "auth-service-v2"
+        }
+      ],
+      "missing": [
+        "organizational-policy-implementation"
+      ],
+      "gap_description": "Requires organizational procedures \u2014 system provides technical foundations only."
+    },
+    {
+      "rule_id": "NIST-AC-17-b",
+      "source_citation": "AC-17(b)",
+      "control_title": "REMOTE ACCESS",
+      "satisfaction_status": "partial",
+      "confidence": 0.4,
+      "impact_factor": 0.8,
+      "implemented_by": "organization",
+      "evidence": [
+        {
+          "type": "capability_match",
+          "node_id": "auth-service-v2",
+          "matched_capability": "role-based-access"
+        }
+      ],
+      "missing": [
+        "enforce-access-control",
+        "validate-tokens"
+      ],
+      "gap_description": "Missing capabilities: enforce-access-control, validate-tokens"
+    },
+    {
+      "rule_id": "NIST-AC-17-1",
+      "source_citation": "AC-17(1)",
+      "control_title": "REMOTE ACCESS | MONITORING AND CONTROL",
+      "satisfaction_status": "missing",
+      "confidence": 0.0,
+      "impact_factor": 1.0,
+      "implemented_by": "system",
+      "evidence": [],
+      "missing": [
+        "control AC-17(1) not in service scope"
+      ],
+      "gap_description": "Service 'auth-service-v2' does not implement AC-17(1)."
+    },
+    {
+      "rule_id": "NIST-AC-17-2",
+      "source_citation": "AC-17(2)",
+      "control_title": "REMOTE ACCESS | PROTECTION OF CONFIDENTIALITY AND INTEGRITY USING ENCRYPTION",
+      "satisfaction_status": "partial",
+      "confidence": 0.5,
+      "impact_factor": 1.0,
+      "implemented_by": "system",
+      "evidence": [
+        {
+          "type": "capability_match",
+          "node_id": "auth-service-v2",
+          "matched_capability": "role-based-access"
+        }
+      ],
+      "missing": [
+        "enforce-access-control"
+      ],
+      "gap_description": "Missing capabilities: enforce-access-control"
+    },
+    {
+      "rule_id": "NIST-AC-24",
+      "source_citation": "AC-24",
+      "control_title": "ACCESS CONTROL DECISIONS",
+      "satisfaction_status": "partial",
+      "confidence": 0.5,
+      "impact_factor": 0.8,
+      "implemented_by": "organization",
+      "evidence": [
+        {
+          "type": "capability_match",
+          "node_id": "auth-service-v2",
+          "matched_capability": "role-based-access"
+        }
+      ],
+      "missing": [
+        "enforce-access-control"
+      ],
+      "gap_description": "Missing capabilities: enforce-access-control"
+    }
+  ],
+  "gsn_assurance_case": {
+    "contexts": [
+      {
+        "identifier": "CTX-auth-service-v2-scope",
+        "tailoring": "service = \"Authentication Service v2 (MFA)\"",
+        "statement": "Context: CTX-auth-service-v2-scope: NIST SP 800-53 Rev.5 AC family scope for Authentication Service v2 (MFA)"
+      },
+      {
+        "identifier": "AC-1[1]",
+        "tailoring": "organization-defined personnel or roles = \"security team, compliance officer\"",
+        "statement": "Context: AC-1[1]: Assignment: organization-defined personnel or roles = \"security team, compliance officer\""
+      },
+      {
+        "identifier": "AC-17[1]",
+        "tailoring": "implementedBy = \"organization\"",
+        "statement": "Context: AC-17[1]: implementedBy = \"organization\""
+      },
+      {
+        "identifier": "AC-2[1]",
+        "tailoring": "implementedBy = \"organization\"",
+        "statement": "Context: AC-2[1]: implementedBy = \"organization\""
+      },
+      {
+        "identifier": "AC-24[1]",
+        "tailoring": "organization-defined access control decisions = \"authorization policies\"",
+        "statement": "Context: AC-24[1]: Assignment: organization-defined access control decisions = \"authorization policies\""
+      },
+      {
+        "identifier": "AC-3 [1]",
+        "tailoring": "accessControlPolicy = \"role-based+attribute-based\"",
+        "statement": "Context: AC-3 [1]: Assignment: accessControlPolicy = \"role-based+attribute-based\"",
+        "param_source": "llm",
+        "value_source": "lpg"
+      },
+      {
+        "identifier": "AC-4[1]",
+        "tailoring": "organization-defined information flow control policies = \"data transfer policies\"",
+        "statement": "Context: AC-4[1]: Assignment: organization-defined information flow control policies = \"data transfer policies\""
+      },
+      {
+        "identifier": "AC-5[1]",
+        "tailoring": "organization-defined duties of individuals requiring separation = \"financial, operational duties\"",
+        "statement": "Context: AC-5[1]: Assignment: organization-defined duties of individuals requiring separation = \"financial, operational duties\""
+      },
+      {
+        "identifier": "AC-6[1]",
+        "tailoring": "implementedBy = \"system\"",
+        "statement": "Context: AC-6[1]: implementedBy = \"system\""
+      }
+    ],
+    "main_goals": [
+      {
+        "identifier": "auth-service-v2-Principal",
+        "family": "AC",
+        "number": "0",
+        "implemented_by": "information system",
+        "control_action": "satisfies all applicable NIST SP 800-53 Access Control requirements",
+        "baseline_allocation": "high",
+        "provision_set": "val(AC-1),val(AC-17),val(AC-2),val(AC-24),val(AC-3),val(AC-4),val(AC-5),val(AC-6)",
+        "achievement_weight": "1",
+        "statement": "Goal: auth-service-v2-Principal: Authentication Service v2 (MFA) satisfies all applicable NIST SP 800-53 Access Control security requirements; Impact = high; aw = 1",
+        "satisfaction_status": "partial",
+        "compliance_summary": {
+          "total_controls": 38,
+          "satisfied": 5,
+          "partial": 29,
+          "missing": 4
+        }
+      },
+      {
+        "identifier": "AC-1 Main",
+        "family": "AC",
+        "number": "1",
+        "implemented_by": "organization",
+        "control_action": "Develop, document, and disseminate access control policies.",
+        "baseline_allocation": "low",
+        "provision_set": "val(AC-1Compliance)",
+        "achievement_weight": "1",
+        "statement": "Goal: AC-1 AC-1 Main Main: organization Develop, document, and disseminate access control policies.; Impact = low, Provides= [ val(AC-1Compliance)]; aw = 1",
+        "satisfaction_status": "partial",
+        "confidence": 0.5
+      },
+      {
+        "identifier": "AC-17 Main",
+        "family": "AC",
+        "number": "17",
+        "implemented_by": "organization",
+        "control_action": "establish and document usage restrictions and implementation guidance for remote access",
+        "baseline_allocation": "moderate",
+        "provision_set": "val(remoteAccessPolicy),val(sessionMonitoring)",
+        "achievement_weight": "1",
+        "statement": "Goal: AC-17 AC-17 Main Main: organization establish and document usage restrictions and implementation guidance for remote access; Impact = moderate, Provides= [ val(remoteAccessPolicy),val(sessionMonitoring)]; aw = 1",
+        "satisfaction_status": "partial",
+        "confidence": 0.35
+      },
+      {
+        "identifier": "AC-2 Main",
+        "family": "AC",
+        "number": "2",
+        "implemented_by": "organization",
+        "control_action": "manage information system accounts",
+        "baseline_allocation": "moderate",
+        "provision_set": "val(accountTypes),val(accountConditions),val(accountApprovers)",
+        "achievement_weight": "1",
+        "statement": "Goal: AC-2 AC-2 Main Main: organization manage information system accounts; Impact = moderate, Provides= [ val(accountTypes),val(accountConditions),val(accountApprovers)]; aw = 1",
+        "satisfaction_status": "partial",
+        "confidence": 0.54
+      },
+      {
+        "identifier": "AC-24 Main",
+        "family": "AC",
+        "number": "24",
+        "implemented_by": "organization",
+        "control_action": "Establish procedures to ensure access control decisions are applied.",
+        "baseline_allocation": "moderate",
+        "provision_set": "val(AC-24Compliance)",
+        "achievement_weight": "1",
+        "statement": "Goal: AC-24 AC-24 Main Main: organization Establish procedures to ensure access control decisions are applied.; Impact = moderate, Provides= [ val(AC-24Compliance)]; aw = 1",
+        "satisfaction_status": "partial",
+        "confidence": 0.5
+      },
+      {
+        "identifier": "AC-3 Main",
+        "family": "AC",
+        "number": "3",
+        "implemented_by": "information system",
+        "control_action": "enforces approved authorizations for logical access to information and system resources in accordance with applicable access control policies",
+        "baseline_allocation": "high",
+        "provision_set": "val(authorizationApproval),val(accessControlPolicy)",
+        "achievement_weight": "1",
+        "statement": "Goal: AC-3 AC-3 Main Main: information system enforces approved authorizations for logical access to information and system resources in accordance with applicable access control policies; Impact = high, Provides= [ val(authorizationApproval),val(accessControlPolicy)]; aw = 1",
+        "satisfaction_status": "partial",
+        "confidence": 0.4
+      },
+      {
+        "identifier": "AC-21 Main",
+        "family": "AC",
+        "number": "21",
+        "implemented_by": "organization",
+        "control_action": "enable authorized users to determine whether access authorizations assigned to a sharing partner match the information's access and use restrictions",
+        "baseline_allocation": "high",
+        "provision_set": "val(authorizationDecision)",
+        "achievement_weight": "1",
+        "statement": "Goal: AC-21 AC-21 Main Main: organization enable authorized users to determine whether access authorizations assigned to a sharing partner match the information's access and use restrictions; Impact = high, Provides= [ val(authorizationDecision)]; aw = 1"
+      },
+      {
+        "identifier": "AC-4 Main",
+        "family": "AC",
+        "number": "4",
+        "implemented_by": "information system",
+        "control_action": "enforces approved authorizations for controlling the flow of information within the system and between connected systems",
+        "baseline_allocation": "high",
+        "provision_set": "val(informationFlowPolicy),val(flowControlDecision)",
+        "achievement_weight": "1",
+        "statement": "Goal: AC-4 AC-4 Main Main: information system enforces approved authorizations for controlling the flow of information within the system and between connected systems; Impact = high, Provides= [ val(informationFlowPolicy),val(flowControlDecision)]; aw = 1",
+        "satisfaction_status": "missing",
+        "confidence": 0.0
+      },
+      {
+        "identifier": "AC-5 Main",
+        "family": "AC",
+        "number": "5",
+        "implemented_by": "information system",
+        "control_action": "separate the duties of individuals to reduce the risk of malevolent activity without collusion",
+        "baseline_allocation": "moderate",
+        "provision_set": "val(separationOfDuties),val(dutyAssignment)",
+        "achievement_weight": "1",
+        "statement": "Goal: AC-5 AC-5 Main Main: information system separate the duties of individuals to reduce the risk of malevolent activity without collusion; Impact = moderate, Provides= [ val(separationOfDuties),val(dutyAssignment)]; aw = 1",
+        "satisfaction_status": "partial",
+        "confidence": 0.75
+      },
+      {
+        "identifier": "AC-6 Main",
+        "family": "AC",
+        "number": "6",
+        "implemented_by": "information system",
+        "control_action": "employ the principle of least privilege, allowing only authorized accesses for users which are necessary to accomplish assigned tasks",
+        "baseline_allocation": "high",
+        "provision_set": "val(leastPrivilege),val(privilegeAssignment)",
+        "achievement_weight": "1",
+        "statement": "Goal: AC-6 AC-6 Main Main: information system employ the principle of least privilege, allowing only authorized accesses for users which are necessary to accomplish assigned tasks; Impact = high, Provides= [ val(leastPrivilege),val(privilegeAssignment)]; aw = 1",
+        "satisfaction_status": "partial",
+        "confidence": 0.76
+      }
+    ],
+    "req_goals": [
+      {
+        "identifier": "AC-1 Req1",
+        "assessment_process": "complianceMechanism",
+        "assessment_process_source": "template",
+        "functional_requirement": "satisfy control requirement through system capabilities",
+        "req_goal_source": "template",
+        "achievement_weight": "1",
+        "satisfaction_status": "partial",
+        "statement": "Goal: AC-1 Req1: complianceMechanism maintains satisfy control requirement through system capabilities; aw = 1"
+      },
+      {
+        "identifier": "AC-17 Req1",
+        "assessment_process": "remoteAccessControl",
+        "assessment_process_source": "template",
+        "functional_requirement": "authorize remote access sessions before connection",
+        "req_goal_source": "template",
+        "achievement_weight": "1",
+        "satisfaction_status": "partial",
+        "statement": "Goal: AC-17 Req1: remoteAccessControl maintains authorize remote access sessions before connection; aw = 1"
+      },
+      {
+        "identifier": "AC-17 Req2",
+        "assessment_process": "remoteSessionMonitoring",
+        "assessment_process_source": "template",
+        "functional_requirement": "monitor and control remote access sessions",
+        "req_goal_source": "template",
+        "achievement_weight": "1",
+        "satisfaction_status": "partial",
+        "statement": "Goal: AC-17 Req2: remoteSessionMonitoring maintains monitor and control remote access sessions; aw = 1"
+      },
+      {
+        "identifier": "AC-2 Req1",
+        "assessment_process": "accountManagementMechanism",
+        "assessment_process_source": "template",
+        "functional_requirement": "identify and select account types for organizational mission",
+        "req_goal_source": "template",
+        "achievement_weight": "1",
+        "satisfaction_status": "partial",
+        "statement": "Goal: AC-2 Req1: accountManagementMechanism maintains identify and select account types for organizational mission; aw = 1"
+      },
+      {
+        "identifier": "AC-2 Req2",
+        "assessment_process": "accountAuthorizationMechanism",
+        "assessment_process_source": "template",
+        "functional_requirement": "assign account managers for each account type",
+        "req_goal_source": "template",
+        "achievement_weight": "1",
+        "satisfaction_status": "partial",
+        "statement": "Goal: AC-2 Req2: accountAuthorizationMechanism maintains assign account managers for each account type; aw = 1"
+      },
+      {
+        "identifier": "AC-24 Req1",
+        "assessment_process": "complianceMechanism",
+        "assessment_process_source": "template",
+        "functional_requirement": "satisfy control requirement through system capabilities",
+        "req_goal_source": "template",
+        "achievement_weight": "1",
+        "satisfaction_status": "partial",
+        "statement": "Goal: AC-24 Req1: complianceMechanism maintains satisfy control requirement through system capabilities; aw = 1"
+      },
+      {
+        "identifier": "AC-3 Req1",
+        "assessment_process": "fn-authv2-rbac-enforcer",
+        "assessment_process_source": "lpg",
+        "functional_requirement": "enforce logical access based on approved authorizations",
+        "req_goal_source": "llm",
+        "achievement_weight": "1",
+        "satisfaction_status": "partial",
+        "statement": "Goal: AC-3 Req1: fn-authv2-rbac-enforcer maintains enforce logical access based on approved authorizations; aw = 1"
+      },
+      {
+        "identifier": "AC-4 Req1",
+        "assessment_process": "enforceFlowControl",
+        "assessment_process_source": "template",
+        "functional_requirement": "check information flow against approved policy",
+        "req_goal_source": "template",
+        "achievement_weight": "1",
+        "satisfaction_status": "missing",
+        "statement": "Goal: AC-4 Req1: enforceFlowControl maintains check information flow against approved policy; aw = 1"
+      },
+      {
+        "identifier": "AC-5 Req1",
+        "assessment_process": "separateDutiesMechanism",
+        "assessment_process_source": "template",
+        "functional_requirement": "identify and document separation of duties requirements",
+        "req_goal_source": "template",
+        "achievement_weight": "1",
+        "satisfaction_status": "partial",
+        "statement": "Goal: AC-5 Req1: separateDutiesMechanism maintains identify and document separation of duties requirements; aw = 1"
+      },
+      {
+        "identifier": "AC-5 Req2",
+        "assessment_process": "enforceSeparation",
+        "assessment_process_source": "template",
+        "functional_requirement": "enforce separation of duties access authorizations",
+        "req_goal_source": "template",
+        "achievement_weight": "1",
+        "satisfaction_status": "partial",
+        "statement": "Goal: AC-5 Req2: enforceSeparation maintains enforce separation of duties access authorizations; aw = 1"
+      },
+      {
+        "identifier": "AC-6 Req1",
+        "assessment_process": "leastPrivilegeMechanism",
+        "assessment_process_source": "template",
+        "functional_requirement": "restrict privileged accounts to security functions",
+        "req_goal_source": "template",
+        "achievement_weight": "1",
+        "satisfaction_status": "partial",
+        "statement": "Goal: AC-6 Req1: leastPrivilegeMechanism maintains restrict privileged accounts to security functions; aw = 1"
+      },
+      {
+        "identifier": "AC-6 Req2",
+        "assessment_process": "privilegedFunctionLog",
+        "assessment_process_source": "template",
+        "functional_requirement": "log use of privileged functions",
+        "req_goal_source": "template",
+        "achievement_weight": "1",
+        "satisfaction_status": "partial",
+        "statement": "Goal: AC-6 Req2: privilegedFunctionLog maintains log use of privileged functions; aw = 1"
+      }
+    ],
+    "module_goals": [
+      {
+        "identifier": "AC-1 M1",
+        "assessment_process": "verifyCompliance",
+        "achievement_weight": "1",
+        "statement": "Module: AC-1 M1 : Argument over operational subgoal(s) of verifyCompliance; aw = 1"
+      },
+      {
+        "identifier": "AC-1 M2",
+        "assessment_process": "logEvidence",
+        "achievement_weight": "1",
+        "statement": "Module: AC-1 M2 : Argument over operational subgoal(s) of logEvidence; aw = 1"
+      },
+      {
+        "identifier": "AC-17 M1",
+        "assessment_process": "authenticateRemoteUser",
+        "achievement_weight": "1",
+        "statement": "Module: AC-17 M1 : Argument over operational subgoal(s) of authenticateRemoteUser; aw = 1"
+      },
+      {
+        "identifier": "AC-17 M2",
+        "assessment_process": "encryptRemoteSession",
+        "achievement_weight": "1",
+        "statement": "Module: AC-17 M2 : Argument over operational subgoal(s) of encryptRemoteSession; aw = 1"
+      },
+      {
+        "identifier": "AC-17 M3",
+        "assessment_process": "monitorRemoteSession",
+        "achievement_weight": "1",
+        "statement": "Module: AC-17 M3 : Argument over operational subgoal(s) of monitorRemoteSession; aw = 1"
+      },
+      {
+        "identifier": "AC-2 M1",
+        "assessment_process": "createAccount",
+        "achievement_weight": "1",
+        "statement": "Module: AC-2 M1 : Argument over operational subgoal(s) of createAccount; aw = 1"
+      },
+      {
+        "identifier": "AC-2 M2",
+        "assessment_process": "modifyAccount",
+        "achievement_weight": "1",
+        "statement": "Module: AC-2 M2 : Argument over operational subgoal(s) of modifyAccount; aw = 1"
+      },
+      {
+        "identifier": "AC-2 M3",
+        "assessment_process": "disableAccount",
+        "achievement_weight": "1",
+        "statement": "Module: AC-2 M3 : Argument over operational subgoal(s) of disableAccount; aw = 1"
+      },
+      {
+        "identifier": "AC-2 M4",
+        "assessment_process": "reviewAccount",
+        "achievement_weight": "1",
+        "statement": "Module: AC-2 M4 : Argument over operational subgoal(s) of reviewAccount; aw = 1"
+      },
+      {
+        "identifier": "AC-24 M1",
+        "assessment_process": "verifyCompliance",
+        "achievement_weight": "1",
+        "statement": "Module: AC-24 M1 : Argument over operational subgoal(s) of verifyCompliance; aw = 1"
+      },
+      {
+        "identifier": "AC-24 M2",
+        "assessment_process": "logEvidence",
+        "achievement_weight": "1",
+        "statement": "Module: AC-24 M2 : Argument over operational subgoal(s) of logEvidence; aw = 1"
+      },
+      {
+        "identifier": "AC-3 M1",
+        "assessment_process": "getAuthorization",
+        "achievement_weight": "1",
+        "statement": "Module: AC-3 M1 : Argument over operational subgoal(s) of getAuthorization; aw = 1"
+      },
+      {
+        "identifier": "AC-3 M2",
+        "assessment_process": "applyAuthorization",
+        "achievement_weight": "1",
+        "statement": "Module: AC-3 M2 : Argument over operational subgoal(s) of applyAuthorization; aw = 1"
+      },
+      {
+        "identifier": "AC-4 M1",
+        "assessment_process": "inspectFlow",
+        "achievement_weight": "1",
+        "statement": "Module: AC-4 M1 : Argument over operational subgoal(s) of inspectFlow; aw = 1"
+      },
+      {
+        "identifier": "AC-4 M2",
+        "assessment_process": "applyFlowDecision",
+        "achievement_weight": "1",
+        "statement": "Module: AC-4 M2 : Argument over operational subgoal(s) of applyFlowDecision; aw = 1"
+      },
+      {
+        "identifier": "AC-5 M1",
+        "assessment_process": "defineDutyConflict",
+        "achievement_weight": "1",
+        "statement": "Module: AC-5 M1 : Argument over operational subgoal(s) of defineDutyConflict; aw = 1"
+      },
+      {
+        "identifier": "AC-5 M2",
+        "assessment_process": "enforceConflict",
+        "achievement_weight": "1",
+        "statement": "Module: AC-5 M2 : Argument over operational subgoal(s) of enforceConflict; aw = 1"
+      },
+      {
+        "identifier": "AC-6 M1",
+        "assessment_process": "assignMinimalPrivilege",
+        "achievement_weight": "1",
+        "statement": "Module: AC-6 M1 : Argument over operational subgoal(s) of assignMinimalPrivilege; aw = 1"
+      },
+      {
+        "identifier": "AC-6 M2",
+        "assessment_process": "auditPrivilegedFunctions",
+        "achievement_weight": "1",
+        "statement": "Module: AC-6 M2 : Argument over operational subgoal(s) of auditPrivilegedFunctions; aw = 1"
+      },
+      {
+        "identifier": "AC-6 M3",
+        "assessment_process": "reviewPrivilegedAccounts",
+        "achievement_weight": "1",
+        "statement": "Module: AC-6 M3 : Argument over operational subgoal(s) of reviewPrivilegedAccounts; aw = 1"
+      }
+    ],
+    "op_goals": [
+      {
+        "identifier": "AC-1 M1 G1",
+        "variable": "ComplianceState",
+        "condition": "verify control is implemented",
+        "achievement_weight": "1",
+        "statement": "Goal: AC-1 M1 G1: Variables = ComplianceState; Condition = verify control is implemented; aw = 1"
+      },
+      {
+        "identifier": "AC-1 M2 G1",
+        "variable": "EvidenceLog",
+        "condition": "produce audit evidence for control",
+        "achievement_weight": "1",
+        "statement": "Goal: AC-1 M2 G1: Variables = EvidenceLog; Condition = produce audit evidence for control; aw = 1"
+      },
+      {
+        "identifier": "AC-17 M1 G1",
+        "variable": "RemoteUser",
+        "condition": "authenticate remote user before session",
+        "achievement_weight": "1",
+        "statement": "Goal: AC-17 M1 G1: Variables = RemoteUser; Condition = authenticate remote user before session; aw = 1"
+      },
+      {
+        "identifier": "AC-17 M2 G1",
+        "variable": "SessionChannel",
+        "condition": "encrypt remote session data",
+        "achievement_weight": "1",
+        "statement": "Goal: AC-17 M2 G1: Variables = SessionChannel; Condition = encrypt remote session data; aw = 1"
+      },
+      {
+        "identifier": "AC-17 M3 G1",
+        "variable": "SessionLog",
+        "condition": "log remote session activity",
+        "achievement_weight": "1",
+        "statement": "Goal: AC-17 M3 G1: Variables = SessionLog; Condition = log remote session activity; aw = 1"
+      },
+      {
+        "identifier": "AC-2 M1 G1",
+        "variable": "AccountId",
+        "condition": "create new account with assigned role",
+        "achievement_weight": "1",
+        "statement": "Goal: AC-2 M1 G1: Variables = AccountId; Condition = create new account with assigned role; aw = 1"
+      },
+      {
+        "identifier": "AC-2 M1 G2",
+        "variable": "RoleAssignment",
+        "condition": "set role for account",
+        "achievement_weight": "1",
+        "statement": "Goal: AC-2 M1 G2: Variables = RoleAssignment; Condition = set role for account; aw = 1"
+      },
+      {
+        "identifier": "AC-2 M2 G1",
+        "variable": "AccountId",
+        "condition": "update account attributes",
+        "achievement_weight": "1",
+        "statement": "Goal: AC-2 M2 G1: Variables = AccountId; Condition = update account attributes; aw = 1"
+      },
+      {
+        "identifier": "AC-2 M3 G1",
+        "variable": "AccountId",
+        "condition": "disable inactive account",
+        "achievement_weight": "1",
+        "statement": "Goal: AC-2 M3 G1: Variables = AccountId; Condition = disable inactive account; aw = 1"
+      },
+      {
+        "identifier": "AC-2 M4 G1",
+        "variable": "AccountList",
+        "condition": "review all active accounts",
+        "achievement_weight": "1",
+        "statement": "Goal: AC-2 M4 G1: Variables = AccountList; Condition = review all active accounts; aw = 1"
+      },
+      {
+        "identifier": "AC-24 M1 G1",
+        "variable": "ComplianceState",
+        "condition": "verify control is implemented",
+        "achievement_weight": "1",
+        "statement": "Goal: AC-24 M1 G1: Variables = ComplianceState; Condition = verify control is implemented; aw = 1"
+      },
+      {
+        "identifier": "AC-24 M2 G1",
+        "variable": "EvidenceLog",
+        "condition": "produce audit evidence for control",
+        "achievement_weight": "1",
+        "statement": "Goal: AC-24 M2 G1: Variables = EvidenceLog; Condition = produce audit evidence for control; aw = 1"
+      },
+      {
+        "identifier": "AC-3 M1 G1",
+        "variable": "Conn",
+        "condition": "get request",
+        "achievement_weight": "1",
+        "statement": "Goal: AC-3 M1 G1: Variables = Conn; Condition = get request; aw = 1"
+      },
+      {
+        "identifier": "AC-3 M1 G2",
+        "variable": "AuthConn",
+        "condition": "set true for authorized connection",
+        "achievement_weight": "1",
+        "statement": "Goal: AC-3 M1 G2: Variables = AuthConn; Condition = set true for authorized connection; aw = 1"
+      },
+      {
+        "identifier": "AC-3 M2 G1",
+        "variable": "AuthConn",
+        "condition": "set true for authorized connection",
+        "achievement_weight": "1",
+        "statement": "Goal: AC-3 M2 G1: Variables = AuthConn; Condition = set true for authorized connection; aw = 1"
+      },
+      {
+        "identifier": "AC-3 M2 G2",
+        "variable": "send",
+        "condition": "send data",
+        "achievement_weight": "1",
+        "statement": "Goal: AC-3 M2 G2: Variables = send; Condition = send data; aw = 1"
+      },
+      {
+        "identifier": "AC-4 M1 G1",
+        "variable": "DataPacket",
+        "condition": "inspect incoming data packet",
+        "achievement_weight": "1",
+        "statement": "Goal: AC-4 M1 G1: Variables = DataPacket; Condition = inspect incoming data packet; aw = 1"
+      },
+      {
+        "identifier": "AC-4 M1 G2",
+        "variable": "FlowPolicy",
+        "condition": "evaluate against flow control policy",
+        "achievement_weight": "1",
+        "statement": "Goal: AC-4 M1 G2: Variables = FlowPolicy; Condition = evaluate against flow control policy; aw = 1"
+      },
+      {
+        "identifier": "AC-4 M2 G1",
+        "variable": "FlowDecision",
+        "condition": "allow or deny flow based on policy",
+        "achievement_weight": "1",
+        "statement": "Goal: AC-4 M2 G1: Variables = FlowDecision; Condition = allow or deny flow based on policy; aw = 1"
+      },
+      {
+        "identifier": "AC-5 M1 G1",
+        "variable": "DutyConflictMatrix",
+        "condition": "define conflicting duty pairs",
+        "achievement_weight": "1",
+        "statement": "Goal: AC-5 M1 G1: Variables = DutyConflictMatrix; Condition = define conflicting duty pairs; aw = 1"
+      },
+      {
+        "identifier": "AC-5 M2 G1",
+        "variable": "RoleAssignment",
+        "condition": "prevent conflicting role assignment",
+        "achievement_weight": "1",
+        "statement": "Goal: AC-5 M2 G1: Variables = RoleAssignment; Condition = prevent conflicting role assignment; aw = 1"
+      },
+      {
+        "identifier": "AC-6 M1 G1",
+        "variable": "UserPrivilege",
+        "condition": "assign minimum necessary privilege",
+        "achievement_weight": "1",
+        "statement": "Goal: AC-6 M1 G1: Variables = UserPrivilege; Condition = assign minimum necessary privilege; aw = 1"
+      },
+      {
+        "identifier": "AC-6 M1 G2",
+        "variable": "PrivilegedAccount",
+        "condition": "restrict to security personnel",
+        "achievement_weight": "1",
+        "statement": "Goal: AC-6 M1 G2: Variables = PrivilegedAccount; Condition = restrict to security personnel; aw = 1"
+      },
+      {
+        "identifier": "AC-6 M2 G1",
+        "variable": "FunctionLog",
+        "condition": "log all privileged function invocations",
+        "achievement_weight": "1",
+        "statement": "Goal: AC-6 M2 G1: Variables = FunctionLog; Condition = log all privileged function invocations; aw = 1"
+      },
+      {
+        "identifier": "AC-6 M3 G1",
+        "variable": "AccountList",
+        "condition": "review privileged accounts periodically",
+        "achievement_weight": "1",
+        "statement": "Goal: AC-6 M3 G1: Variables = AccountList; Condition = review privileged accounts periodically; aw = 1"
+      }
+    ],
+    "strategies": [
+      {
+        "identifier": "S-auth-service-v2-decompose",
+        "assessment_process": "controlFamilyDecomposition",
+        "statement": "Strategy: S-auth-service-v2-decompose: Decompose by NIST control and argue compliance for each"
+      },
+      {
+        "identifier": "AC-1 S1",
+        "assessment_process": "complianceMechanism",
+        "statement": "Strategy: AC-1 S1: Argument over complianceMechanism"
+      },
+      {
+        "identifier": "AC-1 M1S1",
+        "assessment_process": "verifyCompliance",
+        "statement": "Strategy: AC-1 M1S1: Argument over verifyCompliance"
+      },
+      {
+        "identifier": "AC-17 S1",
+        "assessment_process": "remoteAccessControl",
+        "statement": "Strategy: AC-17 S1: Argument over remoteAccessControl"
+      },
+      {
+        "identifier": "AC-17 M1S1",
+        "assessment_process": "authenticateRemoteUser",
+        "statement": "Strategy: AC-17 M1S1: Argument over authenticateRemoteUser"
+      },
+      {
+        "identifier": "AC-17 M2S1",
+        "assessment_process": "encryptRemoteSession",
+        "statement": "Strategy: AC-17 M2S1: Argument over encryptRemoteSession"
+      },
+      {
+        "identifier": "AC-2 S1",
+        "assessment_process": "accountManagementMechanism",
+        "statement": "Strategy: AC-2 S1: Argument over accountManagementMechanism"
+      },
+      {
+        "identifier": "AC-2 M1S1",
+        "assessment_process": "createAccount",
+        "statement": "Strategy: AC-2 M1S1: Argument over createAccount"
+      },
+      {
+        "identifier": "AC-2 M2S1",
+        "assessment_process": "modifyAccount",
+        "statement": "Strategy: AC-2 M2S1: Argument over modifyAccount"
+      },
+      {
+        "identifier": "AC-24 S1",
+        "assessment_process": "complianceMechanism",
+        "statement": "Strategy: AC-24 S1: Argument over complianceMechanism"
+      },
+      {
+        "identifier": "AC-24 M1S1",
+        "assessment_process": "verifyCompliance",
+        "statement": "Strategy: AC-24 M1S1: Argument over verifyCompliance"
+      },
+      {
+        "identifier": "AC-3 S1",
+        "assessment_process": "enforceAuthorization",
+        "statement": "Strategy: AC-3 S1: Argument over enforceAuthorization"
+      },
+      {
+        "identifier": "AC-3 M1S1",
+        "assessment_process": "getAuthorization",
+        "statement": "Strategy: AC-3 M1S1: Argument over getAuthorization"
+      },
+      {
+        "identifier": "AC-3 M2S1",
+        "assessment_process": "applyAuthorization",
+        "statement": "Strategy: AC-3 M2S1: Argument over applyAuthorization"
+      },
+      {
+        "identifier": "AC-4 S1",
+        "assessment_process": "enforceFlowControl",
+        "statement": "Strategy: AC-4 S1: Argument over enforceFlowControl"
+      },
+      {
+        "identifier": "AC-4 M1S1",
+        "assessment_process": "inspectFlow",
+        "statement": "Strategy: AC-4 M1S1: Argument over inspectFlow"
+      },
+      {
+        "identifier": "AC-4 M2S1",
+        "assessment_process": "applyFlowDecision",
+        "statement": "Strategy: AC-4 M2S1: Argument over applyFlowDecision"
+      },
+      {
+        "identifier": "AC-5 S1",
+        "assessment_process": "separateDutiesMechanism",
+        "statement": "Strategy: AC-5 S1: Argument over separateDutiesMechanism"
+      },
+      {
+        "identifier": "AC-5 M1S1",
+        "assessment_process": "defineDutyConflict",
+        "statement": "Strategy: AC-5 M1S1: Argument over defineDutyConflict"
+      },
+      {
+        "identifier": "AC-6 S1",
+        "assessment_process": "leastPrivilegeMechanism",
+        "statement": "Strategy: AC-6 S1: Argument over leastPrivilegeMechanism"
+      },
+      {
+        "identifier": "AC-6 M1S1",
+        "assessment_process": "assignMinimalPrivilege",
+        "statement": "Strategy: AC-6 M1S1: Argument over assignMinimalPrivilege"
+      },
+      {
+        "identifier": "AC-6 M2S1",
+        "assessment_process": "auditPrivilegedFunctions",
+        "statement": "Strategy: AC-6 M2S1: Argument over auditPrivilegedFunctions"
+      }
+    ],
+    "solutions": [
+      {
+        "identifier": "AC-1 Sn1",
+        "assessment": "compliance verification test result",
+        "statement": "Solution: AC-1 Sn1: compliance verification test result"
+      },
+      {
+        "identifier": "AC-1 Sn2",
+        "assessment": "audit evidence log",
+        "statement": "Solution: AC-1 Sn2: audit evidence log"
+      },
+      {
+        "identifier": "AC-1 LPG-SnNIST-AC-1-c-1",
+        "assessment": "LPG capability match: 'review-accounts' on auth-service-v2",
+        "statement": "Solution: AC-1 LPG-SnNIST-AC-1-c-1: LPG capability match: 'review-accounts' on auth-service-v2"
+      },
+      {
+        "identifier": "AC-17 Sn1",
+        "assessment": "remote access authorization log",
+        "statement": "Solution: AC-17 Sn1: remote access authorization log"
+      },
+      {
+        "identifier": "AC-17 Sn2",
+        "assessment": "encrypted session test results",
+        "statement": "Solution: AC-17 Sn2: encrypted session test results"
+      },
+      {
+        "identifier": "AC-17 Sn3",
+        "assessment": "remote session activity log",
+        "statement": "Solution: AC-17 Sn3: remote session activity log"
+      },
+      {
+        "identifier": "AC-17 LPG-SnNIST-AC-17-b-1",
+        "assessment": "LPG capability match: 'role-based-access' on auth-service-v2",
+        "statement": "Solution: AC-17 LPG-SnNIST-AC-17-b-1: LPG capability match: 'role-based-access' on auth-service-v2"
+      },
+      {
+        "identifier": "AC-2 Sn1",
+        "assessment": "audit log of account creation events",
+        "statement": "Solution: AC-2 Sn1: audit log of account creation events"
+      },
+      {
+        "identifier": "AC-2 Sn2",
+        "assessment": "test cases of account modification",
+        "statement": "Solution: AC-2 Sn2: test cases of account modification"
+      },
+      {
+        "identifier": "AC-2 Sn3",
+        "assessment": "log of account disabling events",
+        "statement": "Solution: AC-2 Sn3: log of account disabling events"
+      },
+      {
+        "identifier": "AC-2 Sn4",
+        "assessment": "account review report",
+        "statement": "Solution: AC-2 Sn4: account review report"
+      },
+      {
+        "identifier": "AC-2 LPG-SnNIST-AC-2-f-1",
+        "assessment": "LPG capability match: 'modify-account' on auth-service-v2",
+        "statement": "Solution: AC-2 LPG-SnNIST-AC-2-f-1: LPG capability match: 'modify-account' on auth-service-v2"
+      },
+      {
+        "identifier": "AC-2 LPG-SnNIST-AC-2-f-2",
+        "assessment": "LPG capability match: 'disable-account' on auth-service-v2",
+        "statement": "Solution: AC-2 LPG-SnNIST-AC-2-f-2: LPG capability match: 'disable-account' on auth-service-v2"
+      },
+      {
+        "identifier": "AC-2 LPG-SnNIST-AC-2-f-3",
+        "assessment": "LPG capability match: 'create-account' on auth-service-v2",
+        "statement": "Solution: AC-2 LPG-SnNIST-AC-2-f-3: LPG capability match: 'create-account' on auth-service-v2"
+      },
+      {
+        "identifier": "AC-2 LPG-CSM-NIST-AC-2-f",
+        "assessment": "LPG control scope match: AC-2(f) in auth-service-v2.nist_controls",
+        "statement": "Solution: AC-2 LPG-CSM-NIST-AC-2-f: LPG control scope match: AC-2(f) in auth-service-v2.nist_controls"
+      },
+      {
+        "identifier": "AC-2 LPG-SnNIST-AC-2-g-1",
+        "assessment": "LPG capability match: 'audit-trail' on auth-service-v2",
+        "statement": "Solution: AC-2 LPG-SnNIST-AC-2-g-1: LPG capability match: 'audit-trail' on auth-service-v2"
+      },
+      {
+        "identifier": "AC-2 LPG-SnNIST-AC-2-g-2",
+        "assessment": "LPG capability match: 'monitor-privileged-access' on auth-service-v2",
+        "statement": "Solution: AC-2 LPG-SnNIST-AC-2-g-2: LPG capability match: 'monitor-privileged-access' on auth-service-v2"
+      },
+      {
+        "identifier": "AC-2 LPG-SnNIST-AC-2-g-3",
+        "assessment": "LPG capability match: 'session-tracking' on auth-service-v2",
+        "statement": "Solution: AC-2 LPG-SnNIST-AC-2-g-3: LPG capability match: 'session-tracking' on auth-service-v2"
+      },
+      {
+        "identifier": "AC-2 LPG-CSM-NIST-AC-2-g",
+        "assessment": "LPG control scope match: AC-2(g) in auth-service-v2.nist_controls",
+        "statement": "Solution: AC-2 LPG-CSM-NIST-AC-2-g: LPG control scope match: AC-2(g) in auth-service-v2.nist_controls"
+      },
+      {
+        "identifier": "AC-2 LPG-CSM-NIST-AC-2-i",
+        "assessment": "LPG control scope match: AC-2(i) in auth-service-v2.nist_controls",
+        "statement": "Solution: AC-2 LPG-CSM-NIST-AC-2-i: LPG control scope match: AC-2(i) in auth-service-v2.nist_controls"
+      },
+      {
+        "identifier": "AC-2 LPG-CSM-NIST-AC-2-j",
+        "assessment": "LPG control scope match: AC-2(j) in auth-service-v2.nist_controls",
+        "statement": "Solution: AC-2 LPG-CSM-NIST-AC-2-j: LPG control scope match: AC-2(j) in auth-service-v2.nist_controls"
+      },
+      {
+        "identifier": "AC-2 LPG-CSM-NIST-AC-2-k",
+        "assessment": "LPG control scope match: AC-2(k) in auth-service-v2.nist_controls",
+        "statement": "Solution: AC-2 LPG-CSM-NIST-AC-2-k: LPG control scope match: AC-2(k) in auth-service-v2.nist_controls"
+      },
+      {
+        "identifier": "AC-2 LPG-CSM-NIST-AC-2-l",
+        "assessment": "LPG control scope match: AC-2(l) in auth-service-v2.nist_controls",
+        "statement": "Solution: AC-2 LPG-CSM-NIST-AC-2-l: LPG control scope match: AC-2(l) in auth-service-v2.nist_controls"
+      },
+      {
+        "identifier": "AC-24 Sn1",
+        "assessment": "compliance verification test result",
+        "statement": "Solution: AC-24 Sn1: compliance verification test result"
+      },
+      {
+        "identifier": "AC-24 Sn2",
+        "assessment": "audit evidence log",
+        "statement": "Solution: AC-24 Sn2: audit evidence log"
+      },
+      {
+        "identifier": "AC-3 M1Sn1",
+        "assessment": "log of connection request",
+        "statement": "Solution: AC-3 M1Sn1: log of connection request",
+        "evidence_type": "log",
+        "source": "lpg"
+      },
+      {
+        "identifier": "AC-3 M1Sn2",
+        "assessment": "log of auth decision",
+        "statement": "Solution: AC-3 M1Sn2: log of auth decision",
+        "evidence_type": "log",
+        "source": "lpg"
+      },
+      {
+        "identifier": "AC-3 M2Sn2",
+        "assessment": "test cases of apply authorization",
+        "statement": "Solution: AC-3 M2Sn2: test cases of apply authorization",
+        "evidence_type": "test_case",
+        "source": "lpg"
+      },
+      {
+        "identifier": "AC-3 M2Sn3",
+        "assessment": "log of send data",
+        "statement": "Solution: AC-3 M2Sn3: log of send data",
+        "evidence_type": "log",
+        "source": "lpg"
+      },
+      {
+        "identifier": "AC-3 AccSn1",
+        "assessment": "log of account creation event",
+        "statement": "Solution: AC-3 AccSn1: log of account creation event",
+        "evidence_type": "log",
+        "source": "lpg"
+      },
+      {
+        "identifier": "AC-3 AccSn2",
+        "assessment": "log of account disable event",
+        "statement": "Solution: AC-3 AccSn2: log of account disable event",
+        "evidence_type": "log",
+        "source": "lpg"
+      },
+      {
+        "identifier": "AC-3 AccSn3",
+        "assessment": "audit record of role assignment",
+        "statement": "Solution: AC-3 AccSn3: audit record of role assignment",
+        "evidence_type": "audit",
+        "source": "lpg"
+      },
+      {
+        "identifier": "AC-3 TokSn1",
+        "assessment": "test cases of MFA token issuance",
+        "statement": "Solution: AC-3 TokSn1: test cases of MFA token issuance",
+        "evidence_type": "test_case",
+        "source": "lpg"
+      },
+      {
+        "identifier": "AC-3 TokSn2",
+        "assessment": "log of token validation decision",
+        "statement": "Solution: AC-3 TokSn2: log of token validation decision",
+        "evidence_type": "log",
+        "source": "lpg"
+      },
+      {
+        "identifier": "AC-3 TokSn3",
+        "assessment": "log of token revocation event",
+        "statement": "Solution: AC-3 TokSn3: log of token revocation event",
+        "evidence_type": "log",
+        "source": "lpg"
+      },
+      {
+        "identifier": "AC-3 LogSn1",
+        "assessment": "audit trail of all session events",
+        "statement": "Solution: AC-3 LogSn1: audit trail of all session events",
+        "evidence_type": "audit",
+        "source": "lpg"
+      },
+      {
+        "identifier": "AC-3 LogSn2",
+        "assessment": "log of privileged function invocations",
+        "statement": "Solution: AC-3 LogSn2: log of privileged function invocations",
+        "evidence_type": "log",
+        "source": "lpg"
+      },
+      {
+        "identifier": "AC-3 LogSn3",
+        "assessment": "execution trace of session lifecycle",
+        "statement": "Solution: AC-3 LogSn3: execution trace of session lifecycle",
+        "evidence_type": "trace",
+        "source": "lpg"
+      },
+      {
+        "identifier": "AC-3 MonSn1",
+        "assessment": "log of privilege escalation attempts",
+        "statement": "Solution: AC-3 MonSn1: log of privilege escalation attempts",
+        "evidence_type": "log",
+        "source": "lpg"
+      },
+      {
+        "identifier": "AC-3 MonSn2",
+        "assessment": "real-time alert on anomaly detection",
+        "statement": "Solution: AC-3 MonSn2: real-time alert on anomaly detection",
+        "evidence_type": "alert",
+        "source": "lpg"
+      },
+      {
+        "identifier": "AC-3 LPG-CSM-NIST-AC-3",
+        "assessment": "LPG control scope match: AC-3 in auth-service-v2.nist_controls",
+        "statement": "Solution: AC-3 LPG-CSM-NIST-AC-3: LPG control scope match: AC-3 in auth-service-v2.nist_controls"
+      },
+      {
+        "identifier": "AC-3 LPG-CSM-NIST-AC-3-7",
+        "assessment": "LPG control scope match: AC-3(7) in auth-service-v2.nist_controls",
+        "statement": "Solution: AC-3 LPG-CSM-NIST-AC-3-7: LPG control scope match: AC-3(7) in auth-service-v2.nist_controls"
+      },
+      {
+        "identifier": "AC-3 LPG-CSM-NIST-AC-3-8",
+        "assessment": "LPG control scope match: AC-3(8) in auth-service-v2.nist_controls",
+        "statement": "Solution: AC-3 LPG-CSM-NIST-AC-3-8: LPG control scope match: AC-3(8) in auth-service-v2.nist_controls"
+      },
+      {
+        "identifier": "AC-4 Sn1",
+        "assessment": "log of data flow decisions",
+        "statement": "Solution: AC-4 Sn1: log of data flow decisions"
+      },
+      {
+        "identifier": "AC-4 Sn2",
+        "assessment": "test cases for flow control enforcement",
+        "statement": "Solution: AC-4 Sn2: test cases for flow control enforcement"
+      },
+      {
+        "identifier": "AC-4 Sn3",
+        "assessment": "audit trail of denied flows",
+        "statement": "Solution: AC-4 Sn3: audit trail of denied flows"
+      },
+      {
+        "identifier": "AC-5 Sn1",
+        "assessment": "separation of duties policy document",
+        "statement": "Solution: AC-5 Sn1: separation of duties policy document"
+      },
+      {
+        "identifier": "AC-5 Sn2",
+        "assessment": "test cases for role conflict prevention",
+        "statement": "Solution: AC-5 Sn2: test cases for role conflict prevention"
+      },
+      {
+        "identifier": "AC-5 Sn3",
+        "assessment": "audit log of privilege assignments",
+        "statement": "Solution: AC-5 Sn3: audit log of privilege assignments"
+      },
+      {
+        "identifier": "AC-5 LPG-CSM-NIST-AC-5-a",
+        "assessment": "LPG control scope match: AC-5(a) in auth-service-v2.nist_controls",
+        "statement": "Solution: AC-5 LPG-CSM-NIST-AC-5-a: LPG control scope match: AC-5(a) in auth-service-v2.nist_controls"
+      },
+      {
+        "identifier": "AC-6 Sn1",
+        "assessment": "privilege assignment audit log",
+        "statement": "Solution: AC-6 Sn1: privilege assignment audit log"
+      },
+      {
+        "identifier": "AC-6 Sn2",
+        "assessment": "privileged function usage log",
+        "statement": "Solution: AC-6 Sn2: privileged function usage log"
+      },
+      {
+        "identifier": "AC-6 Sn3",
+        "assessment": "test cases for non-privileged user restriction",
+        "statement": "Solution: AC-6 Sn3: test cases for non-privileged user restriction"
+      },
+      {
+        "identifier": "AC-6 Sn4",
+        "assessment": "periodic review report of privileged accounts",
+        "statement": "Solution: AC-6 Sn4: periodic review report of privileged accounts"
+      },
+      {
+        "identifier": "AC-6 LPG-CSM-NIST-AC-6",
+        "assessment": "LPG control scope match: AC-6 in auth-service-v2.nist_controls",
+        "statement": "Solution: AC-6 LPG-CSM-NIST-AC-6: LPG control scope match: AC-6 in auth-service-v2.nist_controls"
+      },
+      {
+        "identifier": "AC-6 LPG-CSM-NIST-AC-6-1",
+        "assessment": "LPG control scope match: AC-6(1) in auth-service-v2.nist_controls",
+        "statement": "Solution: AC-6 LPG-CSM-NIST-AC-6-1: LPG control scope match: AC-6(1) in auth-service-v2.nist_controls"
+      },
+      {
+        "identifier": "AC-6 LPG-SnNIST-AC-6-5-1",
+        "assessment": "LPG capability match: 'restrict-remote-connections' on auth-service-v2",
+        "statement": "Solution: AC-6 LPG-SnNIST-AC-6-5-1: LPG capability match: 'restrict-remote-connections' on auth-service-v2"
+      },
+      {
+        "identifier": "AC-6 LPG-SnNIST-AC-6-5-2",
+        "assessment": "LPG capability match: 'rate-limiting' on auth-service-v2",
+        "statement": "Solution: AC-6 LPG-SnNIST-AC-6-5-2: LPG capability match: 'rate-limiting' on auth-service-v2"
+      },
+      {
+        "identifier": "AC-6 LPG-CSM-NIST-AC-6-5",
+        "assessment": "LPG control scope match: AC-6(5) in auth-service-v2.nist_controls",
+        "statement": "Solution: AC-6 LPG-CSM-NIST-AC-6-5: LPG control scope match: AC-6(5) in auth-service-v2.nist_controls"
+      },
+      {
+        "identifier": "AC-6 LPG-SnNIST-AC-6-9-2",
+        "assessment": "LPG capability match: 'privileged-function-log' on auth-service-v2",
+        "statement": "Solution: AC-6 LPG-SnNIST-AC-6-9-2: LPG capability match: 'privileged-function-log' on auth-service-v2"
+      },
+      {
+        "identifier": "AC-6 LPG-CSM-NIST-AC-6-9",
+        "assessment": "LPG control scope match: AC-6(9) in auth-service-v2.nist_controls",
+        "statement": "Solution: AC-6 LPG-CSM-NIST-AC-6-9: LPG control scope match: AC-6(9) in auth-service-v2.nist_controls"
+      },
+      {
+        "identifier": "AC-6 LPG-CSM-NIST-AC-6-10",
+        "assessment": "LPG control scope match: AC-6(10) in auth-service-v2.nist_controls",
+        "statement": "Solution: AC-6 LPG-CSM-NIST-AC-6-10: LPG control scope match: AC-6(10) in auth-service-v2.nist_controls"
+      }
+    ],
+    "in_context_of": [
+      {
+        "source": "auth-service-v2-Principal",
+        "destination": "CTX-auth-service-v2-scope"
+      },
+      {
+        "source": "AC-1 Main",
+        "destination": "AC-1[1]"
+      },
+      {
+        "source": "AC-17 Main",
+        "destination": "AC-17[1]"
+      },
+      {
+        "source": "AC-2 Main",
+        "destination": "AC-2[1]"
+      },
+      {
+        "source": "AC-24 Main",
+        "destination": "AC-24[1]"
+      },
+      {
+        "source": "AC-3 Main",
+        "destination": "AC-3 [1]"
+      },
+      {
+        "source": "AC-4 Main",
+        "destination": "AC-4[1]"
+      },
+      {
+        "source": "AC-5 Main",
+        "destination": "AC-5[1]"
+      },
+      {
+        "source": "AC-6 Main",
+        "destination": "AC-6[1]"
+      }
+    ],
+    "supported_by": [
+      {
+        "source": "auth-service-v2-Principal",
+        "destination": "S-auth-service-v2-decompose"
+      },
+      {
+        "source": "S-auth-service-v2-decompose",
+        "destination": "AC-1 Main"
+      },
+      {
+        "source": "AC-1 Main",
+        "destination": "AC-1 S1"
+      },
+      {
+        "source": "AC-1 S1",
+        "destination": "AC-1 Req1"
+      },
+      {
+        "source": "AC-1 Req1",
+        "destination": "AC-1 M1"
+      },
+      {
+        "source": "AC-1 Req1",
+        "destination": "AC-1 M2"
+      },
+      {
+        "source": "AC-1 M1",
+        "destination": "AC-1 M1 G1"
+      },
+      {
+        "source": "AC-1 M2",
+        "destination": "AC-1 M2 G1"
+      },
+      {
+        "source": "AC-1 M1 G1",
+        "destination": "AC-1 Sn1"
+      },
+      {
+        "source": "AC-1 M2 G1",
+        "destination": "AC-1 Sn2"
+      },
+      {
+        "source": "S-auth-service-v2-decompose",
+        "destination": "AC-17 Main"
+      },
+      {
+        "source": "AC-17 Main",
+        "destination": "AC-17 S1"
+      },
+      {
+        "source": "AC-17 S1",
+        "destination": "AC-17 Req1"
+      },
+      {
+        "source": "AC-17 S1",
+        "destination": "AC-17 Req2"
+      },
+      {
+        "source": "AC-17 Req1",
+        "destination": "AC-17 M1"
+      },
+      {
+        "source": "AC-17 Req2",
+        "destination": "AC-17 M2"
+      },
+      {
+        "source": "AC-17 Req2",
+        "destination": "AC-17 M3"
+      },
+      {
+        "source": "AC-17 M1",
+        "destination": "AC-17 M1 G1"
+      },
+      {
+        "source": "AC-17 M2",
+        "destination": "AC-17 M2 G1"
+      },
+      {
+        "source": "AC-17 M3",
+        "destination": "AC-17 M3 G1"
+      },
+      {
+        "source": "AC-17 M1 G1",
+        "destination": "AC-17 Sn1"
+      },
+      {
+        "source": "AC-17 M2 G1",
+        "destination": "AC-17 Sn2"
+      },
+      {
+        "source": "AC-17 M3 G1",
+        "destination": "AC-17 Sn3"
+      },
+      {
+        "source": "S-auth-service-v2-decompose",
+        "destination": "AC-2 Main"
+      },
+      {
+        "source": "AC-2 Main",
+        "destination": "AC-2 S1"
+      },
+      {
+        "source": "AC-2 S1",
+        "destination": "AC-2 Req1"
+      },
+      {
+        "source": "AC-2 S1",
+        "destination": "AC-2 Req2"
+      },
+      {
+        "source": "AC-2 Req1",
+        "destination": "AC-2 M1"
+      },
+      {
+        "source": "AC-2 Req1",
+        "destination": "AC-2 M2"
+      },
+      {
+        "source": "AC-2 Req2",
+        "destination": "AC-2 M3"
+      },
+      {
+        "source": "AC-2 Req2",
+        "destination": "AC-2 M4"
+      },
+      {
+        "source": "AC-2 M1",
+        "destination": "AC-2 M1 G1"
+      },
+      {
+        "source": "AC-2 M1",
+        "destination": "AC-2 M1 G2"
+      },
+      {
+        "source": "AC-2 M2",
+        "destination": "AC-2 M2 G1"
+      },
+      {
+        "source": "AC-2 M3",
+        "destination": "AC-2 M3 G1"
+      },
+      {
+        "source": "AC-2 M4",
+        "destination": "AC-2 M4 G1"
+      },
+      {
+        "source": "AC-2 M1 G1",
+        "destination": "AC-2 Sn1"
+      },
+      {
+        "source": "AC-2 M1 G2",
+        "destination": "AC-2 Sn2"
+      },
+      {
+        "source": "AC-2 M2 G1",
+        "destination": "AC-2 Sn2"
+      },
+      {
+        "source": "AC-2 M3 G1",
+        "destination": "AC-2 Sn3"
+      },
+      {
+        "source": "AC-2 M4 G1",
+        "destination": "AC-2 Sn4"
+      },
+      {
+        "source": "S-auth-service-v2-decompose",
+        "destination": "AC-24 Main"
+      },
+      {
+        "source": "AC-24 Main",
+        "destination": "AC-24 S1"
+      },
+      {
+        "source": "AC-24 S1",
+        "destination": "AC-24 Req1"
+      },
+      {
+        "source": "AC-24 Req1",
+        "destination": "AC-24 M1"
+      },
+      {
+        "source": "AC-24 Req1",
+        "destination": "AC-24 M2"
+      },
+      {
+        "source": "AC-24 M1",
+        "destination": "AC-24 M1 G1"
+      },
+      {
+        "source": "AC-24 M2",
+        "destination": "AC-24 M2 G1"
+      },
+      {
+        "source": "AC-24 M1 G1",
+        "destination": "AC-24 Sn1"
+      },
+      {
+        "source": "AC-24 M2 G1",
+        "destination": "AC-24 Sn2"
+      },
+      {
+        "source": "S-auth-service-v2-decompose",
+        "destination": "AC-3 Main"
+      },
+      {
+        "source": "AC-3 Main",
+        "destination": "AC-3 S1"
+      },
+      {
+        "source": "AC-3 S1",
+        "destination": "AC-3 Req1"
+      },
+      {
+        "source": "AC-3 Req1",
+        "destination": "AC-3 M1"
+      },
+      {
+        "source": "AC-3 Req1",
+        "destination": "AC-3 M2"
+      },
+      {
+        "source": "AC-3 M1",
+        "destination": "AC-3 M1 G1"
+      },
+      {
+        "source": "AC-3 M1",
+        "destination": "AC-3 M1 G2"
+      },
+      {
+        "source": "AC-3 M2",
+        "destination": "AC-3 M2 G1"
+      },
+      {
+        "source": "AC-3 M2",
+        "destination": "AC-3 M2 G2"
+      },
+      {
+        "source": "AC-3 M1 G1",
+        "destination": "AC-3 M1Sn1"
+      },
+      {
+        "source": "AC-3 M1 G2",
+        "destination": "AC-3 M1Sn2"
+      },
+      {
+        "source": "AC-3 M2 G1",
+        "destination": "AC-3 M2Sn2"
+      },
+      {
+        "source": "AC-3 M2 G2",
+        "destination": "AC-3 M2Sn3"
+      },
+      {
+        "source": "AC-3 Main",
+        "destination": "AC-21 Main",
+        "requires": "val(accessControlPolicy)"
+      },
+      {
+        "source": "AC-21 Main",
+        "destination": "Main",
+        "requires": "val(authorizationDecision)"
+      },
+      {
+        "source": "S-auth-service-v2-decompose",
+        "destination": "AC-4 Main"
+      },
+      {
+        "source": "AC-4 Main",
+        "destination": "AC-4 S1"
+      },
+      {
+        "source": "AC-4 S1",
+        "destination": "AC-4 Req1"
+      },
+      {
+        "source": "AC-4 Req1",
+        "destination": "AC-4 M1"
+      },
+      {
+        "source": "AC-4 Req1",
+        "destination": "AC-4 M2"
+      },
+      {
+        "source": "AC-4 M1",
+        "destination": "AC-4 M1 G1"
+      },
+      {
+        "source": "AC-4 M1",
+        "destination": "AC-4 M1 G2"
+      },
+      {
+        "source": "AC-4 M2",
+        "destination": "AC-4 M2 G1"
+      },
+      {
+        "source": "AC-4 M1 G1",
+        "destination": "AC-4 Sn1"
+      },
+      {
+        "source": "AC-4 M1 G2",
+        "destination": "AC-4 Sn2"
+      },
+      {
+        "source": "AC-4 M2 G1",
+        "destination": "AC-4 Sn3"
+      },
+      {
+        "source": "S-auth-service-v2-decompose",
+        "destination": "AC-5 Main"
+      },
+      {
+        "source": "AC-5 Main",
+        "destination": "AC-5 S1"
+      },
+      {
+        "source": "AC-5 S1",
+        "destination": "AC-5 Req1"
+      },
+      {
+        "source": "AC-5 S1",
+        "destination": "AC-5 Req2"
+      },
+      {
+        "source": "AC-5 Req1",
+        "destination": "AC-5 M1"
+      },
+      {
+        "source": "AC-5 Req2",
+        "destination": "AC-5 M2"
+      },
+      {
+        "source": "AC-5 M1",
+        "destination": "AC-5 M1 G1"
+      },
+      {
+        "source": "AC-5 M2",
+        "destination": "AC-5 M2 G1"
+      },
+      {
+        "source": "AC-5 M1 G1",
+        "destination": "AC-5 Sn1"
+      },
+      {
+        "source": "AC-5 M2 G1",
+        "destination": "AC-5 Sn2"
+      },
+      {
+        "source": "AC-5 M2 G1",
+        "destination": "AC-5 Sn3"
+      },
+      {
+        "source": "S-auth-service-v2-decompose",
+        "destination": "AC-6 Main"
+      },
+      {
+        "source": "AC-6 Main",
+        "destination": "AC-6 S1"
+      },
+      {
+        "source": "AC-6 S1",
+        "destination": "AC-6 Req1"
+      },
+      {
+        "source": "AC-6 S1",
+        "destination": "AC-6 Req2"
+      },
+      {
+        "source": "AC-6 Req1",
+        "destination": "AC-6 M1"
+      },
+      {
+        "source": "AC-6 Req1",
+        "destination": "AC-6 M3"
+      },
+      {
+        "source": "AC-6 Req2",
+        "destination": "AC-6 M2"
+      },
+      {
+        "source": "AC-6 M1",
+        "destination": "AC-6 M1 G1"
+      },
+      {
+        "source": "AC-6 M1",
+        "destination": "AC-6 M1 G2"
+      },
+      {
+        "source": "AC-6 M2",
+        "destination": "AC-6 M2 G1"
+      },
+      {
+        "source": "AC-6 M3",
+        "destination": "AC-6 M3 G1"
+      },
+      {
+        "source": "AC-6 M1 G1",
+        "destination": "AC-6 Sn1"
+      },
+      {
+        "source": "AC-6 M1 G2",
+        "destination": "AC-6 Sn3"
+      },
+      {
+        "source": "AC-6 M2 G1",
+        "destination": "AC-6 Sn2"
+      },
+      {
+        "source": "AC-6 M3 G1",
+        "destination": "AC-6 Sn4"
+      }
+    ]
+  }
+}
