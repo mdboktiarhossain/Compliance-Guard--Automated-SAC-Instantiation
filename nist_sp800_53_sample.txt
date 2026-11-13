@@ -1,0 +1,109 @@
+NIST SP 800-53 Rev. 5 - Security and Privacy Controls for Information Systems and Organizations
+Selected Controls from the Access Control (AC) Family
+
+AC-1 POLICY AND PROCEDURES
+
+Control: 
+a. Develop, document, and disseminate to [Assignment: organization-defined personnel or roles]:
+  1. [Selection (one or more): Organization-level; Mission/business process-level; System-level] access control policy that:
+    (a) Addresses purpose, scope, roles, responsibilities, management commitment, coordination among organizational entities, and compliance; and
+    (b) Is consistent with applicable laws, executive orders, directives, regulations, policies, standards, and guidelines; and
+  2. Procedures to facilitate the implementation of the access control policy and the associated access controls;
+b. Designate an [Assignment: organization-defined official] to manage the development, documentation, and dissemination of the access control policy and procedures; and
+c. Review and update the current access control:
+  1. Policy [Assignment: organization-defined frequency] and following [Assignment: organization-defined events]; and
+  2. Procedures [Assignment: organization-defined frequency] and following [Assignment: organization-defined events].
+
+AC-2 ACCOUNT MANAGEMENT
+
+Control:
+a. Define and document the types of accounts allowed and specifically prohibited for use within the system;
+b. Assign account managers;
+c. Require [Assignment: organization-defined prerequisites and criteria] for group and role membership;
+d. Specify:
+  1. Authorized users of the system;
+  2. Group and role membership; and
+  3. Access authorizations (i.e., privileges) and [Assignment: organization-defined attributes (as required)] for each account;
+e. Require approvals by [Assignment: organization-defined personnel or roles] for requests to create accounts;
+f. Create, enable, modify, disable, and remove accounts in accordance with [Assignment: organization-defined policy, procedures, prerequisites, and criteria];
+g. Monitor the use of accounts;
+h. Notify account managers and [Assignment: organization-defined personnel or roles] within:
+  1. [Assignment: organization-defined time period] when accounts are no longer required;
+  2. [Assignment: organization-defined time period] when users are terminated or transferred; and
+  3. [Assignment: organization-defined time period] when system usage or need-to-know changes for an individual;
+i. Authorize access to the system based on:
+  1. A valid access authorization;
+  2. Intended system usage; and
+  3. [Assignment: organization-defined attributes (as required)];
+j. Review accounts for compliance with account management requirements [Assignment: organization-defined frequency];
+k. Establish and implement a process for changing shared or group account authenticators (if deployed) when individuals are removed from the group; and
+l. Align account management processes with personnel termination and transfer processes.
+
+AC-3 ACCESS ENFORCEMENT
+
+Control: Enforce approved authorizations for logical access to information and system resources in accordance with applicable access control policies.
+
+Discussion: Access control policies control access between active entities or subjects (i.e., users or processes acting on behalf of users) and passive entities or objects (i.e., devices, files, records, domains) in organizational systems. In addition to enforcing authorized access at the system level, access enforcement mechanisms are implemented at the application level to increase information security and privacy. Access control policies include identity-based policies, role-based policies, attribute-based policies, and rule-based policies. Organizations consider the trustworthiness of the information system and the security categories of the information being processed, stored, or transmitted when implementing access control policies.
+
+AC-3(7) ACCESS ENFORCEMENT | ROLE-BASED ACCESS CONTROL
+Control: Enforce a role-based access control policy over defined subjects and objects and control access based upon [Assignment: organization-defined roles and users authorized to assume such roles].
+
+AC-3(8) ACCESS ENFORCEMENT | REVOCATION OF ACCESS AUTHORIZATIONS
+Control: Enforce the revocation of access authorizations resulting from changes to the security attributes of subjects and objects based on [Assignment: organization-defined rules governing the timing of revocations of access authorizations].
+
+AC-4 INFORMATION FLOW ENFORCEMENT
+
+Control: Enforce approved authorizations for controlling the flow of information within the system and between connected systems based on [Assignment: organization-defined information flow control policies].
+
+Discussion: Information flow control regulates where information can travel within a system and between systems (in contrast to who is allowed to access the information) and without regard to subsequent accesses to that information. Flow control restrictions include blocking external traffic that claims to be from within the organization, keeping export-controlled information from being transmitted in the clear to the Internet, restricting web requests that are not from the internal web proxy server, and limiting information transfers between organizations based on data structures and content. Transferring information between organizations may require an agreement specifying how the information flow is enforced.
+
+AC-4(1) INFORMATION FLOW ENFORCEMENT | OBJECT SECURITY AND PRIVACY ATTRIBUTES
+Control: Use [Assignment: organization-defined security and privacy attributes] associated with [Assignment: organization-defined information, source, and destination objects] to enforce [Assignment: organization-defined information flow control policies] as a basis for flow control decisions.
+
+AC-4(4) INFORMATION FLOW ENFORCEMENT | FLOW CONTROL OF ENCRYPTED INFORMATION
+Control: Prevent encrypted information from bypassing [Assignment: organization-defined information flow control mechanisms] by [Selection (one or more): decrypting the information; blocking the flow of the encrypted information; terminating communications sessions attempting to pass encrypted information; [Assignment: organization-defined procedure or method]].
+
+AC-5 SEPARATION OF DUTIES
+
+Control: 
+a. Identify and document [Assignment: organization-defined duties of individuals requiring separation]; and
+b. Define system access authorizations to support separation of duties.
+
+Discussion: Separation of duties addresses the potential for abuse of authorized privileges and helps to reduce the risk of malevolent activity without collusion. Separation of duties includes dividing mission or business functions and support functions among different individuals or roles, conducting system support functions with different individuals, and ensuring that security personnel who administer access control functions do not also administer audit functions.
+
+AC-6 LEAST PRIVILEGE
+
+Control: Employ the principle of least privilege, allowing only authorized accesses for users (or processes acting on behalf of users) that are necessary to accomplish assigned organizational tasks.
+
+AC-6(1) LEAST PRIVILEGE | AUTHORIZE ACCESS TO SECURITY FUNCTIONS
+Control: Authorize access to [Assignment: organization-defined security functions (deployed in hardware, software, and firmware)] and [Assignment: organization-defined security-relevant information] only for [Assignment: organization-defined authorized personnel or roles].
+
+AC-6(2) LEAST PRIVILEGE | NON-PRIVILEGED ACCESS FOR NONSECURITY FUNCTIONS
+Control: Require that users of system accounts (or roles) with access to [Assignment: organization-defined security functions or security-relevant information] use non-privileged accounts or roles, when accessing nonsecurity functions.
+
+AC-6(5) LEAST PRIVILEGE | PRIVILEGED ACCOUNTS
+Control: Restrict privileged accounts on the system to [Assignment: organization-defined personnel or roles].
+
+AC-6(9) LEAST PRIVILEGE | LOG USE OF PRIVILEGED FUNCTIONS
+Control: Log the execution of privileged functions.
+
+AC-6(10) LEAST PRIVILEGE | PROHIBIT NON-PRIVILEGED USERS FROM EXECUTING PRIVILEGED FUNCTIONS
+Control: Prevent non-privileged users from executing privileged functions.
+
+AC-17 REMOTE ACCESS
+
+Control:
+a. Establish and document usage restrictions, configuration/connection requirements, and implementation guidance for each type of remote access allowed; and
+b. Authorize each type of remote access to the system prior to allowing such connections.
+
+AC-17(1) REMOTE ACCESS | MONITORING AND CONTROL
+Control: Employ automated mechanisms to monitor and control remote access methods.
+
+AC-17(2) REMOTE ACCESS | PROTECTION OF CONFIDENTIALITY AND INTEGRITY USING ENCRYPTION
+Control: Implement cryptographic mechanisms to protect the confidentiality and integrity of remote access sessions.
+
+AC-24 ACCESS CONTROL DECISIONS
+
+Control: [Selection: Establish procedures; Implement mechanisms] to ensure [Assignment: organization-defined access control decisions] are applied to each access request prior to access enforcement.
+
+Discussion: Access control decisions (also known as authorization decisions) occur when authorization information is applied to specific accesses. In contrast, access enforcement occurs when systems enforce access control decisions. While it is common to have access control decisions and access enforcement implemented by the same entity, it is not required, and it is not always an optimal implementation approach. For some architectures and distributed systems, different entities may make access control decisions and enforce access.

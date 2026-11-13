@@ -1,0 +1,57 @@
+HIPAA Privacy Rule - 45 C.F.R. Part 164, Subpart E (Selected Sections)
+
+§164.502 Uses and disclosures of protected health information: General rules.
+
+(a) Standard. A covered entity or business associate may not use or disclose protected health information, except as permitted or required by this subpart or by subpart C of part 160 of this subchapter.
+
+(1) Covered entities: Permitted uses and disclosures. A covered entity is permitted to use or disclose protected health information as follows:
+(i) To the individual;
+(ii) For treatment, payment, or health care operations, as permitted by and in compliance with §164.506;
+(iii) Incident to a use or disclosure otherwise permitted or required by this subpart, provided that the covered entity has complied with the applicable requirements of §164.502(b), §164.514(d), and §164.530(c) with respect to such otherwise permitted or required use or disclosure;
+(iv) Except for uses and disclosures prohibited under §164.502(a)(5)(i), pursuant to and in compliance with a valid authorization under §164.508;
+(v) Pursuant to an agreement under, or as otherwise permitted by, §164.510; and
+(vi) As permitted by and in compliance with this section, §164.512, §164.514(e), (f), or (g).
+
+(b) Standard: Minimum necessary.
+(1) Minimum necessary applies. When using or disclosing protected health information or when requesting protected health information from another covered entity or business associate, a covered entity or business associate must make reasonable efforts to limit protected health information to the minimum necessary to accomplish the intended purpose of the use, disclosure, or request.
+
+§164.508 Uses and disclosures for which an authorization is required.
+
+(a) Standard: Authorizations for uses and disclosures.
+(1) Authorization required: General rule. Notwithstanding any provision of this subpart, other than the transition provisions in §164.532, a covered entity may not use or disclose protected health information without an authorization that is valid under this section when the use or disclosure:
+(i) Is for marketing purposes;
+(ii) Involves the sale of protected health information;
+(iii) Is for psychotherapy notes, except as provided in §164.508(a)(2).
+
+§164.510 Uses and disclosures requiring an opportunity for the individual to agree or to object.
+
+(a) Standard: Use and disclosure for facility directories.
+A covered health care provider may:
+(i) Use the following protected health information to maintain a directory of individuals in its facility: The individual's name, the individual's location in the facility, the individual's condition described in general terms that does not communicate specific medical information about the individual, and the individual's religious affiliation; and
+(ii) Use or disclose for directory purposes such information to members of the clergy; or
+(iii) Disclose for directory purposes such information to other persons who ask for the individual by name.
+
+§164.512 Uses and disclosures for which an authorization or opportunity to agree or object is not required.
+
+(a) Standard: Uses and disclosures required by law. A covered entity may use or disclose protected health information to the extent that such use or disclosure is required by law and the use or disclosure complies with and is limited to the relevant requirements of such law.
+
+(b) Standard: Uses and disclosures for public health activities.
+(1) A covered entity may disclose protected health information for public health activities and purposes to:
+(i) A public health authority that is authorized by law to collect or receive such information for the purpose of preventing or controlling disease, injury, or disability;
+(ii) A public health authority or other appropriate government authority authorized to receive reports of child abuse or neglect;
+(iii) A person subject to the jurisdiction of the Food and Drug Administration (FDA).
+
+(e) Standard: Disclosures for judicial and administrative proceedings.
+(1) A covered entity may disclose protected health information in the course of any judicial or administrative proceeding:
+(i) In response to an order of a court or administrative tribunal, provided that the covered entity discloses only the protected health information expressly authorized by such order; or
+(ii) In response to a subpoena, discovery request, or other lawful process, that is not accompanied by an order of a court or administrative tribunal.
+
+§164.524 Access of individuals to protected health information.
+
+(a) Standard: Access to protected health information.
+(1) Right of access. Except as otherwise provided in paragraph (a)(2) or (a)(3) of this section, an individual has a right of access to inspect and obtain a copy of protected health information about the individual in a designated record set, for as long as the protected health information is maintained in the designated record set.
+
+(2) Unreviewable grounds for denial. A covered entity may deny an individual access to protected health information without providing the individual an opportunity for review, in the following circumstances:
+(i) The protected health information is psychotherapy notes;
+(ii) Information compiled in reasonable anticipation of, or for use in, a civil, criminal, or administrative action or proceeding;
+(iii) Protected health information maintained by a covered entity that is subject to the Clinical Laboratory Improvements Amendments of 1988.

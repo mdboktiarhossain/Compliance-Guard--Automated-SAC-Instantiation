@@ -1,0 +1,1722 @@
+{
+  "policy_name": "NIST SP 800-53 Rev. 5 - Security and Privacy Controls for Information Systems and Organizations",
+  "policy_version": "Rev. 5",
+  "framework": "NIST SP 800-53",
+  "total_rules": 38,
+  "rules": [
+    {
+      "rule_id": "NIST-AC-1-a",
+      "source_citation": "AC-1(a)",
+      "control_family": "AC",
+      "control_title": "POLICY AND PROCEDURES",
+      "implemented_by": "organization",
+      "odp_assignments": [
+        {
+          "placeholder": "Assignment: organization-defined personnel or roles",
+          "suggested_value": "policy_developer"
+        }
+      ],
+      "related_controls": [],
+      "provision_set": {
+        "provides_to": [],
+        "requires_from": [],
+        "provided_values": []
+      },
+      "baseline_allocation": "Moderate",
+      "impact_factor": 0.5,
+      "scope": {
+        "actor": [
+          "organization"
+        ],
+        "action": [
+          "develop",
+          "document",
+          "disseminate"
+        ],
+        "data_domain": [
+          "access control policy"
+        ],
+        "context": []
+      },
+      "hazard": "Inadequate access control policies may lead to unauthorized access.",
+      "requirement": "Develop, document, and disseminate access control policies.",
+      "conditions": [],
+      "exceptions": [],
+      "severity": "high",
+      "is_testable": false,
+      "testability": {
+        "evidence_signals": [],
+        "reason": "Requires human action and documentation."
+      },
+      "authorized_personnel": [
+        "policy_developer"
+      ]
+    },
+    {
+      "rule_id": "NIST-AC-1-a-1",
+      "source_citation": "AC-1(a)(1)",
+      "control_family": "AC",
+      "control_title": "POLICY AND PROCEDURES",
+      "implemented_by": "organization",
+      "odp_assignments": [],
+      "related_controls": [],
+      "provision_set": {
+        "provides_to": [],
+        "requires_from": [],
+        "provided_values": []
+      },
+      "baseline_allocation": "Moderate",
+      "impact_factor": 0.5,
+      "scope": {
+        "actor": [
+          "organization"
+        ],
+        "action": [
+          "address"
+        ],
+        "data_domain": [
+          "access control policy"
+        ],
+        "context": []
+      },
+      "hazard": "Failure to address key elements may lead to ineffective policies.",
+      "requirement": "Address purpose, scope, roles, responsibilities, and compliance in access control policy.",
+      "conditions": [],
+      "exceptions": [],
+      "severity": "high",
+      "is_testable": false,
+      "testability": {
+        "evidence_signals": [],
+        "reason": "Requires human action and documentation."
+      },
+      "authorized_personnel": [
+        "policy_developer"
+      ]
+    },
+    {
+      "rule_id": "NIST-AC-1-a-2",
+      "source_citation": "AC-1(a)(2)",
+      "control_family": "AC",
+      "control_title": "POLICY AND PROCEDURES",
+      "implemented_by": "organization",
+      "odp_assignments": [],
+      "related_controls": [],
+      "provision_set": {
+        "provides_to": [],
+        "requires_from": [],
+        "provided_values": []
+      },
+      "baseline_allocation": "Moderate",
+      "impact_factor": 0.5,
+      "scope": {
+        "actor": [
+          "organization"
+        ],
+        "action": [
+          "facilitate"
+        ],
+        "data_domain": [
+          "access control procedures"
+        ],
+        "context": []
+      },
+      "hazard": "Inadequate procedures may lead to improper implementation of access controls.",
+      "requirement": "Facilitate the implementation of the access control policy and associated controls.",
+      "conditions": [],
+      "exceptions": [],
+      "severity": "high",
+      "is_testable": false,
+      "testability": {
+        "evidence_signals": [],
+        "reason": "Requires human action and documentation."
+      },
+      "authorized_personnel": [
+        "policy_developer"
+      ]
+    },
+    {
+      "rule_id": "NIST-AC-1-b",
+      "source_citation": "AC-1(b)",
+      "control_family": "AC",
+      "control_title": "POLICY AND PROCEDURES",
+      "implemented_by": "organization",
+      "odp_assignments": [
+        {
+          "placeholder": "Assignment: organization-defined official",
+          "suggested_value": "policy_manager"
+        }
+      ],
+      "related_controls": [],
+      "provision_set": {
+        "provides_to": [],
+        "requires_from": [],
+        "provided_values": []
+      },
+      "baseline_allocation": "Moderate",
+      "impact_factor": 0.5,
+      "scope": {
+        "actor": [
+          "organization"
+        ],
+        "action": [
+          "designate"
+        ],
+        "data_domain": [
+          "access control policy"
+        ],
+        "context": []
+      },
+      "hazard": "Lack of designated authority may lead to poor policy management.",
+      "requirement": "Designate an official to manage access control policy development.",
+      "conditions": [],
+      "exceptions": [],
+      "severity": "high",
+      "is_testable": false,
+      "testability": {
+        "evidence_signals": [],
+        "reason": "Requires human action and documentation."
+      },
+      "authorized_personnel": [
+        "policy_manager"
+      ]
+    },
+    {
+      "rule_id": "NIST-AC-1-c",
+      "source_citation": "AC-1(c)",
+      "control_family": "AC",
+      "control_title": "POLICY AND PROCEDURES",
+      "implemented_by": "organization",
+      "odp_assignments": [
+        {
+          "placeholder": "Assignment: organization-defined frequency",
+          "suggested_value": "annual"
+        },
+        {
+          "placeholder": "Assignment: organization-defined events",
+          "suggested_value": "significant changes"
+        }
+      ],
+      "related_controls": [],
+      "provision_set": {
+        "provides_to": [],
+        "requires_from": [],
+        "provided_values": []
+      },
+      "baseline_allocation": "Moderate",
+      "impact_factor": 0.5,
+      "scope": {
+        "actor": [
+          "organization"
+        ],
+        "action": [
+          "review",
+          "update"
+        ],
+        "data_domain": [
+          "access control policy"
+        ],
+        "context": []
+      },
+      "hazard": "Outdated policies may lead to compliance issues.",
+      "requirement": "Review and update access control policy and procedures regularly.",
+      "conditions": [],
+      "exceptions": [],
+      "severity": "high",
+      "is_testable": false,
+      "testability": {
+        "evidence_signals": [],
+        "reason": "Requires human action and documentation."
+      },
+      "authorized_personnel": [
+        "policy_manager"
+      ]
+    },
+    {
+      "rule_id": "NIST-AC-2-a",
+      "source_citation": "AC-2(a)",
+      "control_family": "AC",
+      "control_title": "ACCOUNT MANAGEMENT",
+      "implemented_by": "organization",
+      "odp_assignments": [],
+      "related_controls": [],
+      "provision_set": {
+        "provides_to": [],
+        "requires_from": [],
+        "provided_values": []
+      },
+      "baseline_allocation": "Moderate",
+      "impact_factor": 0.8,
+      "scope": {
+        "actor": [
+          "organization"
+        ],
+        "action": [
+          "define",
+          "document"
+        ],
+        "data_domain": [
+          "account types"
+        ],
+        "context": []
+      },
+      "hazard": "Undefined account types may lead to unauthorized access.",
+      "requirement": "Define and document allowed and prohibited account types.",
+      "conditions": [],
+      "exceptions": [],
+      "severity": "high",
+      "is_testable": false,
+      "testability": {
+        "evidence_signals": [],
+        "reason": "Requires human action and documentation."
+      },
+      "authorized_personnel": [
+        "account_manager"
+      ]
+    },
+    {
+      "rule_id": "NIST-AC-2-b",
+      "source_citation": "AC-2(b)",
+      "control_family": "AC",
+      "control_title": "ACCOUNT MANAGEMENT",
+      "implemented_by": "organization",
+      "odp_assignments": [],
+      "related_controls": [],
+      "provision_set": {
+        "provides_to": [],
+        "requires_from": [],
+        "provided_values": []
+      },
+      "baseline_allocation": "Moderate",
+      "impact_factor": 0.8,
+      "scope": {
+        "actor": [
+          "organization"
+        ],
+        "action": [
+          "assign"
+        ],
+        "data_domain": [
+          "account managers"
+        ],
+        "context": []
+      },
+      "hazard": "Lack of account managers may lead to poor account oversight.",
+      "requirement": "Assign account managers for account oversight.",
+      "conditions": [],
+      "exceptions": [],
+      "severity": "high",
+      "is_testable": false,
+      "testability": {
+        "evidence_signals": [],
+        "reason": "Requires human action and documentation."
+      },
+      "authorized_personnel": [
+        "account_manager"
+      ]
+    },
+    {
+      "rule_id": "NIST-AC-2-c",
+      "source_citation": "AC-2(c)",
+      "control_family": "AC",
+      "control_title": "ACCOUNT MANAGEMENT",
+      "implemented_by": "organization",
+      "odp_assignments": [
+        {
+          "placeholder": "Assignment: organization-defined prerequisites and criteria",
+          "suggested_value": "role requirements"
+        }
+      ],
+      "related_controls": [],
+      "provision_set": {
+        "provides_to": [],
+        "requires_from": [],
+        "provided_values": []
+      },
+      "baseline_allocation": "Moderate",
+      "impact_factor": 0.8,
+      "scope": {
+        "actor": [
+          "organization"
+        ],
+        "action": [
+          "require"
+        ],
+        "data_domain": [
+          "group and role membership"
+        ],
+        "context": []
+      },
+      "hazard": "Inadequate membership criteria may lead to unauthorized access.",
+      "requirement": "Require prerequisites and criteria for group and role membership.",
+      "conditions": [],
+      "exceptions": [],
+      "severity": "high",
+      "is_testable": false,
+      "testability": {
+        "evidence_signals": [],
+        "reason": "Requires human action and documentation."
+      },
+      "authorized_personnel": [
+        "account_manager"
+      ]
+    },
+    {
+      "rule_id": "NIST-AC-2-d",
+      "source_citation": "AC-2(d)",
+      "control_family": "AC",
+      "control_title": "ACCOUNT MANAGEMENT",
+      "implemented_by": "organization",
+      "odp_assignments": [],
+      "related_controls": [],
+      "provision_set": {
+        "provides_to": [],
+        "requires_from": [],
+        "provided_values": []
+      },
+      "baseline_allocation": "Moderate",
+      "impact_factor": 0.8,
+      "scope": {
+        "actor": [
+          "organization"
+        ],
+        "action": [
+          "specify"
+        ],
+        "data_domain": [
+          "authorized users",
+          "group and role membership",
+          "access authorizations"
+        ],
+        "context": []
+      },
+      "hazard": "Undefined access authorizations may lead to unauthorized access.",
+      "requirement": "Specify authorized users, group and role membership, and access authorizations.",
+      "conditions": [],
+      "exceptions": [],
+      "severity": "high",
+      "is_testable": false,
+      "testability": {
+        "evidence_signals": [],
+        "reason": "Requires human action and documentation."
+      },
+      "authorized_personnel": [
+        "account_manager"
+      ]
+    },
+    {
+      "rule_id": "NIST-AC-2-e",
+      "source_citation": "AC-2(e)",
+      "control_family": "AC",
+      "control_title": "ACCOUNT MANAGEMENT",
+      "implemented_by": "organization",
+      "odp_assignments": [
+        {
+          "placeholder": "Assignment: organization-defined personnel or roles",
+          "suggested_value": "account_manager"
+        }
+      ],
+      "related_controls": [],
+      "provision_set": {
+        "provides_to": [],
+        "requires_from": [],
+        "provided_values": []
+      },
+      "baseline_allocation": "Moderate",
+      "impact_factor": 0.8,
+      "scope": {
+        "actor": [
+          "organization"
+        ],
+        "action": [
+          "require approvals"
+        ],
+        "data_domain": [
+          "account creation requests"
+        ],
+        "context": []
+      },
+      "hazard": "Unauthorized account creation may lead to security breaches.",
+      "requirement": "Require approvals for account creation requests.",
+      "conditions": [],
+      "exceptions": [],
+      "severity": "high",
+      "is_testable": false,
+      "testability": {
+        "evidence_signals": [],
+        "reason": "Requires human action and documentation."
+      },
+      "authorized_personnel": [
+        "account_manager"
+      ]
+    },
+    {
+      "rule_id": "NIST-AC-2-f",
+      "source_citation": "AC-2(f)",
+      "control_family": "AC",
+      "control_title": "ACCOUNT MANAGEMENT",
+      "implemented_by": "organization",
+      "odp_assignments": [
+        {
+          "placeholder": "Assignment: organization-defined policy, procedures, prerequisites, and criteria",
+          "suggested_value": "account management policy"
+        }
+      ],
+      "related_controls": [],
+      "provision_set": {
+        "provides_to": [],
+        "requires_from": [],
+        "provided_values": []
+      },
+      "baseline_allocation": "Moderate",
+      "impact_factor": 0.8,
+      "scope": {
+        "actor": [
+          "organization"
+        ],
+        "action": [
+          "create",
+          "enable",
+          "modify",
+          "disable",
+          "remove"
+        ],
+        "data_domain": [
+          "accounts"
+        ],
+        "context": []
+      },
+      "hazard": "Improper account management may lead to unauthorized access.",
+      "requirement": "Manage accounts in accordance with defined policies and procedures.",
+      "conditions": [],
+      "exceptions": [],
+      "severity": "high",
+      "is_testable": false,
+      "testability": {
+        "evidence_signals": [],
+        "reason": "Requires human action and documentation."
+      },
+      "authorized_personnel": [
+        "account_manager"
+      ]
+    },
+    {
+      "rule_id": "NIST-AC-2-g",
+      "source_citation": "AC-2(g)",
+      "control_family": "AC",
+      "control_title": "ACCOUNT MANAGEMENT",
+      "implemented_by": "organization",
+      "odp_assignments": [],
+      "related_controls": [],
+      "provision_set": {
+        "provides_to": [],
+        "requires_from": [],
+        "provided_values": []
+      },
+      "baseline_allocation": "Moderate",
+      "impact_factor": 0.8,
+      "scope": {
+        "actor": [
+          "organization"
+        ],
+        "action": [
+          "monitor"
+        ],
+        "data_domain": [
+          "account usage"
+        ],
+        "context": []
+      },
+      "hazard": "Lack of monitoring may lead to unauthorized account usage.",
+      "requirement": "Monitor the use of accounts.",
+      "conditions": [],
+      "exceptions": [],
+      "severity": "high",
+      "is_testable": false,
+      "testability": {
+        "evidence_signals": [],
+        "reason": "Requires human action and documentation."
+      },
+      "authorized_personnel": [
+        "account_manager"
+      ]
+    },
+    {
+      "rule_id": "NIST-AC-2-h",
+      "source_citation": "AC-2(h)",
+      "control_family": "AC",
+      "control_title": "ACCOUNT MANAGEMENT",
+      "implemented_by": "organization",
+      "odp_assignments": [
+        {
+          "placeholder": "Assignment: organization-defined time period",
+          "suggested_value": "24 hours"
+        }
+      ],
+      "related_controls": [],
+      "provision_set": {
+        "provides_to": [],
+        "requires_from": [],
+        "provided_values": []
+      },
+      "baseline_allocation": "Moderate",
+      "impact_factor": 0.8,
+      "scope": {
+        "actor": [
+          "organization"
+        ],
+        "action": [
+          "notify"
+        ],
+        "data_domain": [
+          "account managers",
+          "personnel"
+        ],
+        "context": []
+      },
+      "hazard": "Failure to notify may lead to unauthorized access.",
+      "requirement": "Notify account managers when accounts are no longer required.",
+      "conditions": [],
+      "exceptions": [],
+      "severity": "high",
+      "is_testable": false,
+      "testability": {
+        "evidence_signals": [],
+        "reason": "Requires human action and documentation."
+      },
+      "authorized_personnel": [
+        "account_manager"
+      ]
+    },
+    {
+      "rule_id": "NIST-AC-2-h-1",
+      "source_citation": "AC-2(h)(1)",
+      "control_family": "AC",
+      "control_title": "ACCOUNT MANAGEMENT",
+      "implemented_by": "organization",
+      "odp_assignments": [
+        {
+          "placeholder": "Assignment: organization-defined time period",
+          "suggested_value": "24 hours"
+        }
+      ],
+      "related_controls": [],
+      "provision_set": {
+        "provides_to": [],
+        "requires_from": [],
+        "provided_values": []
+      },
+      "baseline_allocation": "Moderate",
+      "impact_factor": 0.8,
+      "scope": {
+        "actor": [
+          "organization"
+        ],
+        "action": [
+          "notify"
+        ],
+        "data_domain": [
+          "account managers"
+        ],
+        "context": []
+      },
+      "hazard": "Failure to notify may lead to unauthorized access.",
+      "requirement": "Notify account managers when users are terminated or transferred.",
+      "conditions": [],
+      "exceptions": [],
+      "severity": "high",
+      "is_testable": false,
+      "testability": {
+        "evidence_signals": [],
+        "reason": "Requires human action and documentation."
+      },
+      "authorized_personnel": [
+        "account_manager"
+      ]
+    },
+    {
+      "rule_id": "NIST-AC-2-h-2",
+      "source_citation": "AC-2(h)(2)",
+      "control_family": "AC",
+      "control_title": "ACCOUNT MANAGEMENT",
+      "implemented_by": "organization",
+      "odp_assignments": [
+        {
+          "placeholder": "Assignment: organization-defined time period",
+          "suggested_value": "24 hours"
+        }
+      ],
+      "related_controls": [],
+      "provision_set": {
+        "provides_to": [],
+        "requires_from": [],
+        "provided_values": []
+      },
+      "baseline_allocation": "Moderate",
+      "impact_factor": 0.8,
+      "scope": {
+        "actor": [
+          "organization"
+        ],
+        "action": [
+          "notify"
+        ],
+        "data_domain": [
+          "account managers"
+        ],
+        "context": []
+      },
+      "hazard": "Failure to notify may lead to unauthorized access.",
+      "requirement": "Notify account managers when system usage or need-to-know changes.",
+      "conditions": [],
+      "exceptions": [],
+      "severity": "high",
+      "is_testable": false,
+      "testability": {
+        "evidence_signals": [],
+        "reason": "Requires human action and documentation."
+      },
+      "authorized_personnel": [
+        "account_manager"
+      ]
+    },
+    {
+      "rule_id": "NIST-AC-2-i",
+      "source_citation": "AC-2(i)",
+      "control_family": "AC",
+      "control_title": "ACCOUNT MANAGEMENT",
+      "implemented_by": "organization",
+      "odp_assignments": [
+        {
+          "placeholder": "Assignment: organization-defined attributes (as required)",
+          "suggested_value": "user attributes"
+        }
+      ],
+      "related_controls": [],
+      "provision_set": {
+        "provides_to": [],
+        "requires_from": [],
+        "provided_values": []
+      },
+      "baseline_allocation": "Moderate",
+      "impact_factor": 0.8,
+      "scope": {
+        "actor": [
+          "organization"
+        ],
+        "action": [
+          "authorize"
+        ],
+        "data_domain": [
+          "system access"
+        ],
+        "context": []
+      },
+      "hazard": "Unauthorized access may occur without proper authorization.",
+      "requirement": "Authorize access based on valid authorization and intended usage.",
+      "conditions": [],
+      "exceptions": [],
+      "severity": "high",
+      "is_testable": false,
+      "testability": {
+        "evidence_signals": [],
+        "reason": "Requires human action and documentation."
+      },
+      "authorized_personnel": [
+        "account_manager"
+      ]
+    },
+    {
+      "rule_id": "NIST-AC-2-j",
+      "source_citation": "AC-2(j)",
+      "control_family": "AC",
+      "control_title": "ACCOUNT MANAGEMENT",
+      "implemented_by": "organization",
+      "odp_assignments": [
+        {
+          "placeholder": "Assignment: organization-defined frequency",
+          "suggested_value": "annual"
+        }
+      ],
+      "related_controls": [],
+      "provision_set": {
+        "provides_to": [],
+        "requires_from": [],
+        "provided_values": []
+      },
+      "baseline_allocation": "Moderate",
+      "impact_factor": 0.8,
+      "scope": {
+        "actor": [
+          "organization"
+        ],
+        "action": [
+          "review"
+        ],
+        "data_domain": [
+          "account management requirements"
+        ],
+        "context": []
+      },
+      "hazard": "Non-compliance with account management may lead to security risks.",
+      "requirement": "Review accounts for compliance with management requirements.",
+      "conditions": [],
+      "exceptions": [],
+      "severity": "high",
+      "is_testable": false,
+      "testability": {
+        "evidence_signals": [],
+        "reason": "Requires human action and documentation."
+      },
+      "authorized_personnel": [
+        "account_manager"
+      ]
+    },
+    {
+      "rule_id": "NIST-AC-2-k",
+      "source_citation": "AC-2(k)",
+      "control_family": "AC",
+      "control_title": "ACCOUNT MANAGEMENT",
+      "implemented_by": "organization",
+      "odp_assignments": [],
+      "related_controls": [],
+      "provision_set": {
+        "provides_to": [],
+        "requires_from": [],
+        "provided_values": []
+      },
+      "baseline_allocation": "Moderate",
+      "impact_factor": 0.8,
+      "scope": {
+        "actor": [
+          "organization"
+        ],
+        "action": [
+          "establish",
+          "implement"
+        ],
+        "data_domain": [
+          "shared or group account authenticators"
+        ],
+        "context": []
+      },
+      "hazard": "Failure to change authenticators may lead to unauthorized access.",
+      "requirement": "Establish a process for changing shared or group account authenticators.",
+      "conditions": [],
+      "exceptions": [],
+      "severity": "high",
+      "is_testable": false,
+      "testability": {
+        "evidence_signals": [],
+        "reason": "Requires human action and documentation."
+      },
+      "authorized_personnel": [
+        "account_manager"
+      ]
+    },
+    {
+      "rule_id": "NIST-AC-2-l",
+      "source_citation": "AC-2(l)",
+      "control_family": "AC",
+      "control_title": "ACCOUNT MANAGEMENT",
+      "implemented_by": "organization",
+      "odp_assignments": [],
+      "related_controls": [],
+      "provision_set": {
+        "provides_to": [],
+        "requires_from": [],
+        "provided_values": []
+      },
+      "baseline_allocation": "Moderate",
+      "impact_factor": 0.8,
+      "scope": {
+        "actor": [
+          "organization"
+        ],
+        "action": [
+          "align"
+        ],
+        "data_domain": [
+          "account management processes"
+        ],
+        "context": []
+      },
+      "hazard": "Misalignment may lead to security risks during personnel changes.",
+      "requirement": "Align account management processes with personnel termination and transfer processes.",
+      "conditions": [],
+      "exceptions": [],
+      "severity": "high",
+      "is_testable": false,
+      "testability": {
+        "evidence_signals": [],
+        "reason": "Requires human action and documentation."
+      },
+      "authorized_personnel": [
+        "account_manager"
+      ]
+    },
+    {
+      "rule_id": "NIST-AC-3",
+      "source_citation": "AC-3",
+      "control_family": "AC",
+      "control_title": "ACCESS ENFORCEMENT",
+      "implemented_by": "system",
+      "odp_assignments": [],
+      "related_controls": [],
+      "provision_set": {
+        "provides_to": [],
+        "requires_from": [],
+        "provided_values": []
+      },
+      "baseline_allocation": "High",
+      "impact_factor": 1.0,
+      "scope": {
+        "actor": [
+          "system"
+        ],
+        "action": [
+          "enforce"
+        ],
+        "data_domain": [
+          "information and system resources"
+        ],
+        "context": []
+      },
+      "hazard": "Unauthorized access may occur without enforcement.",
+      "requirement": "Enforce approved authorizations for logical access.",
+      "conditions": [],
+      "exceptions": [],
+      "severity": "high",
+      "is_testable": true,
+      "testability": {
+        "evidence_signals": [
+          "access_check"
+        ],
+        "reason": "Automated enforcement mechanisms can be tested."
+      },
+      "authorized_personnel": [
+        "system_admin"
+      ]
+    },
+    {
+      "rule_id": "NIST-AC-3-7",
+      "source_citation": "AC-3(7)",
+      "control_family": "AC",
+      "control_title": "ACCESS ENFORCEMENT | ROLE-BASED ACCESS CONTROL",
+      "implemented_by": "system",
+      "odp_assignments": [
+        {
+          "placeholder": "Assignment: organization-defined roles and users",
+          "suggested_value": "role definitions"
+        }
+      ],
+      "related_controls": [],
+      "provision_set": {
+        "provides_to": [],
+        "requires_from": [],
+        "provided_values": []
+      },
+      "baseline_allocation": "High",
+      "impact_factor": 1.0,
+      "scope": {
+        "actor": [
+          "system"
+        ],
+        "action": [
+          "enforce"
+        ],
+        "data_domain": [
+          "roles and users"
+        ],
+        "context": []
+      },
+      "hazard": "Unauthorized access may occur without role-based enforcement.",
+      "requirement": "Enforce a role-based access control policy.",
+      "conditions": [],
+      "exceptions": [],
+      "severity": "high",
+      "is_testable": true,
+      "testability": {
+        "evidence_signals": [
+          "access_check"
+        ],
+        "reason": "Automated enforcement mechanisms can be tested."
+      },
+      "authorized_personnel": [
+        "system_admin"
+      ]
+    },
+    {
+      "rule_id": "NIST-AC-3-8",
+      "source_citation": "AC-3(8)",
+      "control_family": "AC",
+      "control_title": "ACCESS ENFORCEMENT | REVOCATION OF ACCESS AUTHORIZATIONS",
+      "implemented_by": "system",
+      "odp_assignments": [
+        {
+          "placeholder": "Assignment: organization-defined rules governing the timing of revocations",
+          "suggested_value": "revocation policies"
+        }
+      ],
+      "related_controls": [],
+      "provision_set": {
+        "provides_to": [],
+        "requires_from": [],
+        "provided_values": []
+      },
+      "baseline_allocation": "High",
+      "impact_factor": 1.0,
+      "scope": {
+        "actor": [
+          "system"
+        ],
+        "action": [
+          "enforce"
+        ],
+        "data_domain": [
+          "access authorizations"
+        ],
+        "context": []
+      },
+      "hazard": "Failure to revoke access may lead to unauthorized access.",
+      "requirement": "Enforce the revocation of access authorizations.",
+      "conditions": [],
+      "exceptions": [],
+      "severity": "high",
+      "is_testable": true,
+      "testability": {
+        "evidence_signals": [
+          "access_check"
+        ],
+        "reason": "Automated enforcement mechanisms can be tested."
+      },
+      "authorized_personnel": [
+        "system_admin"
+      ]
+    },
+    {
+      "rule_id": "NIST-AC-4",
+      "source_citation": "AC-4",
+      "control_family": "AC",
+      "control_title": "INFORMATION FLOW ENFORCEMENT",
+      "implemented_by": "system",
+      "odp_assignments": [
+        {
+          "placeholder": "Assignment: organization-defined information flow control policies",
+          "suggested_value": "flow control policies"
+        }
+      ],
+      "related_controls": [],
+      "provision_set": {
+        "provides_to": [],
+        "requires_from": [],
+        "provided_values": []
+      },
+      "baseline_allocation": "High",
+      "impact_factor": 1.0,
+      "scope": {
+        "actor": [
+          "system"
+        ],
+        "action": [
+          "enforce"
+        ],
+        "data_domain": [
+          "information flow"
+        ],
+        "context": []
+      },
+      "hazard": "Unauthorized information flow may occur without enforcement.",
+      "requirement": "Enforce approved authorizations for controlling information flow.",
+      "conditions": [],
+      "exceptions": [],
+      "severity": "high",
+      "is_testable": true,
+      "testability": {
+        "evidence_signals": [
+          "access_check"
+        ],
+        "reason": "Automated enforcement mechanisms can be tested."
+      },
+      "authorized_personnel": [
+        "system_admin"
+      ]
+    },
+    {
+      "rule_id": "NIST-AC-4-1",
+      "source_citation": "AC-4(1)",
+      "control_family": "AC",
+      "control_title": "INFORMATION FLOW ENFORCEMENT | OBJECT SECURITY AND PRIVACY ATTRIBUTES",
+      "implemented_by": "system",
+      "odp_assignments": [
+        {
+          "placeholder": "Assignment: organization-defined security and privacy attributes",
+          "suggested_value": "security attributes"
+        },
+        {
+          "placeholder": "Assignment: organization-defined information, source, and destination objects",
+          "suggested_value": "data objects"
+        }
+      ],
+      "related_controls": [],
+      "provision_set": {
+        "provides_to": [],
+        "requires_from": [],
+        "provided_values": []
+      },
+      "baseline_allocation": "High",
+      "impact_factor": 1.0,
+      "scope": {
+        "actor": [
+          "system"
+        ],
+        "action": [
+          "use"
+        ],
+        "data_domain": [
+          "security and privacy attributes"
+        ],
+        "context": []
+      },
+      "hazard": "Unauthorized access may occur without proper attribute enforcement.",
+      "requirement": "Use security and privacy attributes to enforce flow control.",
+      "conditions": [],
+      "exceptions": [],
+      "severity": "high",
+      "is_testable": true,
+      "testability": {
+        "evidence_signals": [
+          "access_check"
+        ],
+        "reason": "Automated enforcement mechanisms can be tested."
+      },
+      "authorized_personnel": [
+        "system_admin"
+      ]
+    },
+    {
+      "rule_id": "NIST-AC-4-4",
+      "source_citation": "AC-4(4)",
+      "control_family": "AC",
+      "control_title": "INFORMATION FLOW ENFORCEMENT | FLOW CONTROL OF ENCRYPTED INFORMATION",
+      "implemented_by": "system",
+      "odp_assignments": [
+        {
+          "placeholder": "Assignment: organization-defined information flow control mechanisms",
+          "suggested_value": "flow control mechanisms"
+        }
+      ],
+      "related_controls": [],
+      "provision_set": {
+        "provides_to": [],
+        "requires_from": [],
+        "provided_values": []
+      },
+      "baseline_allocation": "High",
+      "impact_factor": 1.0,
+      "scope": {
+        "actor": [
+          "system"
+        ],
+        "action": [
+          "prevent"
+        ],
+        "data_domain": [
+          "encrypted information"
+        ],
+        "context": []
+      },
+      "hazard": "Unauthorized flow of encrypted information may occur.",
+      "requirement": "Prevent encrypted information from bypassing flow control mechanisms.",
+      "conditions": [],
+      "exceptions": [],
+      "severity": "high",
+      "is_testable": true,
+      "testability": {
+        "evidence_signals": [
+          "access_check"
+        ],
+        "reason": "Automated enforcement mechanisms can be tested."
+      },
+      "authorized_personnel": [
+        "system_admin"
+      ]
+    },
+    {
+      "rule_id": "NIST-AC-5-a",
+      "source_citation": "AC-5(a)",
+      "control_family": "AC",
+      "control_title": "SEPARATION OF DUTIES",
+      "implemented_by": "organization",
+      "odp_assignments": [
+        {
+          "placeholder": "Assignment: organization-defined duties of individuals requiring separation",
+          "suggested_value": "separation duties"
+        }
+      ],
+      "related_controls": [],
+      "provision_set": {
+        "provides_to": [],
+        "requires_from": [],
+        "provided_values": []
+      },
+      "baseline_allocation": "Moderate",
+      "impact_factor": 0.8,
+      "scope": {
+        "actor": [
+          "organization"
+        ],
+        "action": [
+          "identify",
+          "document"
+        ],
+        "data_domain": [
+          "duties"
+        ],
+        "context": []
+      },
+      "hazard": "Failure to separate duties may lead to unauthorized actions.",
+      "requirement": "Identify and document duties requiring separation.",
+      "conditions": [],
+      "exceptions": [],
+      "severity": "high",
+      "is_testable": false,
+      "testability": {
+        "evidence_signals": [],
+        "reason": "Requires human action and documentation."
+      },
+      "authorized_personnel": [
+        "security_officer"
+      ]
+    },
+    {
+      "rule_id": "NIST-AC-5-b",
+      "source_citation": "AC-5(b)",
+      "control_family": "AC",
+      "control_title": "SEPARATION OF DUTIES",
+      "implemented_by": "organization",
+      "odp_assignments": [],
+      "related_controls": [],
+      "provision_set": {
+        "provides_to": [],
+        "requires_from": [],
+        "provided_values": []
+      },
+      "baseline_allocation": "Moderate",
+      "impact_factor": 0.8,
+      "scope": {
+        "actor": [
+          "organization"
+        ],
+        "action": [
+          "define"
+        ],
+        "data_domain": [
+          "system access authorizations"
+        ],
+        "context": []
+      },
+      "hazard": "Lack of defined access authorizations may lead to unauthorized actions.",
+      "requirement": "Define system access authorizations to support separation of duties.",
+      "conditions": [],
+      "exceptions": [],
+      "severity": "high",
+      "is_testable": false,
+      "testability": {
+        "evidence_signals": [],
+        "reason": "Requires human action and documentation."
+      },
+      "authorized_personnel": [
+        "security_officer"
+      ]
+    },
+    {
+      "rule_id": "NIST-AC-6",
+      "source_citation": "AC-6",
+      "control_family": "AC",
+      "control_title": "LEAST PRIVILEGE",
+      "implemented_by": "system",
+      "odp_assignments": [],
+      "related_controls": [],
+      "provision_set": {
+        "provides_to": [],
+        "requires_from": [],
+        "provided_values": []
+      },
+      "baseline_allocation": "High",
+      "impact_factor": 1.0,
+      "scope": {
+        "actor": [
+          "system"
+        ],
+        "action": [
+          "employ"
+        ],
+        "data_domain": [
+          "user accesses"
+        ],
+        "context": []
+      },
+      "hazard": "Excessive privileges may lead to unauthorized actions.",
+      "requirement": "Employ the principle of least privilege.",
+      "conditions": [],
+      "exceptions": [],
+      "severity": "high",
+      "is_testable": true,
+      "testability": {
+        "evidence_signals": [
+          "access_check"
+        ],
+        "reason": "Automated enforcement mechanisms can be tested."
+      },
+      "authorized_personnel": [
+        "system_admin"
+      ]
+    },
+    {
+      "rule_id": "NIST-AC-6-1",
+      "source_citation": "AC-6(1)",
+      "control_family": "AC",
+      "control_title": "LEAST PRIVILEGE | AUTHORIZE ACCESS TO SECURITY FUNCTIONS",
+      "implemented_by": "organization",
+      "odp_assignments": [
+        {
+          "placeholder": "Assignment: organization-defined security functions",
+          "suggested_value": "security functions"
+        },
+        {
+          "placeholder": "Assignment: organization-defined security-relevant information",
+          "suggested_value": "security-relevant data"
+        },
+        {
+          "placeholder": "Assignment: organization-defined authorized personnel or roles",
+          "suggested_value": "security personnel"
+        }
+      ],
+      "related_controls": [],
+      "provision_set": {
+        "provides_to": [],
+        "requires_from": [],
+        "provided_values": []
+      },
+      "baseline_allocation": "High",
+      "impact_factor": 1.0,
+      "scope": {
+        "actor": [
+          "organization"
+        ],
+        "action": [
+          "authorize"
+        ],
+        "data_domain": [
+          "security functions",
+          "security-relevant information"
+        ],
+        "context": []
+      },
+      "hazard": "Unauthorized access to security functions may lead to security breaches.",
+      "requirement": "Authorize access to security functions and relevant information.",
+      "conditions": [],
+      "exceptions": [],
+      "severity": "high",
+      "is_testable": false,
+      "testability": {
+        "evidence_signals": [],
+        "reason": "Requires human action and documentation."
+      },
+      "authorized_personnel": [
+        "security_personnel"
+      ]
+    },
+    {
+      "rule_id": "NIST-AC-6-2",
+      "source_citation": "AC-6(2)",
+      "control_family": "AC",
+      "control_title": "LEAST PRIVILEGE | NON-PRIVILEGED ACCESS FOR NONSECURITY FUNCTIONS",
+      "implemented_by": "organization",
+      "odp_assignments": [],
+      "related_controls": [],
+      "provision_set": {
+        "provides_to": [],
+        "requires_from": [],
+        "provided_values": []
+      },
+      "baseline_allocation": "Moderate",
+      "impact_factor": 0.8,
+      "scope": {
+        "actor": [
+          "organization"
+        ],
+        "action": [
+          "require"
+        ],
+        "data_domain": [
+          "system accounts"
+        ],
+        "context": []
+      },
+      "hazard": "Non-privileged users may gain excessive access.",
+      "requirement": "Require non-privileged accounts for nonsecurity functions.",
+      "conditions": [],
+      "exceptions": [],
+      "severity": "high",
+      "is_testable": false,
+      "testability": {
+        "evidence_signals": [],
+        "reason": "Requires human action and documentation."
+      },
+      "authorized_personnel": [
+        "security_personnel"
+      ]
+    },
+    {
+      "rule_id": "NIST-AC-6-5",
+      "source_citation": "AC-6(5)",
+      "control_family": "AC",
+      "control_title": "LEAST PRIVILEGE | PRIVILEGED ACCOUNTS",
+      "implemented_by": "organization",
+      "odp_assignments": [
+        {
+          "placeholder": "Assignment: organization-defined personnel or roles",
+          "suggested_value": "privileged users"
+        }
+      ],
+      "related_controls": [],
+      "provision_set": {
+        "provides_to": [],
+        "requires_from": [],
+        "provided_values": []
+      },
+      "baseline_allocation": "High",
+      "impact_factor": 1.0,
+      "scope": {
+        "actor": [
+          "organization"
+        ],
+        "action": [
+          "restrict"
+        ],
+        "data_domain": [
+          "privileged accounts"
+        ],
+        "context": []
+      },
+      "hazard": "Unrestricted privileged accounts may lead to unauthorized actions.",
+      "requirement": "Restrict privileged accounts to authorized personnel.",
+      "conditions": [],
+      "exceptions": [],
+      "severity": "high",
+      "is_testable": false,
+      "testability": {
+        "evidence_signals": [],
+        "reason": "Requires human action and documentation."
+      },
+      "authorized_personnel": [
+        "privileged_users"
+      ]
+    },
+    {
+      "rule_id": "NIST-AC-6-9",
+      "source_citation": "AC-6(9)",
+      "control_family": "AC",
+      "control_title": "LEAST PRIVILEGE | LOG USE OF PRIVILEGED FUNCTIONS",
+      "implemented_by": "system",
+      "odp_assignments": [],
+      "related_controls": [],
+      "provision_set": {
+        "provides_to": [],
+        "requires_from": [],
+        "provided_values": []
+      },
+      "baseline_allocation": "High",
+      "impact_factor": 1.0,
+      "scope": {
+        "actor": [
+          "system"
+        ],
+        "action": [
+          "log"
+        ],
+        "data_domain": [
+          "privileged functions"
+        ],
+        "context": []
+      },
+      "hazard": "Failure to log may lead to undetected misuse of privileges.",
+      "requirement": "Log the execution of privileged functions.",
+      "conditions": [],
+      "exceptions": [],
+      "severity": "high",
+      "is_testable": true,
+      "testability": {
+        "evidence_signals": [
+          "log_check"
+        ],
+        "reason": "Automated logging mechanisms can be tested."
+      },
+      "authorized_personnel": [
+        "system_admin"
+      ]
+    },
+    {
+      "rule_id": "NIST-AC-6-10",
+      "source_citation": "AC-6(10)",
+      "control_family": "AC",
+      "control_title": "LEAST PRIVILEGE | PROHIBIT NON-PRIVILEGED USERS FROM EXECUTING PRIVILEGED FUNCTIONS",
+      "implemented_by": "system",
+      "odp_assignments": [],
+      "related_controls": [],
+      "provision_set": {
+        "provides_to": [],
+        "requires_from": [],
+        "provided_values": []
+      },
+      "baseline_allocation": "High",
+      "impact_factor": 1.0,
+      "scope": {
+        "actor": [
+          "system"
+        ],
+        "action": [
+          "prevent"
+        ],
+        "data_domain": [
+          "privileged functions"
+        ],
+        "context": []
+      },
+      "hazard": "Non-privileged users executing privileged functions may lead to security breaches.",
+      "requirement": "Prevent non-privileged users from executing privileged functions.",
+      "conditions": [],
+      "exceptions": [],
+      "severity": "high",
+      "is_testable": true,
+      "testability": {
+        "evidence_signals": [
+          "access_check"
+        ],
+        "reason": "Automated enforcement mechanisms can be tested."
+      },
+      "authorized_personnel": [
+        "system_admin"
+      ]
+    },
+    {
+      "rule_id": "NIST-AC-17-a",
+      "source_citation": "AC-17(a)",
+      "control_family": "AC",
+      "control_title": "REMOTE ACCESS",
+      "implemented_by": "organization",
+      "odp_assignments": [],
+      "related_controls": [],
+      "provision_set": {
+        "provides_to": [],
+        "requires_from": [],
+        "provided_values": []
+      },
+      "baseline_allocation": "Moderate",
+      "impact_factor": 0.8,
+      "scope": {
+        "actor": [
+          "organization"
+        ],
+        "action": [
+          "establish",
+          "document"
+        ],
+        "data_domain": [
+          "remote access"
+        ],
+        "context": []
+      },
+      "hazard": "Lack of documented remote access policies may lead to unauthorized access.",
+      "requirement": "Establish and document remote access restrictions and requirements.",
+      "conditions": [],
+      "exceptions": [],
+      "severity": "high",
+      "is_testable": false,
+      "testability": {
+        "evidence_signals": [],
+        "reason": "Requires human action and documentation."
+      },
+      "authorized_personnel": [
+        "network_admin"
+      ]
+    },
+    {
+      "rule_id": "NIST-AC-17-b",
+      "source_citation": "AC-17(b)",
+      "control_family": "AC",
+      "control_title": "REMOTE ACCESS",
+      "implemented_by": "organization",
+      "odp_assignments": [],
+      "related_controls": [],
+      "provision_set": {
+        "provides_to": [],
+        "requires_from": [],
+        "provided_values": []
+      },
+      "baseline_allocation": "Moderate",
+      "impact_factor": 0.8,
+      "scope": {
+        "actor": [
+          "organization"
+        ],
+        "action": [
+          "authorize"
+        ],
+        "data_domain": [
+          "remote access"
+        ],
+        "context": []
+      },
+      "hazard": "Unauthorized remote access may occur without proper authorization.",
+      "requirement": "Authorize each type of remote access prior to allowing connections.",
+      "conditions": [],
+      "exceptions": [],
+      "severity": "high",
+      "is_testable": false,
+      "testability": {
+        "evidence_signals": [],
+        "reason": "Requires human action and documentation."
+      },
+      "authorized_personnel": [
+        "network_admin"
+      ]
+    },
+    {
+      "rule_id": "NIST-AC-17-1",
+      "source_citation": "AC-17(1)",
+      "control_family": "AC",
+      "control_title": "REMOTE ACCESS | MONITORING AND CONTROL",
+      "implemented_by": "system",
+      "odp_assignments": [],
+      "related_controls": [],
+      "provision_set": {
+        "provides_to": [],
+        "requires_from": [],
+        "provided_values": []
+      },
+      "baseline_allocation": "High",
+      "impact_factor": 1.0,
+      "scope": {
+        "actor": [
+          "system"
+        ],
+        "action": [
+          "monitor",
+          "control"
+        ],
+        "data_domain": [
+          "remote access methods"
+        ],
+        "context": []
+      },
+      "hazard": "Lack of monitoring may lead to unauthorized remote access.",
+      "requirement": "Employ automated mechanisms to monitor and control remote access methods.",
+      "conditions": [],
+      "exceptions": [],
+      "severity": "high",
+      "is_testable": true,
+      "testability": {
+        "evidence_signals": [
+          "access_check"
+        ],
+        "reason": "Automated monitoring mechanisms can be tested."
+      },
+      "authorized_personnel": [
+        "system_admin"
+      ]
+    },
+    {
+      "rule_id": "NIST-AC-17-2",
+      "source_citation": "AC-17(2)",
+      "control_family": "AC",
+      "control_title": "REMOTE ACCESS | PROTECTION OF CONFIDENTIALITY AND INTEGRITY USING ENCRYPTION",
+      "implemented_by": "system",
+      "odp_assignments": [],
+      "related_controls": [],
+      "provision_set": {
+        "provides_to": [],
+        "requires_from": [],
+        "provided_values": []
+      },
+      "baseline_allocation": "High",
+      "impact_factor": 1.0,
+      "scope": {
+        "actor": [
+          "system"
+        ],
+        "action": [
+          "implement"
+        ],
+        "data_domain": [
+          "remote access sessions"
+        ],
+        "context": []
+      },
+      "hazard": "Unencrypted remote access may lead to data breaches.",
+      "requirement": "Implement cryptographic mechanisms to protect remote access sessions.",
+      "conditions": [],
+      "exceptions": [],
+      "severity": "high",
+      "is_testable": true,
+      "testability": {
+        "evidence_signals": [
+          "access_check"
+        ],
+        "reason": "Automated encryption mechanisms can be tested."
+      },
+      "authorized_personnel": [
+        "system_admin"
+      ]
+    },
+    {
+      "rule_id": "NIST-AC-24",
+      "source_citation": "AC-24",
+      "control_family": "AC",
+      "control_title": "ACCESS CONTROL DECISIONS",
+      "implemented_by": "both",
+      "odp_assignments": [
+        {
+          "placeholder": "Assignment: organization-defined access control decisions",
+          "suggested_value": "access control policies"
+        }
+      ],
+      "related_controls": [],
+      "provision_set": {
+        "provides_to": [],
+        "requires_from": [],
+        "provided_values": []
+      },
+      "baseline_allocation": "Moderate",
+      "impact_factor": 0.8,
+      "scope": {
+        "actor": [
+          "system",
+          "organization"
+        ],
+        "action": [
+          "establish",
+          "implement"
+        ],
+        "data_domain": [
+          "access requests"
+        ],
+        "context": []
+      },
+      "hazard": "Failure to apply access control decisions may lead to unauthorized access.",
+      "requirement": "Establish procedures to ensure access control decisions are applied.",
+      "conditions": [],
+      "exceptions": [],
+      "severity": "high",
+      "is_testable": false,
+      "testability": {
+        "evidence_signals": [],
+        "reason": "Requires human action and documentation."
+      },
+      "authorized_personnel": [
+        "security_officer"
+      ]
+    }
+  ]
+}
