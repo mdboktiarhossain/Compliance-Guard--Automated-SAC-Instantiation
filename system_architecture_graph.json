@@ -1,0 +1,2166 @@
+{
+  "graph_id": "compliance_guard_architecture",
+  "version": "2.0",
+  "description": "Labeled Property Graph (LPG) of the Enterprise Microservice Platform for SAC-based compliance assessment.",
+  "created": "2026-06-04",
+  "nodes": [
+    {
+      "id": "api-gateway",
+      "label": "Service",
+      "properties": {
+        "name": "API Gateway",
+        "port": 8000,
+        "status": "active",
+        "is_alternative": false,
+        "alternative_for": null,
+        "rbac_enabled": true,
+        "audit_logging": true,
+        "encryption": "TLS",
+        "access_control": "token-based",
+        "mfa_support": false,
+        "privilege_separation": false,
+        "information_flow_control": true,
+        "nist_controls": [
+          "AC-3",
+          "AC-4",
+          "AC-4(1)"
+        ]
+      }
+    },
+    {
+      "id": "auth-service",
+      "label": "Service",
+      "properties": {
+        "name": "Authentication Service",
+        "port": 8001,
+        "status": "active",
+        "is_alternative": false,
+        "alternative_for": null,
+        "rbac_enabled": true,
+        "audit_logging": true,
+        "encryption": "JWT",
+        "access_control": "role-based",
+        "mfa_support": false,
+        "privilege_separation": true,
+        "least_privilege": true,
+        "nist_controls": [
+          "AC-2",
+          "AC-2(a)",
+          "AC-3",
+          "AC-3(7)",
+          "AC-6",
+          "AC-6(1)",
+          "AC-6(2)"
+        ]
+      }
+    },
+    {
+      "id": "auth-service-v2",
+      "label": "Service",
+      "properties": {
+        "name": "Authentication Service v2 (MFA)",
+        "port": 8011,
+        "status": "inactive",
+        "is_alternative": true,
+        "alternative_for": "auth-service",
+        "rbac_enabled": true,
+        "audit_logging": true,
+        "encryption": "JWT+MFA",
+        "access_control": "role-based+attribute-based",
+        "mfa_support": true,
+        "privilege_separation": true,
+        "least_privilege": true,
+        "privileged_function_logging": true,
+        "nist_controls": [
+          "AC-2",
+          "AC-2(a)",
+          "AC-2(g)",
+          "AC-3",
+          "AC-3(7)",
+          "AC-5",
+          "AC-6",
+          "AC-6(1)",
+          "AC-6(2)",
+          "AC-6(5)",
+          "AC-6(9)",
+          "AC-6(10)"
+        ]
+      }
+    },
+    {
+      "id": "user-service",
+      "label": "Service",
+      "properties": {
+        "name": "User Management Service",
+        "port": 8002,
+        "status": "active",
+        "is_alternative": false,
+        "alternative_for": null,
+        "rbac_enabled": true,
+        "audit_logging": true,
+        "encryption": "AES-256",
+        "access_control": "role-based",
+        "mfa_support": false,
+        "privilege_separation": false,
+        "nist_controls": [
+          "AC-2",
+          "AC-2(a)",
+          "AC-2(b)",
+          "AC-2(f)",
+          "AC-2(h)"
+        ]
+      }
+    },
+    {
+      "id": "user-service-replica",
+      "label": "Service",
+      "properties": {
+        "name": "User Management Service (Replica)",
+        "port": 8012,
+        "status": "inactive",
+        "is_alternative": true,
+        "alternative_for": "user-service",
+        "rbac_enabled": true,
+        "audit_logging": true,
+        "encryption": "AES-256",
+        "access_control": "role-based",
+        "mfa_support": false,
+        "privilege_separation": false,
+        "usage_monitoring": true,
+        "nist_controls": [
+          "AC-2",
+          "AC-2(a)",
+          "AC-2(b)",
+          "AC-2(f)",
+          "AC-2(g)",
+          "AC-2(h)",
+          "AC-2(j)"
+        ]
+      }
+    },
+    {
+      "id": "product-service",
+      "label": "Service",
+      "properties": {
+        "name": "Product Catalog Service",
+        "port": 8003,
+        "status": "active",
+        "is_alternative": false,
+        "alternative_for": null,
+        "rbac_enabled": false,
+        "audit_logging": true,
+        "encryption": "TLS",
+        "access_control": "attribute-based",
+        "mfa_support": false,
+        "privilege_separation": false,
+        "information_flow_control": true,
+        "nist_controls": [
+          "AC-4",
+          "AC-4(1)",
+          "AC-4(4)"
+        ]
+      }
+    },
+    {
+      "id": "catalog-service",
+      "label": "Service",
+      "properties": {
+        "name": "Enhanced Catalog Service",
+        "port": 8013,
+        "status": "inactive",
+        "is_alternative": true,
+        "alternative_for": "product-service",
+        "rbac_enabled": true,
+        "audit_logging": true,
+        "encryption": "TLS+AES",
+        "access_control": "attribute-based",
+        "mfa_support": false,
+        "privilege_separation": false,
+        "information_flow_control": true,
+        "security_attributes": true,
+        "encrypted_flow_protection": true,
+        "nist_controls": [
+          "AC-3",
+          "AC-4",
+          "AC-4(1)",
+          "AC-4(4)"
+        ]
+      }
+    },
+    {
+      "id": "order-service",
+      "label": "Service",
+      "properties": {
+        "name": "Order Processing Service",
+        "port": 8004,
+        "status": "active",
+        "is_alternative": false,
+        "alternative_for": null,
+        "rbac_enabled": true,
+        "audit_logging": false,
+        "encryption": "TLS",
+        "access_control": "role-based",
+        "mfa_support": false,
+        "privilege_separation": true,
+        "separation_of_duties": true,
+        "nist_controls": [
+          "AC-3",
+          "AC-5",
+          "AC-5(a)",
+          "AC-5(b)"
+        ]
+      }
+    },
+    {
+      "id": "order-service-v2",
+      "label": "Service",
+      "properties": {
+        "name": "Order Processing Service v2",
+        "port": 8014,
+        "status": "inactive",
+        "is_alternative": true,
+        "alternative_for": "order-service",
+        "rbac_enabled": true,
+        "audit_logging": true,
+        "encryption": "TLS",
+        "access_control": "role-based",
+        "mfa_support": false,
+        "privilege_separation": true,
+        "separation_of_duties": true,
+        "order_audit_trail": true,
+        "nist_controls": [
+          "AC-3",
+          "AC-3(8)",
+          "AC-5",
+          "AC-5(a)",
+          "AC-5(b)",
+          "AC-2(e)",
+          "AC-24"
+        ]
+      }
+    },
+    {
+      "id": "notification-service",
+      "label": "Service",
+      "properties": {
+        "name": "Notification Service",
+        "port": 8025,
+        "status": "active",
+        "is_alternative": false,
+        "alternative_for": null,
+        "rbac_enabled": false,
+        "audit_logging": false,
+        "encryption": "TLS",
+        "access_control": "token-based",
+        "mfa_support": false,
+        "privilege_separation": false,
+        "remote_access_control": true,
+        "crypto_protection": false,
+        "nist_controls": [
+          "AC-17",
+          "AC-17(a)",
+          "AC-17(b)"
+        ]
+      }
+    },
+    {
+      "id": "email-service",
+      "label": "Service",
+      "properties": {
+        "name": "Email Notification Service",
+        "port": 8015,
+        "status": "inactive",
+        "is_alternative": true,
+        "alternative_for": "notification-service",
+        "rbac_enabled": true,
+        "audit_logging": true,
+        "encryption": "TLS+SMIME",
+        "access_control": "token-based",
+        "mfa_support": false,
+        "privilege_separation": false,
+        "remote_access_control": true,
+        "crypto_protection": true,
+        "session_monitoring": true,
+        "nist_controls": [
+          "AC-17",
+          "AC-17(a)",
+          "AC-17(b)",
+          "AC-17(1)",
+          "AC-17(2)"
+        ]
+      }
+    },
+    {
+      "id": "audit-service",
+      "label": "Service",
+      "properties": {
+        "name": "Audit & Compliance Service",
+        "port": 8006,
+        "status": "active",
+        "is_alternative": false,
+        "alternative_for": null,
+        "rbac_enabled": true,
+        "audit_logging": true,
+        "encryption": "AES-256",
+        "access_control": "role-based",
+        "mfa_support": false,
+        "privilege_separation": true,
+        "privileged_function_logging": true,
+        "account_usage_monitoring": true,
+        "nist_controls": [
+          "AC-6(9)",
+          "AC-2(g)",
+          "AC-2(j)"
+        ]
+      }
+    },
+    {
+      "id": "logging-service",
+      "label": "Service",
+      "properties": {
+        "name": "Distributed Logging Service",
+        "port": 8016,
+        "status": "inactive",
+        "is_alternative": true,
+        "alternative_for": "audit-service",
+        "rbac_enabled": true,
+        "audit_logging": true,
+        "encryption": "AES-256",
+        "access_control": "role-based",
+        "mfa_support": false,
+        "privilege_separation": true,
+        "privileged_function_logging": true,
+        "account_usage_monitoring": true,
+        "non_privileged_enforcement": true,
+        "real_time_alerts": true,
+        "nist_controls": [
+          "AC-6(9)",
+          "AC-6(10)",
+          "AC-2(g)",
+          "AC-2(j)",
+          "AC-2(k)"
+        ]
+      }
+    },
+    {
+      "id": "fn-api-gateway-request-router",
+      "label": "Function",
+      "properties": {
+        "name": "Request Router",
+        "type": "routing",
+        "belongs_to": "api-gateway"
+      }
+    },
+    {
+      "id": "fn-api-gateway-rate-limiter",
+      "label": "Function",
+      "properties": {
+        "name": "Rate Limiter",
+        "type": "access_control",
+        "belongs_to": "api-gateway"
+      }
+    },
+    {
+      "id": "fn-api-gateway-access-enforcer",
+      "label": "Function",
+      "properties": {
+        "name": "Access Enforcer",
+        "type": "enforcement",
+        "belongs_to": "api-gateway"
+      }
+    },
+    {
+      "id": "fn-api-gateway-flow-controller",
+      "label": "Function",
+      "properties": {
+        "name": "Information Flow Controller",
+        "type": "information_flow",
+        "belongs_to": "api-gateway"
+      }
+    },
+    {
+      "id": "fn-auth-rbac-enforcer",
+      "label": "Function",
+      "properties": {
+        "name": "RBAC Enforcer",
+        "type": "access_control",
+        "belongs_to": "auth-service"
+      }
+    },
+    {
+      "id": "fn-auth-account-manager",
+      "label": "Function",
+      "properties": {
+        "name": "Account Manager",
+        "type": "account_management",
+        "belongs_to": "auth-service"
+      }
+    },
+    {
+      "id": "fn-auth-token-issuer",
+      "label": "Function",
+      "properties": {
+        "name": "Token Issuer",
+        "type": "authentication",
+        "belongs_to": "auth-service"
+      }
+    },
+    {
+      "id": "fn-auth-session-logger",
+      "label": "Function",
+      "properties": {
+        "name": "Session Logger",
+        "type": "logging",
+        "belongs_to": "auth-service"
+      }
+    },
+    {
+      "id": "fn-authv2-rbac-enforcer",
+      "label": "Function",
+      "properties": {
+        "name": "RBAC Enforcer",
+        "type": "access_control",
+        "belongs_to": "auth-service-v2",
+        "has_evidence": true,
+        "evidence_list": [
+          {"type": "log",       "description": "log of connection request",        "solution_id": "M1Sn1"},
+          {"type": "log",       "description": "log of auth decision",             "solution_id": "M1Sn2"},
+          {"type": "test_case", "description": "test cases of apply authorization", "solution_id": "M2Sn2"},
+          {"type": "log",       "description": "log of send data",                 "solution_id": "M2Sn3"}
+        ]
+      }
+    },
+    {
+      "id": "fn-authv2-account-manager",
+      "label": "Function",
+      "properties": {
+        "name": "Account Manager",
+        "type": "account_management",
+        "belongs_to": "auth-service-v2",
+        "has_evidence": true,
+        "evidence_list": [
+          {"type": "log",       "description": "log of account creation event",    "solution_id": "AccSn1"},
+          {"type": "log",       "description": "log of account disable event",     "solution_id": "AccSn2"},
+          {"type": "audit",     "description": "audit record of role assignment",  "solution_id": "AccSn3"}
+        ]
+      }
+    },
+    {
+      "id": "fn-authv2-token-issuer",
+      "label": "Function",
+      "properties": {
+        "name": "Token Issuer (MFA)",
+        "type": "authentication",
+        "belongs_to": "auth-service-v2",
+        "has_evidence": true,
+        "evidence_list": [
+          {"type": "test_case", "description": "test cases of MFA token issuance",  "solution_id": "TokSn1"},
+          {"type": "log",       "description": "log of token validation decision",  "solution_id": "TokSn2"},
+          {"type": "log",       "description": "log of token revocation event",     "solution_id": "TokSn3"}
+        ]
+      }
+    },
+    {
+      "id": "fn-authv2-session-logger",
+      "label": "Function",
+      "properties": {
+        "name": "Session Logger",
+        "type": "logging",
+        "belongs_to": "auth-service-v2",
+        "has_evidence": true,
+        "evidence_list": [
+          {"type": "audit",     "description": "audit trail of all session events",         "solution_id": "LogSn1"},
+          {"type": "log",       "description": "log of privileged function invocations",     "solution_id": "LogSn2"},
+          {"type": "trace",     "description": "execution trace of session lifecycle",       "solution_id": "LogSn3"}
+        ]
+      }
+    },
+    {
+      "id": "fn-authv2-privilege-monitor",
+      "label": "Function",
+      "properties": {
+        "name": "Privilege Monitor",
+        "type": "monitoring",
+        "belongs_to": "auth-service-v2",
+        "has_evidence": true,
+        "evidence_list": [
+          {"type": "log",       "description": "log of privilege escalation attempts",   "solution_id": "MonSn1"},
+          {"type": "alert",     "description": "real-time alert on anomaly detection",   "solution_id": "MonSn2"}
+        ]
+      }
+    },
+    {
+      "id": "fn-user-profile-manager",
+      "label": "Function",
+      "properties": {
+        "name": "Profile Manager",
+        "type": "data_management",
+        "belongs_to": "user-service"
+      }
+    },
+    {
+      "id": "fn-user-account-lifecycle",
+      "label": "Function",
+      "properties": {
+        "name": "Account Lifecycle Manager",
+        "type": "account_management",
+        "belongs_to": "user-service"
+      }
+    },
+    {
+      "id": "fn-userrep-profile-manager",
+      "label": "Function",
+      "properties": {
+        "name": "Profile Manager",
+        "type": "data_management",
+        "belongs_to": "user-service-replica"
+      }
+    },
+    {
+      "id": "fn-userrep-account-lifecycle",
+      "label": "Function",
+      "properties": {
+        "name": "Account Lifecycle Manager",
+        "type": "account_management",
+        "belongs_to": "user-service-replica"
+      }
+    },
+    {
+      "id": "fn-userrep-usage-monitor",
+      "label": "Function",
+      "properties": {
+        "name": "Usage Monitor",
+        "type": "monitoring",
+        "belongs_to": "user-service-replica"
+      }
+    },
+    {
+      "id": "fn-product-catalog-reader",
+      "label": "Function",
+      "properties": {
+        "name": "Catalog Reader",
+        "type": "data_access",
+        "belongs_to": "product-service"
+      }
+    },
+    {
+      "id": "fn-product-flow-enforcer",
+      "label": "Function",
+      "properties": {
+        "name": "Information Flow Enforcer",
+        "type": "information_flow",
+        "belongs_to": "product-service"
+      }
+    },
+    {
+      "id": "fn-catalog-catalog-reader",
+      "label": "Function",
+      "properties": {
+        "name": "Catalog Reader",
+        "type": "data_access",
+        "belongs_to": "catalog-service"
+      }
+    },
+    {
+      "id": "fn-catalog-flow-enforcer",
+      "label": "Function",
+      "properties": {
+        "name": "Information Flow Enforcer",
+        "type": "information_flow",
+        "belongs_to": "catalog-service"
+      }
+    },
+    {
+      "id": "fn-catalog-security-attr-manager",
+      "label": "Function",
+      "properties": {
+        "name": "Security Attribute Manager",
+        "type": "access_control",
+        "belongs_to": "catalog-service"
+      }
+    },
+    {
+      "id": "fn-order-order-processor",
+      "label": "Function",
+      "properties": {
+        "name": "Order Processor",
+        "type": "business_logic",
+        "belongs_to": "order-service"
+      }
+    },
+    {
+      "id": "fn-order-duty-separator",
+      "label": "Function",
+      "properties": {
+        "name": "Duty Separator",
+        "type": "access_control",
+        "belongs_to": "order-service"
+      }
+    },
+    {
+      "id": "fn-orderv2-order-processor",
+      "label": "Function",
+      "properties": {
+        "name": "Order Processor",
+        "type": "business_logic",
+        "belongs_to": "order-service-v2"
+      }
+    },
+    {
+      "id": "fn-orderv2-duty-separator",
+      "label": "Function",
+      "properties": {
+        "name": "Duty Separator",
+        "type": "access_control",
+        "belongs_to": "order-service-v2"
+      }
+    },
+    {
+      "id": "fn-orderv2-order-auditor",
+      "label": "Function",
+      "properties": {
+        "name": "Order Auditor",
+        "type": "logging",
+        "belongs_to": "order-service-v2"
+      }
+    },
+    {
+      "id": "fn-notif-push-sender",
+      "label": "Function",
+      "properties": {
+        "name": "Push Notification Sender",
+        "type": "notification",
+        "belongs_to": "notification-service"
+      }
+    },
+    {
+      "id": "fn-notif-remote-access-controller",
+      "label": "Function",
+      "properties": {
+        "name": "Remote Access Controller",
+        "type": "access_control",
+        "belongs_to": "notification-service"
+      }
+    },
+    {
+      "id": "fn-email-email-sender",
+      "label": "Function",
+      "properties": {
+        "name": "Secure Email Sender",
+        "type": "notification",
+        "belongs_to": "email-service"
+      }
+    },
+    {
+      "id": "fn-email-remote-access-controller",
+      "label": "Function",
+      "properties": {
+        "name": "Remote Access Controller",
+        "type": "access_control",
+        "belongs_to": "email-service"
+      }
+    },
+    {
+      "id": "fn-email-session-encryptor",
+      "label": "Function",
+      "properties": {
+        "name": "Session Encryptor",
+        "type": "security",
+        "belongs_to": "email-service"
+      }
+    },
+    {
+      "id": "fn-audit-privileged-logger",
+      "label": "Function",
+      "properties": {
+        "name": "Privileged Function Logger",
+        "type": "logging",
+        "belongs_to": "audit-service"
+      }
+    },
+    {
+      "id": "fn-audit-account-reviewer",
+      "label": "Function",
+      "properties": {
+        "name": "Account Usage Reviewer",
+        "type": "monitoring",
+        "belongs_to": "audit-service"
+      }
+    },
+    {
+      "id": "fn-logging-privileged-logger",
+      "label": "Function",
+      "properties": {
+        "name": "Privileged Function Logger",
+        "type": "logging",
+        "belongs_to": "logging-service"
+      }
+    },
+    {
+      "id": "fn-logging-account-reviewer",
+      "label": "Function",
+      "properties": {
+        "name": "Account Usage Reviewer",
+        "type": "monitoring",
+        "belongs_to": "logging-service"
+      }
+    },
+    {
+      "id": "fn-logging-non-priv-enforcer",
+      "label": "Function",
+      "properties": {
+        "name": "Non-Privileged Acct Enforcer",
+        "type": "access_control",
+        "belongs_to": "logging-service"
+      }
+    },
+    {
+      "id": "cap-route-requests",
+      "label": "Capability",
+      "properties": {
+        "capability_name": "route-requests"
+      }
+    },
+    {
+      "id": "cap-load-balancing",
+      "label": "Capability",
+      "properties": {
+        "capability_name": "load-balancing"
+      }
+    },
+    {
+      "id": "cap-rate-limiting",
+      "label": "Capability",
+      "properties": {
+        "capability_name": "rate-limiting"
+      }
+    },
+    {
+      "id": "cap-throttling",
+      "label": "Capability",
+      "properties": {
+        "capability_name": "throttling"
+      }
+    },
+    {
+      "id": "cap-enforce-access-control",
+      "label": "Capability",
+      "properties": {
+        "capability_name": "enforce-access-control"
+      }
+    },
+    {
+      "id": "cap-validate-tokens",
+      "label": "Capability",
+      "properties": {
+        "capability_name": "validate-tokens"
+      }
+    },
+    {
+      "id": "cap-control-information-flow",
+      "label": "Capability",
+      "properties": {
+        "capability_name": "control-information-flow"
+      }
+    },
+    {
+      "id": "cap-filter-requests",
+      "label": "Capability",
+      "properties": {
+        "capability_name": "filter-requests"
+      }
+    },
+    {
+      "id": "cap-role-based-access",
+      "label": "Capability",
+      "properties": {
+        "capability_name": "role-based-access"
+      }
+    },
+    {
+      "id": "cap-permission-check",
+      "label": "Capability",
+      "properties": {
+        "capability_name": "permission-check"
+      }
+    },
+    {
+      "id": "cap-attribute-based-access",
+      "label": "Capability",
+      "properties": {
+        "capability_name": "attribute-based-access"
+      }
+    },
+    {
+      "id": "cap-create-account",
+      "label": "Capability",
+      "properties": {
+        "capability_name": "create-account"
+      }
+    },
+    {
+      "id": "cap-disable-account",
+      "label": "Capability",
+      "properties": {
+        "capability_name": "disable-account"
+      }
+    },
+    {
+      "id": "cap-modify-account",
+      "label": "Capability",
+      "properties": {
+        "capability_name": "modify-account"
+      }
+    },
+    {
+      "id": "cap-review-accounts",
+      "label": "Capability",
+      "properties": {
+        "capability_name": "review-accounts"
+      }
+    },
+    {
+      "id": "cap-issue-jwt",
+      "label": "Capability",
+      "properties": {
+        "capability_name": "issue-jwt"
+      }
+    },
+    {
+      "id": "cap-validate-jwt",
+      "label": "Capability",
+      "properties": {
+        "capability_name": "validate-jwt"
+      }
+    },
+    {
+      "id": "cap-revoke-token",
+      "label": "Capability",
+      "properties": {
+        "capability_name": "revoke-token"
+      }
+    },
+    {
+      "id": "cap-mfa-verification",
+      "label": "Capability",
+      "properties": {
+        "capability_name": "mfa-verification"
+      }
+    },
+    {
+      "id": "cap-audit-trail",
+      "label": "Capability",
+      "properties": {
+        "capability_name": "audit-trail"
+      }
+    },
+    {
+      "id": "cap-session-tracking",
+      "label": "Capability",
+      "properties": {
+        "capability_name": "session-tracking"
+      }
+    },
+    {
+      "id": "cap-privileged-function-log",
+      "label": "Capability",
+      "properties": {
+        "capability_name": "privileged-function-log"
+      }
+    },
+    {
+      "id": "cap-monitor-privileged-access",
+      "label": "Capability",
+      "properties": {
+        "capability_name": "monitor-privileged-access"
+      }
+    },
+    {
+      "id": "cap-detect-privilege-escalation",
+      "label": "Capability",
+      "properties": {
+        "capability_name": "detect-privilege-escalation"
+      }
+    },
+    {
+      "id": "cap-create-profile",
+      "label": "Capability",
+      "properties": {
+        "capability_name": "create-profile"
+      }
+    },
+    {
+      "id": "cap-update-profile",
+      "label": "Capability",
+      "properties": {
+        "capability_name": "update-profile"
+      }
+    },
+    {
+      "id": "cap-delete-profile",
+      "label": "Capability",
+      "properties": {
+        "capability_name": "delete-profile"
+      }
+    },
+    {
+      "id": "cap-activate-account",
+      "label": "Capability",
+      "properties": {
+        "capability_name": "activate-account"
+      }
+    },
+    {
+      "id": "cap-deactivate-account",
+      "label": "Capability",
+      "properties": {
+        "capability_name": "deactivate-account"
+      }
+    },
+    {
+      "id": "cap-transfer-account",
+      "label": "Capability",
+      "properties": {
+        "capability_name": "transfer-account"
+      }
+    },
+    {
+      "id": "cap-monitor-account-usage",
+      "label": "Capability",
+      "properties": {
+        "capability_name": "monitor-account-usage"
+      }
+    },
+    {
+      "id": "cap-detect-anomalies",
+      "label": "Capability",
+      "properties": {
+        "capability_name": "detect-anomalies"
+      }
+    },
+    {
+      "id": "cap-read-catalog",
+      "label": "Capability",
+      "properties": {
+        "capability_name": "read-catalog"
+      }
+    },
+    {
+      "id": "cap-filter-products",
+      "label": "Capability",
+      "properties": {
+        "capability_name": "filter-products"
+      }
+    },
+    {
+      "id": "cap-enforce-flow-policy",
+      "label": "Capability",
+      "properties": {
+        "capability_name": "enforce-flow-policy"
+      }
+    },
+    {
+      "id": "cap-control-data-access",
+      "label": "Capability",
+      "properties": {
+        "capability_name": "control-data-access"
+      }
+    },
+    {
+      "id": "cap-search-products",
+      "label": "Capability",
+      "properties": {
+        "capability_name": "search-products"
+      }
+    },
+    {
+      "id": "cap-block-encrypted-bypass",
+      "label": "Capability",
+      "properties": {
+        "capability_name": "block-encrypted-bypass"
+      }
+    },
+    {
+      "id": "cap-manage-security-attributes",
+      "label": "Capability",
+      "properties": {
+        "capability_name": "manage-security-attributes"
+      }
+    },
+    {
+      "id": "cap-enforce-privacy-attrs",
+      "label": "Capability",
+      "properties": {
+        "capability_name": "enforce-privacy-attrs"
+      }
+    },
+    {
+      "id": "cap-create-order",
+      "label": "Capability",
+      "properties": {
+        "capability_name": "create-order"
+      }
+    },
+    {
+      "id": "cap-process-payment",
+      "label": "Capability",
+      "properties": {
+        "capability_name": "process-payment"
+      }
+    },
+    {
+      "id": "cap-separate-duties",
+      "label": "Capability",
+      "properties": {
+        "capability_name": "separate-duties"
+      }
+    },
+    {
+      "id": "cap-require-dual-approval",
+      "label": "Capability",
+      "properties": {
+        "capability_name": "require-dual-approval"
+      }
+    },
+    {
+      "id": "cap-cancel-order",
+      "label": "Capability",
+      "properties": {
+        "capability_name": "cancel-order"
+      }
+    },
+    {
+      "id": "cap-document-duties",
+      "label": "Capability",
+      "properties": {
+        "capability_name": "document-duties"
+      }
+    },
+    {
+      "id": "cap-audit-orders",
+      "label": "Capability",
+      "properties": {
+        "capability_name": "audit-orders"
+      }
+    },
+    {
+      "id": "cap-track-approvals",
+      "label": "Capability",
+      "properties": {
+        "capability_name": "track-approvals"
+      }
+    },
+    {
+      "id": "cap-log-access-revocation",
+      "label": "Capability",
+      "properties": {
+        "capability_name": "log-access-revocation"
+      }
+    },
+    {
+      "id": "cap-send-push",
+      "label": "Capability",
+      "properties": {
+        "capability_name": "send-push"
+      }
+    },
+    {
+      "id": "cap-manage-subscriptions",
+      "label": "Capability",
+      "properties": {
+        "capability_name": "manage-subscriptions"
+      }
+    },
+    {
+      "id": "cap-authorize-remote-access",
+      "label": "Capability",
+      "properties": {
+        "capability_name": "authorize-remote-access"
+      }
+    },
+    {
+      "id": "cap-restrict-remote-connections",
+      "label": "Capability",
+      "properties": {
+        "capability_name": "restrict-remote-connections"
+      }
+    },
+    {
+      "id": "cap-send-email",
+      "label": "Capability",
+      "properties": {
+        "capability_name": "send-email"
+      }
+    },
+    {
+      "id": "cap-encrypt-email",
+      "label": "Capability",
+      "properties": {
+        "capability_name": "encrypt-email"
+      }
+    },
+    {
+      "id": "cap-sign-email",
+      "label": "Capability",
+      "properties": {
+        "capability_name": "sign-email"
+      }
+    },
+    {
+      "id": "cap-monitor-remote-sessions",
+      "label": "Capability",
+      "properties": {
+        "capability_name": "monitor-remote-sessions"
+      }
+    },
+    {
+      "id": "cap-encrypt-remote-session",
+      "label": "Capability",
+      "properties": {
+        "capability_name": "encrypt-remote-session"
+      }
+    },
+    {
+      "id": "cap-verify-session-integrity",
+      "label": "Capability",
+      "properties": {
+        "capability_name": "verify-session-integrity"
+      }
+    },
+    {
+      "id": "cap-log-privileged-functions",
+      "label": "Capability",
+      "properties": {
+        "capability_name": "log-privileged-functions"
+      }
+    },
+    {
+      "id": "cap-detect-misuse",
+      "label": "Capability",
+      "properties": {
+        "capability_name": "detect-misuse"
+      }
+    },
+    {
+      "id": "cap-review-compliance",
+      "label": "Capability",
+      "properties": {
+        "capability_name": "review-compliance"
+      }
+    },
+    {
+      "id": "cap-real-time-alerts",
+      "label": "Capability",
+      "properties": {
+        "capability_name": "real-time-alerts"
+      }
+    },
+    {
+      "id": "cap-detect-violations",
+      "label": "Capability",
+      "properties": {
+        "capability_name": "detect-violations"
+      }
+    },
+    {
+      "id": "cap-enforce-non-privileged-accounts",
+      "label": "Capability",
+      "properties": {
+        "capability_name": "enforce-non-privileged-accounts"
+      }
+    },
+    {
+      "id": "cap-prevent-privilege-abuse",
+      "label": "Capability",
+      "properties": {
+        "capability_name": "prevent-privilege-abuse"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "source": "api-gateway",
+      "target": "auth-service",
+      "label": "DEPENDS_ON",
+      "properties": {
+        "dependency_type": "hard",
+        "protocol": "HTTP"
+      }
+    },
+    {
+      "source": "api-gateway",
+      "target": "user-service",
+      "label": "DEPENDS_ON",
+      "properties": {
+        "dependency_type": "hard",
+        "protocol": "HTTP"
+      }
+    },
+    {
+      "source": "api-gateway",
+      "target": "product-service",
+      "label": "DEPENDS_ON",
+      "properties": {
+        "dependency_type": "hard",
+        "protocol": "HTTP"
+      }
+    },
+    {
+      "source": "api-gateway",
+      "target": "order-service",
+      "label": "DEPENDS_ON",
+      "properties": {
+        "dependency_type": "hard",
+        "protocol": "HTTP"
+      }
+    },
+    {
+      "source": "api-gateway",
+      "target": "notification-service",
+      "label": "DEPENDS_ON",
+      "properties": {
+        "dependency_type": "soft",
+        "protocol": "HTTP"
+      }
+    },
+    {
+      "source": "user-service",
+      "target": "auth-service",
+      "label": "DEPENDS_ON",
+      "properties": {
+        "dependency_type": "hard",
+        "protocol": "HTTP"
+      }
+    },
+    {
+      "source": "product-service",
+      "target": "auth-service",
+      "label": "DEPENDS_ON",
+      "properties": {
+        "dependency_type": "hard",
+        "protocol": "HTTP"
+      }
+    },
+    {
+      "source": "order-service",
+      "target": "auth-service",
+      "label": "DEPENDS_ON",
+      "properties": {
+        "dependency_type": "hard",
+        "protocol": "HTTP"
+      }
+    },
+    {
+      "source": "order-service",
+      "target": "user-service",
+      "label": "DEPENDS_ON",
+      "properties": {
+        "dependency_type": "soft",
+        "protocol": "HTTP"
+      }
+    },
+    {
+      "source": "notification-service",
+      "target": "user-service",
+      "label": "DEPENDS_ON",
+      "properties": {
+        "dependency_type": "soft",
+        "protocol": "HTTP"
+      }
+    },
+    {
+      "source": "audit-service",
+      "target": "api-gateway",
+      "label": "DELEGATES_TO",
+      "properties": {
+        "scope": "access-event-logging"
+      }
+    },
+    {
+      "source": "audit-service",
+      "target": "auth-service",
+      "label": "DELEGATES_TO",
+      "properties": {
+        "scope": "authentication-event-logging"
+      }
+    },
+    {
+      "source": "audit-service",
+      "target": "order-service",
+      "label": "DELEGATES_TO",
+      "properties": {
+        "scope": "privileged-order-logging"
+      }
+    },
+    {
+      "source": "auth-service-v2",
+      "target": "auth-service",
+      "label": "CAN_REPLACE",
+      "properties": {
+        "capability_delta": "adds mfa-verification, attribute-based-access, privileged-function-log, monitor-privileged-access"
+      }
+    },
+    {
+      "source": "user-service-replica",
+      "target": "user-service",
+      "label": "CAN_REPLACE",
+      "properties": {
+        "capability_delta": "adds monitor-account-usage, detect-anomalies"
+      }
+    },
+    {
+      "source": "catalog-service",
+      "target": "product-service",
+      "label": "CAN_REPLACE",
+      "properties": {
+        "capability_delta": "adds block-encrypted-bypass, manage-security-attributes, enforce-privacy-attrs, rbac_enabled"
+      }
+    },
+    {
+      "source": "order-service-v2",
+      "target": "order-service",
+      "label": "CAN_REPLACE",
+      "properties": {
+        "capability_delta": "adds audit-orders, track-approvals, log-access-revocation, audit_logging"
+      }
+    },
+    {
+      "source": "email-service",
+      "target": "notification-service",
+      "label": "CAN_REPLACE",
+      "properties": {
+        "capability_delta": "adds encrypt-remote-session, verify-session-integrity, monitor-remote-sessions, crypto_protection"
+      }
+    },
+    {
+      "source": "logging-service",
+      "target": "audit-service",
+      "label": "CAN_REPLACE",
+      "properties": {
+        "capability_delta": "adds real-time-alerts, detect-violations, enforce-non-privileged-accounts, prevent-privilege-abuse"
+      }
+    },
+    {
+      "source": "api-gateway",
+      "target": "fn-api-gateway-request-router",
+      "label": "HAS_FUNCTION",
+      "properties": {}
+    },
+    {
+      "source": "api-gateway",
+      "target": "fn-api-gateway-rate-limiter",
+      "label": "HAS_FUNCTION",
+      "properties": {}
+    },
+    {
+      "source": "api-gateway",
+      "target": "fn-api-gateway-access-enforcer",
+      "label": "HAS_FUNCTION",
+      "properties": {}
+    },
+    {
+      "source": "api-gateway",
+      "target": "fn-api-gateway-flow-controller",
+      "label": "HAS_FUNCTION",
+      "properties": {}
+    },
+    {
+      "source": "auth-service",
+      "target": "fn-auth-rbac-enforcer",
+      "label": "HAS_FUNCTION",
+      "properties": {}
+    },
+    {
+      "source": "auth-service",
+      "target": "fn-auth-account-manager",
+      "label": "HAS_FUNCTION",
+      "properties": {}
+    },
+    {
+      "source": "auth-service",
+      "target": "fn-auth-token-issuer",
+      "label": "HAS_FUNCTION",
+      "properties": {}
+    },
+    {
+      "source": "auth-service",
+      "target": "fn-auth-session-logger",
+      "label": "HAS_FUNCTION",
+      "properties": {}
+    },
+    {
+      "source": "auth-service-v2",
+      "target": "fn-authv2-rbac-enforcer",
+      "label": "HAS_FUNCTION",
+      "properties": {}
+    },
+    {
+      "source": "auth-service-v2",
+      "target": "fn-authv2-account-manager",
+      "label": "HAS_FUNCTION",
+      "properties": {}
+    },
+    {
+      "source": "auth-service-v2",
+      "target": "fn-authv2-token-issuer",
+      "label": "HAS_FUNCTION",
+      "properties": {}
+    },
+    {
+      "source": "auth-service-v2",
+      "target": "fn-authv2-session-logger",
+      "label": "HAS_FUNCTION",
+      "properties": {}
+    },
+    {
+      "source": "auth-service-v2",
+      "target": "fn-authv2-privilege-monitor",
+      "label": "HAS_FUNCTION",
+      "properties": {}
+    },
+    {
+      "source": "user-service",
+      "target": "fn-user-profile-manager",
+      "label": "HAS_FUNCTION",
+      "properties": {}
+    },
+    {
+      "source": "user-service",
+      "target": "fn-user-account-lifecycle",
+      "label": "HAS_FUNCTION",
+      "properties": {}
+    },
+    {
+      "source": "user-service-replica",
+      "target": "fn-userrep-profile-manager",
+      "label": "HAS_FUNCTION",
+      "properties": {}
+    },
+    {
+      "source": "user-service-replica",
+      "target": "fn-userrep-account-lifecycle",
+      "label": "HAS_FUNCTION",
+      "properties": {}
+    },
+    {
+      "source": "user-service-replica",
+      "target": "fn-userrep-usage-monitor",
+      "label": "HAS_FUNCTION",
+      "properties": {}
+    },
+    {
+      "source": "product-service",
+      "target": "fn-product-catalog-reader",
+      "label": "HAS_FUNCTION",
+      "properties": {}
+    },
+    {
+      "source": "product-service",
+      "target": "fn-product-flow-enforcer",
+      "label": "HAS_FUNCTION",
+      "properties": {}
+    },
+    {
+      "source": "catalog-service",
+      "target": "fn-catalog-catalog-reader",
+      "label": "HAS_FUNCTION",
+      "properties": {}
+    },
+    {
+      "source": "catalog-service",
+      "target": "fn-catalog-flow-enforcer",
+      "label": "HAS_FUNCTION",
+      "properties": {}
+    },
+    {
+      "source": "catalog-service",
+      "target": "fn-catalog-security-attr-manager",
+      "label": "HAS_FUNCTION",
+      "properties": {}
+    },
+    {
+      "source": "order-service",
+      "target": "fn-order-order-processor",
+      "label": "HAS_FUNCTION",
+      "properties": {}
+    },
+    {
+      "source": "order-service",
+      "target": "fn-order-duty-separator",
+      "label": "HAS_FUNCTION",
+      "properties": {}
+    },
+    {
+      "source": "order-service-v2",
+      "target": "fn-orderv2-order-processor",
+      "label": "HAS_FUNCTION",
+      "properties": {}
+    },
+    {
+      "source": "order-service-v2",
+      "target": "fn-orderv2-duty-separator",
+      "label": "HAS_FUNCTION",
+      "properties": {}
+    },
+    {
+      "source": "order-service-v2",
+      "target": "fn-orderv2-order-auditor",
+      "label": "HAS_FUNCTION",
+      "properties": {}
+    },
+    {
+      "source": "notification-service",
+      "target": "fn-notif-push-sender",
+      "label": "HAS_FUNCTION",
+      "properties": {}
+    },
+    {
+      "source": "notification-service",
+      "target": "fn-notif-remote-access-controller",
+      "label": "HAS_FUNCTION",
+      "properties": {}
+    },
+    {
+      "source": "email-service",
+      "target": "fn-email-email-sender",
+      "label": "HAS_FUNCTION",
+      "properties": {}
+    },
+    {
+      "source": "email-service",
+      "target": "fn-email-remote-access-controller",
+      "label": "HAS_FUNCTION",
+      "properties": {}
+    },
+    {
+      "source": "email-service",
+      "target": "fn-email-session-encryptor",
+      "label": "HAS_FUNCTION",
+      "properties": {}
+    },
+    {
+      "source": "audit-service",
+      "target": "fn-audit-privileged-logger",
+      "label": "HAS_FUNCTION",
+      "properties": {}
+    },
+    {
+      "source": "audit-service",
+      "target": "fn-audit-account-reviewer",
+      "label": "HAS_FUNCTION",
+      "properties": {}
+    },
+    {
+      "source": "logging-service",
+      "target": "fn-logging-privileged-logger",
+      "label": "HAS_FUNCTION",
+      "properties": {}
+    },
+    {
+      "source": "logging-service",
+      "target": "fn-logging-account-reviewer",
+      "label": "HAS_FUNCTION",
+      "properties": {}
+    },
+    {
+      "source": "logging-service",
+      "target": "fn-logging-non-priv-enforcer",
+      "label": "HAS_FUNCTION",
+      "properties": {}
+    },
+    {
+      "source": "fn-api-gateway-request-router",
+      "target": "cap-route-requests",
+      "label": "HAS_CAPABILITY",
+      "properties": {}
+    },
+    {
+      "source": "fn-api-gateway-request-router",
+      "target": "cap-load-balancing",
+      "label": "HAS_CAPABILITY",
+      "properties": {}
+    },
+    {
+      "source": "fn-api-gateway-rate-limiter",
+      "target": "cap-rate-limiting",
+      "label": "HAS_CAPABILITY",
+      "properties": {}
+    },
+    {
+      "source": "fn-api-gateway-rate-limiter",
+      "target": "cap-throttling",
+      "label": "HAS_CAPABILITY",
+      "properties": {}
+    },
+    {
+      "source": "fn-api-gateway-access-enforcer",
+      "target": "cap-enforce-access-control",
+      "label": "HAS_CAPABILITY",
+      "properties": {}
+    },
+    {
+      "source": "fn-api-gateway-access-enforcer",
+      "target": "cap-validate-tokens",
+      "label": "HAS_CAPABILITY",
+      "properties": {}
+    },
+    {
+      "source": "fn-api-gateway-flow-controller",
+      "target": "cap-control-information-flow",
+      "label": "HAS_CAPABILITY",
+      "properties": {}
+    },
+    {
+      "source": "fn-api-gateway-flow-controller",
+      "target": "cap-filter-requests",
+      "label": "HAS_CAPABILITY",
+      "properties": {}
+    },
+    {
+      "source": "fn-auth-rbac-enforcer",
+      "target": "cap-role-based-access",
+      "label": "HAS_CAPABILITY",
+      "properties": {}
+    },
+    {
+      "source": "fn-auth-rbac-enforcer",
+      "target": "cap-permission-check",
+      "label": "HAS_CAPABILITY",
+      "properties": {}
+    },
+    {
+      "source": "fn-auth-account-manager",
+      "target": "cap-create-account",
+      "label": "HAS_CAPABILITY",
+      "properties": {}
+    },
+    {
+      "source": "fn-auth-account-manager",
+      "target": "cap-disable-account",
+      "label": "HAS_CAPABILITY",
+      "properties": {}
+    },
+    {
+      "source": "fn-auth-account-manager",
+      "target": "cap-modify-account",
+      "label": "HAS_CAPABILITY",
+      "properties": {}
+    },
+    {
+      "source": "fn-auth-token-issuer",
+      "target": "cap-issue-jwt",
+      "label": "HAS_CAPABILITY",
+      "properties": {}
+    },
+    {
+      "source": "fn-auth-token-issuer",
+      "target": "cap-validate-jwt",
+      "label": "HAS_CAPABILITY",
+      "properties": {}
+    },
+    {
+      "source": "fn-auth-token-issuer",
+      "target": "cap-revoke-token",
+      "label": "HAS_CAPABILITY",
+      "properties": {}
+    },
+    {
+      "source": "fn-auth-session-logger",
+      "target": "cap-audit-trail",
+      "label": "HAS_CAPABILITY",
+      "properties": {}
+    },
+    {
+      "source": "fn-auth-session-logger",
+      "target": "cap-session-tracking",
+      "label": "HAS_CAPABILITY",
+      "properties": {}
+    },
+    {
+      "source": "fn-authv2-rbac-enforcer",
+      "target": "cap-role-based-access",
+      "label": "HAS_CAPABILITY",
+      "properties": {}
+    },
+    {
+      "source": "fn-authv2-rbac-enforcer",
+      "target": "cap-permission-check",
+      "label": "HAS_CAPABILITY",
+      "properties": {}
+    },
+    {
+      "source": "fn-authv2-rbac-enforcer",
+      "target": "cap-attribute-based-access",
+      "label": "HAS_CAPABILITY",
+      "properties": {}
+    },
+    {
+      "source": "fn-authv2-account-manager",
+      "target": "cap-create-account",
+      "label": "HAS_CAPABILITY",
+      "properties": {}
+    },
+    {
+      "source": "fn-authv2-account-manager",
+      "target": "cap-disable-account",
+      "label": "HAS_CAPABILITY",
+      "properties": {}
+    },
+    {
+      "source": "fn-authv2-account-manager",
+      "target": "cap-modify-account",
+      "label": "HAS_CAPABILITY",
+      "properties": {}
+    },
+    {
+      "source": "fn-authv2-account-manager",
+      "target": "cap-review-accounts",
+      "label": "HAS_CAPABILITY",
+      "properties": {}
+    },
+    {
+      "source": "fn-authv2-token-issuer",
+      "target": "cap-issue-jwt",
+      "label": "HAS_CAPABILITY",
+      "properties": {}
+    },
+    {
+      "source": "fn-authv2-token-issuer",
+      "target": "cap-validate-jwt",
+      "label": "HAS_CAPABILITY",
+      "properties": {}
+    },
+    {
+      "source": "fn-authv2-token-issuer",
+      "target": "cap-revoke-token",
+      "label": "HAS_CAPABILITY",
+      "properties": {}
+    },
+    {
+      "source": "fn-authv2-token-issuer",
+      "target": "cap-mfa-verification",
+      "label": "HAS_CAPABILITY",
+      "properties": {}
+    },
+    {
+      "source": "fn-authv2-session-logger",
+      "target": "cap-audit-trail",
+      "label": "HAS_CAPABILITY",
+      "properties": {}
+    },
+    {
+      "source": "fn-authv2-session-logger",
+      "target": "cap-session-tracking",
+      "label": "HAS_CAPABILITY",
+      "properties": {}
+    },
+    {
+      "source": "fn-authv2-session-logger",
+      "target": "cap-privileged-function-log",
+      "label": "HAS_CAPABILITY",
+      "properties": {}
+    },
+    {
+      "source": "fn-authv2-privilege-monitor",
+      "target": "cap-monitor-privileged-access",
+      "label": "HAS_CAPABILITY",
+      "properties": {}
+    },
+    {
+      "source": "fn-authv2-privilege-monitor",
+      "target": "cap-detect-privilege-escalation",
+      "label": "HAS_CAPABILITY",
+      "properties": {}
+    },
+    {
+      "source": "fn-user-profile-manager",
+      "target": "cap-create-profile",
+      "label": "HAS_CAPABILITY",
+      "properties": {}
+    },
+    {
+      "source": "fn-user-profile-manager",
+      "target": "cap-update-profile",
+      "label": "HAS_CAPABILITY",
+      "properties": {}
+    },
+    {
+      "source": "fn-user-profile-manager",
+      "target": "cap-delete-profile",
+      "label": "HAS_CAPABILITY",
+      "properties": {}
+    },
+    {
+      "source": "fn-user-account-lifecycle",
+      "target": "cap-activate-account",
+      "label": "HAS_CAPABILITY",
+      "properties": {}
+    },
+    {
+      "source": "fn-user-account-lifecycle",
+      "target": "cap-deactivate-account",
+      "label": "HAS_CAPABILITY",
+      "properties": {}
+    },
+    {
+      "source": "fn-user-account-lifecycle",
+      "target": "cap-transfer-account",
+      "label": "HAS_CAPABILITY",
+      "properties": {}
+    },
+    {
+      "source": "fn-userrep-profile-manager",
+      "target": "cap-create-profile",
+      "label": "HAS_CAPABILITY",
+      "properties": {}
+    },
+    {
+      "source": "fn-userrep-profile-manager",
+      "target": "cap-update-profile",
+      "label": "HAS_CAPABILITY",
+      "properties": {}
+    },
+    {
+      "source": "fn-userrep-profile-manager",
+      "target": "cap-delete-profile",
+      "label": "HAS_CAPABILITY",
+      "properties": {}
+    },
+    {
+      "source": "fn-userrep-account-lifecycle",
+      "target": "cap-activate-account",
+      "label": "HAS_CAPABILITY",
+      "properties": {}
+    },
+    {
+      "source": "fn-userrep-account-lifecycle",
+      "target": "cap-deactivate-account",
+      "label": "HAS_CAPABILITY",
+      "properties": {}
+    },
+    {
+      "source": "fn-userrep-account-lifecycle",
+      "target": "cap-transfer-account",
+      "label": "HAS_CAPABILITY",
+      "properties": {}
+    },
+    {
+      "source": "fn-userrep-usage-monitor",
+      "target": "cap-monitor-account-usage",
+      "label": "HAS_CAPABILITY",
+      "properties": {}
+    },
+    {
+      "source": "fn-userrep-usage-monitor",
+      "target": "cap-detect-anomalies",
+      "label": "HAS_CAPABILITY",
+      "properties": {}
+    },
+    {
+      "source": "fn-product-catalog-reader",
+      "target": "cap-read-catalog",
+      "label": "HAS_CAPABILITY",
+      "properties": {}
+    },
+    {
+      "source": "fn-product-catalog-reader",
+      "target": "cap-filter-products",
+      "label": "HAS_CAPABILITY",
+      "properties": {}
+    },
+    {
+      "source": "fn-product-flow-enforcer",
+      "target": "cap-enforce-flow-policy",
+      "label": "HAS_CAPABILITY",
+      "properties": {}
+    },
+    {
+      "source": "fn-product-flow-enforcer",
+      "target": "cap-control-data-access",
+      "label": "HAS_CAPABILITY",
+      "properties": {}
+    },
+    {
+      "source": "fn-catalog-catalog-reader",
+      "target": "cap-read-catalog",
+      "label": "HAS_CAPABILITY",
+      "properties": {}
+    },
+    {
+      "source": "fn-catalog-catalog-reader",
+      "target": "cap-filter-products",
+      "label": "HAS_CAPABILITY",
+      "properties": {}
+    },
+    {
+      "source": "fn-catalog-catalog-reader",
+      "target": "cap-search-products",
+      "label": "HAS_CAPABILITY",
+      "properties": {}
+    },
+    {
+      "source": "fn-catalog-flow-enforcer",
+      "target": "cap-enforce-flow-policy",
+      "label": "HAS_CAPABILITY",
+      "properties": {}
+    },
+    {
+      "source": "fn-catalog-flow-enforcer",
+      "target": "cap-control-data-access",
+      "label": "HAS_CAPABILITY",
+      "properties": {}
+    },
+    {
+      "source": "fn-catalog-flow-enforcer",
+      "target": "cap-block-encrypted-bypass",
+      "label": "HAS_CAPABILITY",
+      "properties": {}
+    },
+    {
+      "source": "fn-catalog-security-attr-manager",
+      "target": "cap-manage-security-attributes",
+      "label": "HAS_CAPABILITY",
+      "properties": {}
+    },
+    {
+      "source": "fn-catalog-security-attr-manager",
+      "target": "cap-enforce-privacy-attrs",
+      "label": "HAS_CAPABILITY",
+      "properties": {}
+    },
+    {
+      "source": "fn-order-order-processor",
+      "target": "cap-create-order",
+      "label": "HAS_CAPABILITY",
+      "properties": {}
+    },
+    {
+      "source": "fn-order-order-processor",
+      "target": "cap-process-payment",
+      "label": "HAS_CAPABILITY",
+      "properties": {}
+    },
+    {
+      "source": "fn-order-duty-separator",
+      "target": "cap-separate-duties",
+      "label": "HAS_CAPABILITY",
+      "properties": {}
+    },
+    {
+      "source": "fn-order-duty-separator",
+      "target": "cap-require-dual-approval",
+      "label": "HAS_CAPABILITY",
+      "properties": {}
+    },
+    {
+      "source": "fn-orderv2-order-processor",
+      "target": "cap-create-order",
+      "label": "HAS_CAPABILITY",
+      "properties": {}
+    },
+    {
+      "source": "fn-orderv2-order-processor",
+      "target": "cap-process-payment",
+      "label": "HAS_CAPABILITY",
+      "properties": {}
+    },
+    {
+      "source": "fn-orderv2-order-processor",
+      "target": "cap-cancel-order",
+      "label": "HAS_CAPABILITY",
+      "properties": {}
+    },
+    {
+      "source": "fn-orderv2-duty-separator",
+      "target": "cap-separate-duties",
+      "label": "HAS_CAPABILITY",
+      "properties": {}
+    },
+    {
+      "source": "fn-orderv2-duty-separator",
+      "target": "cap-require-dual-approval",
+      "label": "HAS_CAPABILITY",
+      "properties": {}
+    },
+    {
+      "source": "fn-orderv2-duty-separator",
+      "target": "cap-document-duties",
+      "label": "HAS_CAPABILITY",
+      "properties": {}
+    },
+    {
+      "source": "fn-orderv2-order-auditor",
+      "target": "cap-audit-orders",
+      "label": "HAS_CAPABILITY",
+      "properties": {}
+    },
+    {
+      "source": "fn-orderv2-order-auditor",
+      "target": "cap-track-approvals",
+      "label": "HAS_CAPABILITY",
+      "properties": {}
+    },
+    {
+      "source": "fn-orderv2-order-auditor",
+      "target": "cap-log-access-revocation",
+      "label": "HAS_CAPABILITY",
+      "properties": {}
+    },
+    {
+      "source": "fn-notif-push-sender",
+      "target": "cap-send-push",
+      "label": "HAS_CAPABILITY",
+      "properties": {}
+    },
+    {
+      "source": "fn-notif-push-sender",
+      "target": "cap-manage-subscriptions",
+      "label": "HAS_CAPABILITY",
+      "properties": {}
+    },
+    {
+      "source": "fn-notif-remote-access-controller",
+      "target": "cap-authorize-remote-access",
+      "label": "HAS_CAPABILITY",
+      "properties": {}
+    },
+    {
+      "source": "fn-notif-remote-access-controller",
+      "target": "cap-restrict-remote-connections",
+      "label": "HAS_CAPABILITY",
+      "properties": {}
+    },
+    {
+      "source": "fn-email-email-sender",
+      "target": "cap-send-email",
+      "label": "HAS_CAPABILITY",
+      "properties": {}
+    },
+    {
+      "source": "fn-email-email-sender",
+      "target": "cap-encrypt-email",
+      "label": "HAS_CAPABILITY",
+      "properties": {}
+    },
+    {
+      "source": "fn-email-email-sender",
+      "target": "cap-sign-email",
+      "label": "HAS_CAPABILITY",
+      "properties": {}
+    },
+    {
+      "source": "fn-email-remote-access-controller",
+      "target": "cap-authorize-remote-access",
+      "label": "HAS_CAPABILITY",
+      "properties": {}
+    },
+    {
+      "source": "fn-email-remote-access-controller",
+      "target": "cap-restrict-remote-connections",
+      "label": "HAS_CAPABILITY",
+      "properties": {}
+    },
+    {
+      "source": "fn-email-remote-access-controller",
+      "target": "cap-monitor-remote-sessions",
+      "label": "HAS_CAPABILITY",
+      "properties": {}
+    },
+    {
+      "source": "fn-email-session-encryptor",
+      "target": "cap-encrypt-remote-session",
+      "label": "HAS_CAPABILITY",
+      "properties": {}
+    },
+    {
+      "source": "fn-email-session-encryptor",
+      "target": "cap-verify-session-integrity",
+      "label": "HAS_CAPABILITY",
+      "properties": {}
+    },
+    {
+      "source": "fn-audit-privileged-logger",
+      "target": "cap-log-privileged-functions",
+      "label": "HAS_CAPABILITY",
+      "properties": {}
+    },
+    {
+      "source": "fn-audit-privileged-logger",
+      "target": "cap-detect-misuse",
+      "label": "HAS_CAPABILITY",
+      "properties": {}
+    },
+    {
+      "source": "fn-audit-account-reviewer",
+      "target": "cap-monitor-account-usage",
+      "label": "HAS_CAPABILITY",
+      "properties": {}
+    },
+    {
+      "source": "fn-audit-account-reviewer",
+      "target": "cap-review-compliance",
+      "label": "HAS_CAPABILITY",
+      "properties": {}
+    },
+    {
+      "source": "fn-logging-privileged-logger",
+      "target": "cap-log-privileged-functions",
+      "label": "HAS_CAPABILITY",
+      "properties": {}
+    },
+    {
+      "source": "fn-logging-privileged-logger",
+      "target": "cap-detect-misuse",
+      "label": "HAS_CAPABILITY",
+      "properties": {}
+    },
+    {
+      "source": "fn-logging-privileged-logger",
+      "target": "cap-real-time-alerts",
+      "label": "HAS_CAPABILITY",
+      "properties": {}
+    },
+    {
+      "source": "fn-logging-account-reviewer",
+      "target": "cap-monitor-account-usage",
+      "label": "HAS_CAPABILITY",
+      "properties": {}
+    },
+    {
+      "source": "fn-logging-account-reviewer",
+      "target": "cap-review-compliance",
+      "label": "HAS_CAPABILITY",
+      "properties": {}
+    },
+    {
+      "source": "fn-logging-account-reviewer",
+      "target": "cap-detect-violations",
+      "label": "HAS_CAPABILITY",
+      "properties": {}
+    },
+    {
+      "source": "fn-logging-non-priv-enforcer",
+      "target": "cap-enforce-non-privileged-accounts",
+      "label": "HAS_CAPABILITY",
+      "properties": {}
+    },
+    {
+      "source": "fn-logging-non-priv-enforcer",
+      "target": "cap-prevent-privilege-abuse",
+      "label": "HAS_CAPABILITY",
+      "properties": {}
+    },
+    {
+      "source": "fn-authv2-rbac-enforcer",
+      "target": "cap-rate-limiting",
+      "label": "HAS_CAPABILITY",
+      "properties": {}
+    },
+    {
+      "source": "fn-authv2-rbac-enforcer",
+      "target": "cap-restrict-remote-connections",
+      "label": "HAS_CAPABILITY",
+      "properties": {}
+    }
+  ]
+}

@@ -1,0 +1,310 @@
+{
+  "system_name": "Enterprise Microservice Platform",
+  "version": "1.0",
+  "description": "A generic enterprise microservice application for SAC-based compliance assessment and MAPE-K autonomic adaptation.",
+  "service_mesh": "Istio",
+  "services": [
+    {
+      "service_id": "api-gateway",
+      "name": "API Gateway",
+      "description": "Central entry point for all client requests. Handles routing, rate limiting, and access enforcement.",
+      "port": 8000,
+      "status": "active",
+      "is_alternative": false,
+      "alternative_for": null,
+      "alternatives": [],
+      "functions": [
+        {"function_id": "request-router",    "name": "Request Router",              "type": "routing",           "capabilities": ["route-requests", "load-balancing"]},
+        {"function_id": "rate-limiter",      "name": "Rate Limiter",                "type": "access_control",    "capabilities": ["rate-limiting", "throttling"]},
+        {"function_id": "access-enforcer",   "name": "Access Enforcer",             "type": "enforcement",       "capabilities": ["enforce-access-control", "validate-tokens"]},
+        {"function_id": "flow-controller",   "name": "Information Flow Controller", "type": "information_flow",  "capabilities": ["control-information-flow", "filter-requests"]}
+      ],
+      "properties": {
+        "rbac_enabled": true,  "audit_logging": true,  "encryption": "TLS",
+        "access_control": "token-based",  "mfa_support": false,
+        "privilege_separation": false,    "information_flow_control": true
+      },
+      "nist_controls": ["AC-3", "AC-4", "AC-4(1)"],
+      "depends_on": ["auth-service"]
+    },
+    {
+      "service_id": "auth-service",
+      "name": "Authentication Service",
+      "description": "Handles user authentication, authorization, and account management with JWT tokens and RBAC.",
+      "port": 8001,
+      "status": "active",
+      "is_alternative": false,
+      "alternative_for": null,
+      "alternatives": ["auth-service-v2"],
+      "functions": [
+        {"function_id": "rbac-enforcer",   "name": "RBAC Enforcer",    "type": "access_control",      "capabilities": ["role-based-access", "permission-check"]},
+        {"function_id": "account-manager", "name": "Account Manager",  "type": "account_management",  "capabilities": ["create-account", "disable-account", "modify-account"]},
+        {"function_id": "token-issuer",    "name": "Token Issuer",     "type": "authentication",       "capabilities": ["issue-jwt", "validate-jwt", "revoke-token"]},
+        {"function_id": "session-logger",  "name": "Session Logger",   "type": "logging",              "capabilities": ["audit-trail", "session-tracking"]}
+      ],
+      "properties": {
+        "rbac_enabled": true,  "audit_logging": true,  "encryption": "JWT",
+        "access_control": "role-based",  "mfa_support": false,
+        "privilege_separation": true,    "least_privilege": true
+      },
+      "nist_controls": ["AC-2", "AC-2(a)", "AC-3", "AC-3(7)", "AC-6", "AC-6(1)", "AC-6(2)"],
+      "depends_on": []
+    },
+    {
+      "service_id": "auth-service-v2",
+      "name": "Authentication Service v2 (MFA)",
+      "description": "Enhanced authentication service with multi-factor authentication, advanced privilege management, and privileged function logging.",
+      "port": 8011,
+      "status": "inactive",
+      "is_alternative": true,
+      "alternative_for": "auth-service",
+      "alternatives": [],
+      "functions": [
+        {"function_id": "rbac-enforcer",      "name": "RBAC Enforcer",          "type": "access_control",     "capabilities": ["role-based-access", "permission-check", "attribute-based-access"]},
+        {"function_id": "account-manager",    "name": "Account Manager",        "type": "account_management", "capabilities": ["create-account", "disable-account", "modify-account", "review-accounts"]},
+        {"function_id": "token-issuer",       "name": "Token Issuer",           "type": "authentication",     "capabilities": ["issue-jwt", "validate-jwt", "revoke-token", "mfa-verification"]},
+        {"function_id": "session-logger",     "name": "Session Logger",         "type": "logging",            "capabilities": ["audit-trail", "session-tracking", "privileged-function-log"]},
+        {"function_id": "privilege-monitor",  "name": "Privilege Monitor",      "type": "monitoring",         "capabilities": ["monitor-privileged-access", "detect-privilege-escalation"]}
+      ],
+      "properties": {
+        "rbac_enabled": true,  "audit_logging": true,  "encryption": "JWT+MFA",
+        "access_control": "role-based+attribute-based",  "mfa_support": true,
+        "privilege_separation": true,  "least_privilege": true,  "privileged_function_logging": true
+      },
+      "nist_controls": ["AC-2", "AC-2(a)", "AC-2(g)", "AC-3", "AC-3(7)", "AC-5", "AC-6", "AC-6(1)", "AC-6(2)", "AC-6(5)", "AC-6(9)", "AC-6(10)"],
+      "depends_on": []
+    },
+    {
+      "service_id": "user-service",
+      "name": "User Management Service",
+      "description": "Manages user profiles, preferences, and account lifecycle.",
+      "port": 8002,
+      "status": "active",
+      "is_alternative": false,
+      "alternative_for": null,
+      "alternatives": ["user-service-replica"],
+      "functions": [
+        {"function_id": "profile-manager",    "name": "Profile Manager",            "type": "data_management",    "capabilities": ["create-profile", "update-profile", "delete-profile"]},
+        {"function_id": "account-lifecycle",  "name": "Account Lifecycle Manager",  "type": "account_management", "capabilities": ["activate-account", "deactivate-account", "transfer-account"]}
+      ],
+      "properties": {
+        "rbac_enabled": true,  "audit_logging": true,  "encryption": "AES-256",
+        "access_control": "role-based",  "mfa_support": false,  "privilege_separation": false
+      },
+      "nist_controls": ["AC-2", "AC-2(a)", "AC-2(b)", "AC-2(f)", "AC-2(h)"],
+      "depends_on": ["auth-service"]
+    },
+    {
+      "service_id": "user-service-replica",
+      "name": "User Management Service (Replica)",
+      "description": "High-availability replica of the user management service with enhanced account usage monitoring.",
+      "port": 8012,
+      "status": "inactive",
+      "is_alternative": true,
+      "alternative_for": "user-service",
+      "alternatives": [],
+      "functions": [
+        {"function_id": "profile-manager",    "name": "Profile Manager",            "type": "data_management",    "capabilities": ["create-profile", "update-profile", "delete-profile"]},
+        {"function_id": "account-lifecycle",  "name": "Account Lifecycle Manager",  "type": "account_management", "capabilities": ["activate-account", "deactivate-account", "transfer-account"]},
+        {"function_id": "usage-monitor",      "name": "Usage Monitor",              "type": "monitoring",         "capabilities": ["monitor-account-usage", "detect-anomalies"]}
+      ],
+      "properties": {
+        "rbac_enabled": true,  "audit_logging": true,  "encryption": "AES-256",
+        "access_control": "role-based",  "mfa_support": false,
+        "privilege_separation": false,   "usage_monitoring": true
+      },
+      "nist_controls": ["AC-2", "AC-2(a)", "AC-2(b)", "AC-2(f)", "AC-2(g)", "AC-2(h)", "AC-2(j)"],
+      "depends_on": ["auth-service"]
+    },
+    {
+      "service_id": "product-service",
+      "name": "Product Catalog Service",
+      "description": "Manages product information and enforces information flow controls for data access.",
+      "port": 8003,
+      "status": "active",
+      "is_alternative": false,
+      "alternative_for": null,
+      "alternatives": ["catalog-service"],
+      "functions": [
+        {"function_id": "catalog-reader",  "name": "Catalog Reader",             "type": "data_access",       "capabilities": ["read-catalog", "filter-products"]},
+        {"function_id": "flow-enforcer",   "name": "Information Flow Enforcer",  "type": "information_flow",  "capabilities": ["enforce-flow-policy", "control-data-access"]}
+      ],
+      "properties": {
+        "rbac_enabled": false,  "audit_logging": true,  "encryption": "TLS",
+        "access_control": "attribute-based",  "mfa_support": false,
+        "privilege_separation": false,   "information_flow_control": true
+      },
+      "nist_controls": ["AC-4", "AC-4(1)", "AC-4(4)"],
+      "depends_on": ["auth-service", "api-gateway"]
+    },
+    {
+      "service_id": "catalog-service",
+      "name": "Enhanced Catalog Service",
+      "description": "Alternative product catalog with enhanced security attributes, encryption for information flow, and full RBAC.",
+      "port": 8013,
+      "status": "inactive",
+      "is_alternative": true,
+      "alternative_for": "product-service",
+      "alternatives": [],
+      "functions": [
+        {"function_id": "catalog-reader",         "name": "Catalog Reader",                 "type": "data_access",      "capabilities": ["read-catalog", "filter-products", "search-products"]},
+        {"function_id": "flow-enforcer",          "name": "Information Flow Enforcer",      "type": "information_flow", "capabilities": ["enforce-flow-policy", "control-data-access", "block-encrypted-bypass"]},
+        {"function_id": "security-attr-manager",  "name": "Security Attribute Manager",     "type": "access_control",   "capabilities": ["manage-security-attributes", "enforce-privacy-attrs"]}
+      ],
+      "properties": {
+        "rbac_enabled": true,  "audit_logging": true,  "encryption": "TLS+AES",
+        "access_control": "attribute-based",  "mfa_support": false,
+        "privilege_separation": false,  "information_flow_control": true,
+        "security_attributes": true,    "encrypted_flow_protection": true
+      },
+      "nist_controls": ["AC-3", "AC-4", "AC-4(1)", "AC-4(4)"],
+      "depends_on": ["auth-service", "api-gateway"]
+    },
+    {
+      "service_id": "order-service",
+      "name": "Order Processing Service",
+      "description": "Handles order creation and processing with separation of duties enforcement.",
+      "port": 8004,
+      "status": "active",
+      "is_alternative": false,
+      "alternative_for": null,
+      "alternatives": ["order-service-v2"],
+      "functions": [
+        {"function_id": "order-processor",  "name": "Order Processor",  "type": "business_logic",  "capabilities": ["create-order", "process-payment"]},
+        {"function_id": "duty-separator",   "name": "Duty Separator",   "type": "access_control",  "capabilities": ["separate-duties", "require-dual-approval"]}
+      ],
+      "properties": {
+        "rbac_enabled": true,  "audit_logging": false,  "encryption": "TLS",
+        "access_control": "role-based",  "mfa_support": false,
+        "privilege_separation": true,    "separation_of_duties": true
+      },
+      "nist_controls": ["AC-3", "AC-5", "AC-5(a)", "AC-5(b)"],
+      "depends_on": ["auth-service", "user-service"]
+    },
+    {
+      "service_id": "order-service-v2",
+      "name": "Order Processing Service v2",
+      "description": "Enhanced order service with full audit trail, revocation enforcement, and access control decisions.",
+      "port": 8014,
+      "status": "inactive",
+      "is_alternative": true,
+      "alternative_for": "order-service",
+      "alternatives": [],
+      "functions": [
+        {"function_id": "order-processor",  "name": "Order Processor",  "type": "business_logic",  "capabilities": ["create-order", "process-payment", "cancel-order"]},
+        {"function_id": "duty-separator",   "name": "Duty Separator",   "type": "access_control",  "capabilities": ["separate-duties", "require-dual-approval", "document-duties"]},
+        {"function_id": "order-auditor",    "name": "Order Auditor",    "type": "logging",         "capabilities": ["audit-orders", "track-approvals", "log-access-revocation"]}
+      ],
+      "properties": {
+        "rbac_enabled": true,  "audit_logging": true,  "encryption": "TLS",
+        "access_control": "role-based",  "mfa_support": false,
+        "privilege_separation": true,    "separation_of_duties": true,  "order_audit_trail": true
+      },
+      "nist_controls": ["AC-3", "AC-3(8)", "AC-5", "AC-5(a)", "AC-5(b)", "AC-2(e)", "AC-24"],
+      "depends_on": ["auth-service", "user-service"]
+    },
+    {
+      "service_id": "notification-service",
+      "name": "Notification Service",
+      "description": "Sends push notifications to users with basic remote access controls.",
+      "port": 8025,
+      "status": "active",
+      "is_alternative": false,
+      "alternative_for": null,
+      "alternatives": ["email-service"],
+      "functions": [
+        {"function_id": "push-sender",              "name": "Push Notification Sender",  "type": "notification",   "capabilities": ["send-push", "manage-subscriptions"]},
+        {"function_id": "remote-access-controller", "name": "Remote Access Controller",  "type": "access_control", "capabilities": ["authorize-remote-access", "restrict-remote-connections"]}
+      ],
+      "properties": {
+        "rbac_enabled": false,  "audit_logging": false,  "encryption": "TLS",
+        "access_control": "token-based",  "mfa_support": false,
+        "privilege_separation": false,    "remote_access_control": true,  "crypto_protection": false
+      },
+      "nist_controls": ["AC-17", "AC-17(a)", "AC-17(b)"],
+      "depends_on": ["user-service"]
+    },
+    {
+      "service_id": "email-service",
+      "name": "Email Notification Service",
+      "description": "Alternative notification via email with cryptographic session protection and remote access monitoring.",
+      "port": 8015,
+      "status": "inactive",
+      "is_alternative": true,
+      "alternative_for": "notification-service",
+      "alternatives": [],
+      "functions": [
+        {"function_id": "email-sender",             "name": "Secure Email Sender",       "type": "notification",   "capabilities": ["send-email", "encrypt-email", "sign-email"]},
+        {"function_id": "remote-access-controller", "name": "Remote Access Controller",  "type": "access_control", "capabilities": ["authorize-remote-access", "restrict-remote-connections", "monitor-remote-sessions"]},
+        {"function_id": "session-encryptor",        "name": "Session Encryptor",         "type": "security",       "capabilities": ["encrypt-remote-session", "verify-session-integrity"]}
+      ],
+      "properties": {
+        "rbac_enabled": true,  "audit_logging": true,  "encryption": "TLS+SMIME",
+        "access_control": "token-based",  "mfa_support": false,
+        "privilege_separation": false,    "remote_access_control": true,
+        "crypto_protection": true,        "session_monitoring": true
+      },
+      "nist_controls": ["AC-17", "AC-17(a)", "AC-17(b)", "AC-17(1)", "AC-17(2)"],
+      "depends_on": ["user-service"]
+    },
+    {
+      "service_id": "audit-service",
+      "name": "Audit & Compliance Service",
+      "description": "Central audit logging for privileged function execution and account usage monitoring across all services.",
+      "port": 8006,
+      "status": "active",
+      "is_alternative": false,
+      "alternative_for": null,
+      "alternatives": ["logging-service"],
+      "functions": [
+        {"function_id": "privileged-logger",  "name": "Privileged Function Logger",  "type": "logging",    "capabilities": ["log-privileged-functions", "detect-misuse"]},
+        {"function_id": "account-reviewer",   "name": "Account Usage Reviewer",      "type": "monitoring", "capabilities": ["monitor-account-usage", "review-compliance"]}
+      ],
+      "properties": {
+        "rbac_enabled": true,  "audit_logging": true,  "encryption": "AES-256",
+        "access_control": "role-based",  "mfa_support": false,
+        "privilege_separation": true,    "privileged_function_logging": true,  "account_usage_monitoring": true
+      },
+      "nist_controls": ["AC-6(9)", "AC-2(g)", "AC-2(j)"],
+      "depends_on": []
+    },
+    {
+      "service_id": "logging-service",
+      "name": "Distributed Logging Service",
+      "description": "Alternative comprehensive logging with non-privileged account enforcement and real-time alerts.",
+      "port": 8016,
+      "status": "inactive",
+      "is_alternative": true,
+      "alternative_for": "audit-service",
+      "alternatives": [],
+      "functions": [
+        {"function_id": "privileged-logger",   "name": "Privileged Function Logger",      "type": "logging",        "capabilities": ["log-privileged-functions", "detect-misuse", "real-time-alerts"]},
+        {"function_id": "account-reviewer",    "name": "Account Usage Reviewer",          "type": "monitoring",     "capabilities": ["monitor-account-usage", "review-compliance", "detect-violations"]},
+        {"function_id": "non-priv-enforcer",   "name": "Non-Privileged Acct Enforcer",    "type": "access_control", "capabilities": ["enforce-non-privileged-accounts", "prevent-privilege-abuse"]}
+      ],
+      "properties": {
+        "rbac_enabled": true,  "audit_logging": true,  "encryption": "AES-256",
+        "access_control": "role-based",  "mfa_support": false,
+        "privilege_separation": true,    "privileged_function_logging": true,
+        "account_usage_monitoring": true, "non_privileged_enforcement": true,  "real_time_alerts": true
+      },
+      "nist_controls": ["AC-6(9)", "AC-6(10)", "AC-2(g)", "AC-2(j)", "AC-2(k)"],
+      "depends_on": []
+    }
+  ],
+  "relationships": [
+    {"from": "api-gateway",           "to": "auth-service",         "type": "calls",      "description": "Validates all tokens before routing"},
+    {"from": "api-gateway",           "to": "user-service",         "type": "routes",     "description": "Routes user management requests"},
+    {"from": "api-gateway",           "to": "product-service",      "type": "routes",     "description": "Routes product catalog requests"},
+    {"from": "api-gateway",           "to": "order-service",        "type": "routes",     "description": "Routes order processing requests"},
+    {"from": "api-gateway",           "to": "notification-service", "type": "routes",     "description": "Routes notification requests"},
+    {"from": "user-service",          "to": "auth-service",         "type": "depends_on", "description": "Validates user permissions for profile ops"},
+    {"from": "product-service",       "to": "auth-service",         "type": "depends_on", "description": "Validates access attributes for catalog"},
+    {"from": "order-service",         "to": "auth-service",         "type": "depends_on", "description": "Validates authorization for order ops"},
+    {"from": "order-service",         "to": "user-service",         "type": "depends_on", "description": "Fetches user details for orders"},
+    {"from": "notification-service",  "to": "user-service",         "type": "depends_on", "description": "Fetches user contact info"},
+    {"from": "audit-service",         "to": "api-gateway",          "type": "monitors",   "description": "Logs all gateway access events"},
+    {"from": "audit-service",         "to": "auth-service",         "type": "monitors",   "description": "Logs all authentication events"},
+    {"from": "audit-service",         "to": "order-service",        "type": "monitors",   "description": "Logs privileged order operations"}
+  ]
+}
