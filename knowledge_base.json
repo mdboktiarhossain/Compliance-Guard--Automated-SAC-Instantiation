@@ -1,0 +1,117 @@
+{
+  "active_services": {
+    "api-gateway": "active",
+    "auth-service": "active",
+    "user-service": "active",
+    "product-service": "active",
+    "order-service": "active",
+    "notification-service": "active",
+    "audit-service": "active",
+    "auth-service-v2": "inactive",
+    "user-service-replica": "inactive",
+    "catalog-service": "inactive",
+    "order-service-v2": "inactive",
+    "email-service": "inactive",
+    "logging-service": "inactive"
+  },
+  "service_metrics": {
+    "api-gateway": {
+      "service": "api-gateway",
+      "availability": 100.0,
+      "error_rate": 0.0,
+      "errors_total": 0,
+      "latency_ms_avg": 20.0,
+      "requests_total": 100,
+      "reachable": true,
+      "status": "ok",
+      "timestamp": "2026-11-13T13:59:27.936020+00:00"
+    },
+    "auth-service": {
+      "service": "auth-service",
+      "availability": 100.0,
+      "error_rate": 0.0,
+      "errors_total": 0,
+      "latency_ms_avg": 20.0,
+      "requests_total": 100,
+      "reachable": true,
+      "status": "ok",
+      "timestamp": "2026-11-13T13:59:27.936020+00:00"
+    },
+    "user-service": {
+      "service": "user-service",
+      "availability": 100.0,
+      "error_rate": 0.0,
+      "errors_total": 0,
+      "latency_ms_avg": 20.0,
+      "requests_total": 100,
+      "reachable": true,
+      "status": "ok",
+      "timestamp": "2026-11-13T13:59:27.936020+00:00"
+    },
+    "product-service": {
+      "service": "product-service",
+      "availability": 100.0,
+      "error_rate": 0.0,
+      "errors_total": 0,
+      "latency_ms_avg": 20.0,
+      "requests_total": 100,
+      "reachable": true,
+      "status": "ok",
+      "timestamp": "2026-11-13T13:59:27.936020+00:00"
+    },
+    "order-service": {
+      "service": "order-service",
+      "availability": 100.0,
+      "error_rate": 0.0,
+      "errors_total": 0,
+      "latency_ms_avg": 20.0,
+      "requests_total": 100,
+      "reachable": true,
+      "status": "ok",
+      "timestamp": "2026-11-13T13:59:27.936020+00:00"
+    },
+    "notification-service": {
+      "service": "notification-service",
+      "availability": 100.0,
+      "error_rate": 0.0,
+      "errors_total": 0,
+      "latency_ms_avg": 20.0,
+      "requests_total": 100,
+      "reachable": true,
+      "status": "ok",
+      "timestamp": "2026-11-13T13:59:27.936020+00:00"
+    },
+    "audit-service": {
+      "service": "audit-service",
+      "availability": 100.0,
+      "error_rate": 0.0,
+      "errors_total": 0,
+      "latency_ms_avg": 20.0,
+      "requests_total": 100,
+      "reachable": true,
+      "status": "ok",
+      "timestamp": "2026-11-13T13:59:27.936020+00:00"
+    }
+  },
+  "sac_instances": {},
+  "completeness_scores": {},
+  "adaptation_history": [],
+  "current_plan": {},
+  "current_analysis": {
+    "failing_services": [],
+    "degraded_services": [],
+    "healthy_services": [
+      "api-gateway",
+      "auth-service",
+      "user-service",
+      "product-service",
+      "order-service",
+      "notification-service",
+      "audit-service"
+    ],
+    "timestamp": "2026-11-13T13:59:27.936020+00:00"
+  },
+  "mape_state": "idle",
+  "loop_iteration": 0,
+  "last_updated": "2026-11-13T13:59:27.936020+00:00"
+}

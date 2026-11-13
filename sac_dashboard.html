@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Compliance Guard — SAC Dashboard</title>
+  <meta name="description" content="Real-time Security Assurance Case dashboard with MAPE-K autonomic adaptation for microservice compliance monitoring."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
+  <style>
+    :root {
+      --bg:        #090e1a;
+      --surface:   #0f1729;
+      --surface2:  #162040;
+      --border:    #1e2d4a;
+      --accent:    #3b82f6;
+      --accent2:   #8b5cf6;
+      --success:   #10b981;
+      --warning:   #f59e0b;
+      --danger:    #ef4444;
+      --text:      #e2e8f0;
+      --muted:     #64748b;
+      --glow:      rgba(59,130,246,0.15);
+    }
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden;}
+
+    /* ── Header ── */
+    header{background:linear-gradient(135deg,#0f1729 0%,#162040 100%);border-bottom:1px solid var(--border);padding:16px 28px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);}
+    .logo{display:flex;align-items:center;gap:12px;}
+    .logo-icon{width:36px;height:36px;background:linear-gradient(135deg,var(--accent),var(--accent2));border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px;}
+    .logo h1{font-size:18px;font-weight:700;background:linear-gradient(135deg,#93c5fd,#c4b5fd);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+    .logo p{font-size:11px;color:var(--muted);margin-top:1px;}
+    .header-right{display:flex;align-items:center;gap:16px;}
+    .status-badge{display:flex;align-items:center;gap:6px;background:var(--surface2);border:1px solid var(--border);border-radius:20px;padding:6px 14px;font-size:12px;font-weight:500;}
+    .status-dot{width:8px;height:8px;border-radius:50%;background:var(--success);box-shadow:0 0 6px var(--success);animation:pulse 2s infinite;}
+    @keyframes pulse{0%,100%{opacity:1;}50%{opacity:.5;}}
+    .btn{padding:8px 16px;border-radius:8px;border:none;font-size:12px;font-weight:600;cursor:pointer;transition:all .2s;}
+    .btn-primary{background:var(--accent);color:#fff;}
+    .btn-primary:hover{background:#2563eb;box-shadow:0 0 16px rgba(59,130,246,.4);}
+    .btn-danger{background:rgba(239,68,68,.15);color:var(--danger);border:1px solid rgba(239,68,68,.3);}
+    .btn-danger:hover{background:rgba(239,68,68,.25);}
+    .btn-success{background:rgba(16,185,129,.15);color:var(--success);border:1px solid rgba(16,185,129,.3);}
+    .btn-success:hover{background:rgba(16,185,129,.25);}
+
+    /* ── Layout ── */
+    .main{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto auto auto;gap:20px;padding:24px;max-width:1600px;margin:0 auto;}
+
+    /* ── Cards ── */
+    .card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:20px;position:relative;overflow:hidden;}
+    .card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--glow) 0%,transparent 60%);pointer-events:none;}
+    .card-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;}
+    .card-title{font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);}
+    .card-title-icon{font-size:16px;margin-right:8px;}
+    .card-full{grid-column:1/-1;}
+
+    /* ── Overview Stats ── */
+    .stats-row{display:flex;gap:16px;margin-bottom:20px;}
+    .stat-card{flex:1;background:var(--surface2);border:1px solid var(--border);border-radius:12px;padding:16px;text-align:center;transition:transform .2s;}
+    .stat-card:hover{transform:translateY(-2px);}
+    .stat-value{font-size:28px;font-weight:800;line-height:1;}
+    .stat-label{font-size:11px;color:var(--muted);margin-top:4px;font-weight:500;}
+    .stat-healthy .stat-value{color:var(--success);}
+    .stat-degraded .stat-value{color:var(--warning);}
+    .stat-failing .stat-value{color:var(--danger);}
+    .stat-adapt .stat-value{color:var(--accent2);}
+
+    /* ── MAPE-K State Indicator ── */
+    .mapek-bar{display:flex;gap:4px;align-items:center;background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:10px 16px;margin-bottom:16px;}
+    .mapek-step{flex:1;text-align:center;padding:6px;border-radius:6px;font-size:11px;font-weight:600;letter-spacing:.05em;transition:all .3s;}
+    .mapek-step.active{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;box-shadow:0 0 12px var(--glow);}
+    .mapek-step.idle{color:var(--muted);}
+    .mapek-arrow{color:var(--muted);font-size:10px;}
+
+    /* ── Service Topology ── */
+    #topology-svg{width:100%;height:340px;}
+    .node circle{stroke-width:2.5;filter:drop-shadow(0 0 6px currentColor);}
+    .node text{font-family:'Inter',sans-serif;font-size:10px;fill:#e2e8f0;font-weight:500;}
+    .link{stroke:var(--border);stroke-width:1.5;fill:none;marker-end:url(#arrow);}
+
+    /* ── SAC Tree ── */
+    .sac-tree{max-height:380px;overflow-y:auto;}
+    .sac-tree::-webkit-scrollbar{width:4px;}
+    .sac-tree::-webkit-scrollbar-track{background:transparent;}
+    .sac-tree::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px;}
+    .rule-row{display:flex;align-items:center;gap:10px;padding:7px 10px;border-radius:8px;margin-bottom:3px;font-size:12px;cursor:pointer;transition:background .15s;}
+    .rule-row:hover{background:var(--surface2);}
+    .rule-badge{width:70px;text-align:center;padding:2px 6px;border-radius:4px;font-size:10px;font-weight:600;flex-shrink:0;}
+    .badge-satisfied{background:rgba(16,185,129,.15);color:var(--success);border:1px solid rgba(16,185,129,.3);}
+    .badge-partial{background:rgba(245,158,11,.15);color:var(--warning);border:1px solid rgba(245,158,11,.3);}
+    .badge-missing{background:rgba(239,68,68,.15);color:var(--danger);border:1px solid rgba(239,68,68,.3);}
+    .rule-id{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--accent);width:100px;flex-shrink:0;}
+    .rule-text{color:var(--muted);flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+    .rule-conf{font-size:10px;color:var(--muted);width:32px;text-align:right;flex-shrink:0;}
+
+    /* ── Completeness Gauge ── */
+    .gauge-container{display:flex;flex-direction:column;align-items:center;padding:8px;}
+    .gauge-value{font-size:48px;font-weight:800;margin-top:-10px;}
+    .gauge-label{font-size:12px;color:var(--muted);margin-top:2px;}
+    .service-scores{display:flex;flex-direction:column;gap:8px;margin-top:16px;width:100%;}
+    .score-row{display:flex;align-items:center;gap:10px;font-size:12px;}
+    .score-name{width:160px;color:var(--text);flex-shrink:0;font-size:11px;}
+    .score-bar-bg{flex:1;height:6px;background:var(--surface2);border-radius:3px;overflow:hidden;}
+    .score-bar-fill{height:100%;border-radius:3px;transition:width .6s ease;}
+    .score-pct{width:40px;text-align:right;font-weight:600;font-size:11px;flex-shrink:0;}
+
+    /* ── Adaptation History ── */
+    .history-table{width:100%;border-collapse:collapse;font-size:12px;}
+    .history-table th{text-align:left;padding:8px 12px;border-bottom:1px solid var(--border);color:var(--muted);font-weight:600;font-size:11px;text-transform:uppercase;letter-spacing:.04em;}
+    .history-table td{padding:10px 12px;border-bottom:1px solid rgba(30,45,74,.5);}
+    .history-table tr:hover td{background:var(--surface2);}
+    .history-empty{text-align:center;padding:32px;color:var(--muted);}
+
+    /* ── Service selector ── */
+    .service-selector{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px;}
+    .svc-btn{padding:5px 12px;border-radius:6px;border:1px solid var(--border);background:var(--surface2);color:var(--muted);font-size:11px;cursor:pointer;transition:all .2s;}
+    .svc-btn.active{background:rgba(59,130,246,.2);border-color:var(--accent);color:var(--accent);}
+    .svc-btn:hover{border-color:var(--accent);color:var(--accent);}
+
+    /* ── Simulation panel ── */
+    .sim-panel{background:rgba(239,68,68,.05);border:1px solid rgba(239,68,68,.2);border-radius:10px;padding:14px;margin-top:12px;}
+    .sim-title{font-size:11px;font-weight:600;color:var(--danger);margin-bottom:10px;display:flex;align-items:center;gap:6px;}
+    .sim-controls{display:flex;gap:8px;flex-wrap:wrap;}
+    .sim-svc-btn{padding:5px 10px;border-radius:6px;border:1px solid rgba(239,68,68,.3);background:rgba(239,68,68,.1);color:var(--danger);font-size:11px;cursor:pointer;transition:all .2s;}
+    .sim-svc-btn:hover{background:rgba(239,68,68,.2);}
+    .sim-svc-btn.recovering{border-color:rgba(16,185,129,.3);background:rgba(16,185,129,.1);color:var(--success);}
+
+    /* ── Alert toast ── */
+    #toast{position:fixed;bottom:24px;right:24px;background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:12px 18px;font-size:13px;z-index:1000;transform:translateY(80px);opacity:0;transition:all .3s;max-width:340px;}
+    #toast.show{transform:translateY(0);opacity:1;}
+    #toast.success{border-color:rgba(16,185,129,.4);background:rgba(16,185,129,.1);}
+    #toast.error{border-color:rgba(239,68,68,.4);background:rgba(239,68,68,.1);}
+
+    /* ── GSN Tree Nodes ── */
+    .gsn-tree-container {
+      padding: 4px;
+    }
+    .gsn-node {
+      margin: 6px 0;
+      padding: 8px 12px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--surface2);
+      transition: all 0.2s;
+    }
+    .gsn-node:hover {
+      box-shadow: 0 0 8px var(--glow);
+      border-color: var(--accent);
+    }
+    .gsn-goal {
+      border-left: 4px solid var(--accent);
+    }
+    .gsn-strategy {
+      border-left: 4px solid var(--accent2);
+      font-style: italic;
+      background: rgba(139, 92, 246, 0.03);
+    }
+    .gsn-solution {
+      border-left: 4px solid var(--success);
+      background: rgba(16, 185, 129, 0.03);
+    }
+    .gsn-node-header {
+      font-weight: 700;
+      font-size: 11px;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .gsn-goal .gsn-node-header { color: #93c5fd; }
+    .gsn-strategy .gsn-node-header { color: #c4b5fd; }
+    .gsn-solution .gsn-node-header { color: #a7f3d0; }
+    .gsn-children {
+      margin-left: 14px;
+      border-left: 1px dashed var(--border);
+      padding-left: 10px;
+    }
+    .gsn-toggle {
+      cursor: pointer;
+      user-select: none;
+      font-size: 10px;
+      color: var(--muted);
+      padding: 2px 6px;
+    }
+    .gsn-status-badge {
+      font-size: 9px;
+      padding: 1px 4px;
+      border-radius: 3px;
+      font-weight: 600;
+      margin-left: 6px;
+    }
+
+    /* ── Responsive ── */
+    @media(max-width:1000px){.main{grid-template-columns:1fr;}.card-full{grid-column:1;}}
+  </style>
+</head>
+<body>
+
+<!-- Header -->
+<header>
+  <div class="logo">
+    <div class="logo-icon">🛡️</div>
+    <div>
+      <h1>Compliance Guard</h1>
+      <p>MAPE-K Autonomic Security Assurance System</p>
+    </div>
+  </div>
+  <div class="header-right">
+    <div class="status-badge">
+      <div class="status-dot" id="loop-dot"></div>
+      <span id="loop-status">MAPE-K: Idle</span>
+    </div>
+    <button class="btn btn-primary" onclick="triggerManualCycle()" id="cycle-btn">⟳ Run Cycle</button>
+  </div>
+</header>
+
+<div class="main">
+
+  <!-- ── Row 1: Stats + MAPE-K state ── -->
+  <div class="card card-full">
+    <div class="card-header">
+      <span class="card-title">⚡ System Overview</span>
+      <span id="last-update" style="font-size:11px;color:var(--muted)">—</span>
+    </div>
+
+    <!-- MAPE-K State Bar -->
+    <div class="mapek-bar">
+      <div class="mapek-step idle" id="step-monitor">M · Monitor</div>
+      <div class="mapek-arrow">›</div>
+      <div class="mapek-step idle" id="step-analyze">A · Analyze</div>
+      <div class="mapek-arrow">›</div>
+      <div class="mapek-step idle" id="step-plan">P · Plan</div>
+      <div class="mapek-arrow">›</div>
+      <div class="mapek-step idle" id="step-execute">E · Execute</div>
+      <div class="mapek-arrow">›</div>
+      <div class="mapek-step idle" id="step-k">K · Knowledge</div>
+    </div>
+
+    <!-- Stats -->
+    <div class="stats-row">
+      <div class="stat-card stat-healthy">
+        <div class="stat-value" id="stat-healthy">—</div>
+        <div class="stat-label">Healthy Services</div>
+      </div>
+      <div class="stat-card stat-degraded">
+        <div class="stat-value" id="stat-degraded">—</div>
+        <div class="stat-label">Degraded</div>
+      </div>
+      <div class="stat-card stat-failing">
+        <div class="stat-value" id="stat-failing">—</div>
+        <div class="stat-label">Failing</div>
+      </div>
+      <div class="stat-card stat-adapt">
+        <div class="stat-value" id="stat-adaptations">—</div>
+        <div class="stat-label">Adaptations Made</div>
+      </div>
+      <div class="stat-card" style="color:var(--accent)">
+        <div class="stat-value" id="stat-avg-score" style="color:var(--accent)">—%</div>
+        <div class="stat-label">Avg Completeness</div>
+      </div>
+    </div>
+
+    <!-- Simulation Panel -->
+    <div class="sim-panel">
+      <div class="sim-title">⚠️ Simulation Controls — Trigger Service Failures</div>
+      <div class="sim-controls" id="sim-controls">
+        <!-- populated by JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Row 2: Topology + SAC Tree ── -->
+  <div class="card" style="grid-row:span 1;">
+    <div class="card-header">
+      <span class="card-title">🔗 Service Topology</span>
+      <span style="font-size:10px;color:var(--muted)">Live status</span>
+    </div>
+    <svg id="topology-svg">
+      <defs>
+        <marker id="arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+          <path d="M0,0 L0,6 L6,3 z" fill="var(--border)"/>
+        </marker>
+      </defs>
+    </svg>
+  </div>
+
+  <div class="card" style="grid-row:span 1;">
+    <div class="card-header">
+      <span class="card-title">🌲 SAC Rule Tree</span>
+      <div style="display:flex;gap:4px;">
+        <button class="btn" id="view-mode-tree" onclick="setSacViewMode('tree')" style="padding:4px 8px;font-size:10px;background:var(--border);color:var(--text);border-radius:4px;font-weight:600;">GSN Tree</button>
+        <button class="btn" id="view-mode-list" onclick="setSacViewMode('list')" style="padding:4px 8px;font-size:10px;background:var(--surface2);color:var(--muted);border-radius:4px;font-weight:600;">List View</button>
+      </div>
+    </div>
+    <div class="service-selector" id="sac-selector">
+      <!-- populated by JS -->
+    </div>
+    <div class="sac-tree" id="sac-tree">
+      <div style="color:var(--muted);font-size:12px;text-align:center;padding:40px;">
+        Select a service above to view its SAC instance
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Row 3: Completeness Gauge + History ── -->
+  <div class="card">
+    <div class="card-header">
+      <span class="card-title">📊 Completeness Scores</span>
+    </div>
+    <div class="gauge-container">
+      <canvas id="gauge-chart" width="180" height="100"></canvas>
+      <div class="gauge-value" id="gauge-value" style="color:var(--success)">—%</div>
+      <div class="gauge-label">System-wide avg completeness</div>
+    </div>
+    <div class="service-scores" id="service-scores">
+      <!-- populated by JS -->
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <span class="card-title">📋 Adaptation History</span>
+      <span id="history-count" style="font-size:11px;color:var(--muted)">0 events</span>
+    </div>
+    <div style="overflow-x:auto;">
+      <table class="history-table">
+        <thead>
+          <tr>
+            <th>Time</th>
+            <th>Failed Service</th>
+            <th>→ Replacement</th>
+            <th>Completeness Δ</th>
+          </tr>
+        </thead>
+        <tbody id="history-body">
+          <tr><td colspan="4" class="history-empty">No adaptations yet.<br/>Simulate a failure above to trigger MAPE-K.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div><!-- /main -->
+
+<!-- Toast -->
+<div id="toast"></div>
+
+<script>
+// ─── Config ────────────────────────────────────────────────────────────────
+const API = "";
+let archData     = null;
+let kbData       = null;
+let scoresData   = {};
+let selectedSvc  = null;
+let gaugeChart   = null;
+let simStates    = {};  // service_id -> "ok" | "failing"
+let lastIteration = null;
+let isMapeAnimating = false;
+let sacViewMode  = 'tree';
+
+// ─── Init ──────────────────────────────────────────────────────────────────
+window.addEventListener("DOMContentLoaded", async () => {
+  await loadArchitecture();
+  await refresh();
+  initGauge();
+  setInterval(refresh, 5000);
+});
+
+// ─── Data fetchers ─────────────────────────────────────────────────────────
+async function loadArchitecture() {
+  try {
+    const r = await fetch(`${API}/api/architecture`);
+    archData = await r.json();
+    drawTopology();
+    buildSacSelector();
+    buildSimControls();
+  } catch(e) { console.warn("Architecture not loaded:", e); }
+}
+
+async function refresh() {
+  try {
+    const [kb, scores, history, status] = await Promise.all([
+      fetch(`${API}/api/knowledge`).then(r=>r.json()),
+      fetch(`${API}/api/scores`).then(r=>r.json()),
+      fetch(`${API}/api/history`).then(r=>r.json()),
+      fetch(`${API}/api/status`).then(r=>r.json()),
+    ]);
+    kbData     = kb;
+    scoresData = scores;
+    updateStats(kb, status);
+    updateMapeKBar(status.mape_state, status);
+    updateTopology(kb);
+    updateScoreBars(scores);
+    updateHistory(history);
+    updateLastUpdated(kb.last_updated);
+    updateSimButtons(kb);
+    if(selectedSvc) loadSacTree(selectedSvc);
+  } catch(e) { console.warn("Refresh error:", e); }
+}
+
+// ─── Stats ─────────────────────────────────────────────────────────────────
+function updateStats(kb, status) {
+  const analysis = kb.current_analysis || {};
+  const healthy  = (analysis.healthy_services  || []).length;
+  const degraded = (analysis.degraded_services || []).length;
+  const failing  = (analysis.failing_services  || []).length;
+  const adapts   = (kb.adaptation_history       || []).length;
+
+  document.getElementById("stat-healthy").textContent      = healthy;
+  document.getElementById("stat-degraded").textContent     = degraded;
+  document.getElementById("stat-failing").textContent      = failing;
+  document.getElementById("stat-adaptations").textContent  = adapts;
+
+  const scores = Object.values(scoresData);
+  if(scores.length) {
+    const avg = scores.reduce((s,v)=>s+(v.score||0),0)/scores.length*100;
+    document.getElementById("stat-avg-score").textContent = avg.toFixed(1)+"%";
+  }
+
+  const dot = document.getElementById("loop-dot");
+  if(failing>0){ dot.style.background="var(--danger)"; dot.style.boxShadow="0 0 6px var(--danger)";}
+  else if(degraded>0){ dot.style.background="var(--warning)"; dot.style.boxShadow="0 0 6px var(--warning)";}
+  else { dot.style.background="var(--success)"; dot.style.boxShadow="0 0 6px var(--success)";}
+
+  document.getElementById("loop-status").textContent = `MAPE-K: ${status.mape_state||"idle"}`;
+}
+
+// ─── MAPE-K Bar ────────────────────────────────────────────────────────────
+function updateMapeKBar(state, status) {
+  if (isMapeAnimating) return; // Don't interrupt active animation
+  
+  const currentIteration = status.loop_iteration;
+  
+  // If the loop iteration count has increased, trigger the step-by-step visual animation!
+  if (lastIteration !== null && currentIteration > lastIteration) {
+    lastIteration = currentIteration;
+    playMapeAnimation(state, status);
+    return;
+  }
+  
+  lastIteration = currentIteration;
+  setMapeStep(state);
+}
+
+function setMapeStep(state) {
+  const steps = {monitoring:"monitor", analyzing:"analyze", planning:"plan", executing:"execute", idle:"k"};
+  ["monitor","analyze","plan","execute","k"].forEach(s=>{
+    document.getElementById("step-"+s).className = "mapek-step idle";
+  });
+  const active = steps[state];
+  if(active) document.getElementById("step-"+active).className = "mapek-step active";
+}
+
+function playMapeAnimation(finalState, status) {
+  isMapeAnimating = true;
+  const stepsSequence = ["monitor", "analyze", "plan", "execute", "k"];
+  
+  // Check if any adaptations were actually planned during this cycle
+  const hasFails = (kbData && kbData.current_analysis && kbData.current_analysis.failing_services && kbData.current_analysis.failing_services.length > 0);
+  
+  let delay = 0;
+  stepsSequence.forEach((step, idx) => {
+    // If no failure was detected, skip "Plan" and "Execute" steps in the animation sequence
+    if (!hasFails && (step === "plan" || step === "execute")) {
+      return; 
+    }
+    
+    setTimeout(() => {
+      // Clear active states
+      stepsSequence.forEach(s => {
+        const el = document.getElementById("step-"+s);
+        if (el) el.className = "mapek-step idle";
+      });
+      
+      // Highlight current step
+      const currentEl = document.getElementById("step-"+step);
+      if (currentEl) currentEl.className = "mapek-step active";
+      
+      // Update status dot/text for this step
+      const loopStatus = document.getElementById("loop-status");
+      const dot = document.getElementById("loop-dot");
+      if (step === "monitor") {
+        loopStatus.textContent = "MAPE-K: monitoring";
+        if (dot) { dot.style.background = "var(--accent)"; dot.style.boxShadow = "0 0 6px var(--accent)"; }
+      } else if (step === "analyze") {
+        loopStatus.textContent = "MAPE-K: analyzing";
+        if (dot) { dot.style.background = "var(--warning)"; dot.style.boxShadow = "0 0 6px var(--warning)"; }
+      } else if (step === "plan") {
+        loopStatus.textContent = "MAPE-K: planning";
+        if (dot) { dot.style.background = "var(--accent2)"; dot.style.boxShadow = "0 0 6px var(--accent2)"; }
+      } else if (step === "execute") {
+        loopStatus.textContent = "MAPE-K: executing";
+        if (dot) { dot.style.background = "var(--success)"; dot.style.boxShadow = "0 0 6px var(--success)"; }
+      } else {
+        loopStatus.textContent = "MAPE-K: idle";
+        // restore health-based colors
+        if (kbData) updateStats(kbData, status); 
+        isMapeAnimating = false; // Animation finished!
+      }
+    }, delay);
+    delay += 700; // 700ms transition time per step
+  });
+}
+
+// ─── Topology Graph ────────────────────────────────────────────────────────
+function drawTopology() {
+  if(!archData) return;
+  const svg = d3.select("#topology-svg");
+  svg.selectAll("*").remove();
+
+  const w = svg.node().clientWidth  || 520;
+  const h = 340;
+
+  // Only show main (non-alternative) services in the topology
+  const mainServices = archData.services.filter(s=>!s.is_alternative);
+  const nodes = mainServices.map(s=>({id:s.service_id, name:s.name, port:s.port, status:"active"}));
+  const links = archData.relationships
+    .filter(r=>!r.from.includes("v2")&&!r.from.includes("replica")&&!r.to.includes("v2"))
+    .map(r=>({source:r.from, target:r.to, type:r.type}));
+
+  const sim = d3.forceSimulation(nodes)
+    .force("link", d3.forceLink(links).id(d=>d.id).distance(100))
+    .force("charge", d3.forceManyBody().strength(-200))
+    .force("center", d3.forceCenter(w/2, h/2))
+    .force("collision", d3.forceCollide(50));
+
+  const g = svg.append("g");
+
+  const link = g.append("g").selectAll("path")
+    .data(links).join("path")
+    .attr("class","link").attr("stroke-dasharray", d=>d.type==="monitors"?"4,3":"none");
+
+  const node = g.append("g").selectAll("g")
+    .data(nodes).join("g").attr("class","node").style("cursor","pointer")
+    .call(d3.drag()
+      .on("start", (e,d)=>{if(!e.active)sim.alphaTarget(.3).restart();d.fx=d.x;d.fy=d.y;})
+      .on("drag",  (e,d)=>{d.fx=e.x;d.fy=e.y;})
+      .on("end",   (e,d)=>{if(!e.active)sim.alphaTarget(0);d.fx=null;d.fy=null;}));
+
+  node.append("circle").attr("r",22)
+    .attr("fill","var(--surface2)").attr("stroke","var(--accent)")
+    .attr("stroke-width",2.5);
+  node.append("text").attr("dy",-28).attr("text-anchor","middle")
+    .text(d=>d.id.replace("-service","").replace("-","·"));
+
+  sim.on("tick", ()=>{
+    link.attr("d", d=>{
+      const dx=d.target.x-d.source.x, dy=d.target.y-d.source.y;
+      const r=Math.sqrt(dx*dx+dy*dy);
+      return `M${d.source.x},${d.source.y}L${d.target.x},${d.target.y}`;
+    });
+    node.attr("transform", d=>`translate(${d.x},${d.y})`);
+  });
+
+  window._topologyNodes = nodes;
+  window._topologyNode  = node;
+}
+
+function updateTopology(kb) {
+  if(!window._topologyNode || !kb) return;
+  const analysis = kb.current_analysis || {};
+  const failing  = analysis.failing_services  || [];
+  const degraded = analysis.degraded_services || [];
+
+  window._topologyNode.select("circle")
+    .attr("stroke", d=>{
+      if(failing.includes(d.id))  return "var(--danger)";
+      if(degraded.includes(d.id)) return "var(--warning)";
+      return "var(--success)";
+    })
+    .attr("filter", d=>{
+      if(failing.includes(d.id))  return "drop-shadow(0 0 8px var(--danger))";
+      if(degraded.includes(d.id)) return "drop-shadow(0 0 8px var(--warning))";
+      return "drop-shadow(0 0 6px var(--success))";
+    });
+}
+
+// ─── SAC Selector ──────────────────────────────────────────────────────────
+function buildSacSelector() {
+  if(!archData) return;
+  const el = document.getElementById("sac-selector");
+  el.innerHTML = "";
+  archData.services.forEach(s=>{
+    const b = document.createElement("button");
+    b.className = "svc-btn";
+    b.id = "svc-btn-"+s.service_id;
+    b.textContent = s.service_id;
+    b.onclick = ()=>{ selectedSvc=s.service_id; loadSacTree(s.service_id);
+      document.querySelectorAll(".svc-btn").forEach(x=>x.classList.remove("active"));
+      b.classList.add("active"); };
+    el.appendChild(b);
+  });
+}
+
+function setSacViewMode(mode) {
+  sacViewMode = mode;
+  document.getElementById("view-mode-tree").classList.toggle("active", mode === 'tree');
+  document.getElementById("view-mode-list").classList.toggle("active", mode === 'list');
+  if (mode === 'tree') {
+    document.getElementById("view-mode-tree").style.background = "var(--border)";
+    document.getElementById("view-mode-tree").style.color = "var(--text)";
+    document.getElementById("view-mode-list").style.background = "var(--surface2)";
+    document.getElementById("view-mode-list").style.color = "var(--muted)";
+  } else {
+    document.getElementById("view-mode-list").style.background = "var(--border)";
+    document.getElementById("view-mode-list").style.color = "var(--text)";
+    document.getElementById("view-mode-tree").style.background = "var(--surface2)";
+    document.getElementById("view-mode-tree").style.color = "var(--muted)";
+  }
+  if (selectedSvc) {
+    loadSacTree(selectedSvc);
+  }
+}
+
+async function loadSacTree(serviceId) {
+  const el = document.getElementById("sac-tree");
+  try {
+    const r = await fetch(`${API}/api/sac/${serviceId}`);
+    if(!r.ok){ el.innerHTML=`<div style="color:var(--muted);text-align:center;padding:32px;font-size:12px;">No SAC instance yet for '${serviceId}'.<br/>SAC is generated during MAPE-K planning phase.</div>`; return; }
+    const sac = await r.json();
+    if (sacViewMode === 'tree' && sac.gsn_assurance_case) {
+      renderGsnTree(el, sac.gsn_assurance_case);
+    } else {
+      renderSacTree(el, sac);
+    }
+  } catch(e){ el.innerHTML=`<div style="color:var(--danger);padding:16px;font-size:12px;">${e}</div>`; }
+}
+
+function toggleGsnChildren(event, nodeId) {
+  event.stopPropagation();
+  const childrenEl = document.getElementById("children-" + nodeId);
+  const toggleEl = event.target;
+  if (childrenEl) {
+    if (childrenEl.style.display === "none") {
+      childrenEl.style.display = "block";
+      toggleEl.textContent = "▼";
+    } else {
+      childrenEl.style.display = "none";
+      toggleEl.textContent = "▶";
+    }
+  }
+}
+
+function renderGsnTree(el, gsn) {
+  function buildNodeHtml(node) {
+    const isGoal = node.type === "Goal";
+    const isStrategy = node.type === "Strategy";
+    const isSolution = node.type === "Solution";
+    
+    let typeClass = "gsn-goal";
+    if (isStrategy) typeClass = "gsn-strategy";
+    if (isSolution) typeClass = "gsn-solution";
+    
+    let badgeHtml = "";
+    if (isGoal && node.satisfaction_status) {
+      const status = node.satisfaction_status;
+      const cls = status==="satisfied"?"badge-satisfied":status==="partial"?"badge-partial":"badge-missing";
+      const icon = status==="satisfied"?"✅":status==="partial"?"⚠️":"❌";
+      badgeHtml = `<span class="gsn-status-badge ${cls}">${icon} ${status}</span>`;
+    }
+    
+    const hasChildren = (node.goals && node.goals.length > 0) || 
+                        (node.strategies && node.strategies.length > 0) || 
+                        (node.solutions && node.solutions.length > 0);
+                        
+    const toggleIcon = hasChildren ? `<span class="gsn-toggle" onclick="toggleGsnChildren(event, '${node.id}')">▼</span>` : "";
+    
+    let childrenHtml = "";
+    if (hasChildren) {
+      const childrenList = (node.goals || []).concat(node.strategies || []).concat(node.solutions || []);
+      childrenHtml = `<div class="gsn-children" id="children-${node.id}">`;
+      childrenList.forEach(child => {
+        childrenHtml += buildNodeHtml(child);
+      });
+      childrenHtml += `</div>`;
+    }
+    
+    return `
+      <div class="gsn-node ${typeClass}" id="node-${node.id}">
+        <div class="gsn-node-header">
+          <span>${node.id} ${badgeHtml}</span>
+          ${toggleIcon}
+        </div>
+        <div class="gsn-node-desc">${node.description || ""}</div>
+      </div>
+      ${childrenHtml}
+    `;
+  }
+  
+  el.innerHTML = `
+    <div class="gsn-tree-container">
+      ${buildNodeHtml(gsn)}
+    </div>
+  `;
+}
+
+function renderSacTree(el, sac) {
+  const mappings = sac.rule_mappings || [];
+  const satisfied = mappings.filter(r=>r.satisfaction_status==="satisfied").length;
+  const partial   = mappings.filter(r=>r.satisfaction_status==="partial").length;
+  const missing   = mappings.filter(r=>r.satisfaction_status==="missing").length;
+
+  let html = `
+    <div style="display:flex;gap:10px;margin-bottom:10px;font-size:11px;">
+      <span style="color:var(--success)">✅ ${satisfied} satisfied</span>
+      <span style="color:var(--warning)">⚠️ ${partial} partial</span>
+      <span style="color:var(--danger)">❌ ${missing} missing</span>
+    </div>`;
+
+  mappings.forEach(r=>{
+    const cls = r.satisfaction_status==="satisfied"?"badge-satisfied":r.satisfaction_status==="partial"?"badge-partial":"badge-missing";
+    const icon = r.satisfaction_status==="satisfied"?"✅":r.satisfaction_status==="partial"?"⚠️":"❌";
+    const conf = Math.round((r.confidence||0)*100);
+    const tip = r.gap_description ? ` title="${r.gap_description}"` : (r.evidence_source?` title="${r.evidence_source}"`:"");
+    html += `<div class="rule-row"${tip}>
+      <span class="rule-badge ${cls}">${icon} ${r.satisfaction_status}</span>
+      <span class="rule-id">${r.source_citation||r.rule_id}</span>
+      <span class="rule-text">${r.implementing_function||r.gap_description||r.evidence_source||"—"}</span>
+      <span class="rule-conf">${conf}%</span>
+    </div>`;
+  });
+  el.innerHTML = html;
+}
+
+// ─── Completeness Gauge ────────────────────────────────────────────────────
+function initGauge() {
+  const ctx = document.getElementById("gauge-chart").getContext("2d");
+  gaugeChart = new Chart(ctx, {
+    type:"doughnut",
+    data:{datasets:[{data:[0,100],backgroundColor:["#10b981","#1e2d4a"],borderWidth:0,circumference:180,rotation:270}]},
+    options:{responsive:false,plugins:{legend:{display:false},tooltip:{enabled:false}},cutout:"75%"}
+  });
+}
+
+function updateScoreBars(scores) {
+  const el = document.getElementById("service-scores");
+  if(!Object.keys(scores).length){ el.innerHTML=`<div style="color:var(--muted);font-size:11px;text-align:center;padding:16px;">No SAC scores yet. Scores are computed during MAPE-K planning.</div>`; return; }
+
+  let totalScore=0, count=0;
+  let html="";
+  Object.entries(scores).forEach(([id,data])=>{
+    const pct = Math.round((data.score||0)*100);
+    totalScore+=pct; count++;
+    const color = pct>=80?"var(--success)":pct>=50?"var(--warning)":"var(--danger)";
+    html+=`<div class="score-row">
+      <span class="score-name">${id}</span>
+      <div class="score-bar-bg"><div class="score-bar-fill" style="width:${pct}%;background:${color}"></div></div>
+      <span class="score-pct" style="color:${color}">${pct}%</span>
+    </div>`;
+  });
+  el.innerHTML=html;
+
+  const avg = count ? totalScore/count : 0;
+  const gaugeEl = document.getElementById("gauge-value");
+  gaugeEl.textContent = avg.toFixed(1)+"%";
+  gaugeEl.style.color = avg>=80?"var(--success)":avg>=50?"var(--warning)":"var(--danger)";
+
+  if(gaugeChart){
+    gaugeChart.data.datasets[0].data=[avg,100-avg];
+    gaugeChart.data.datasets[0].backgroundColor[0]=avg>=80?"#10b981":avg>=50?"#f59e0b":"#ef4444";
+    gaugeChart.update("none");
+  }
+}
+
+// ─── Adaptation History ────────────────────────────────────────────────────
+function updateHistory(history) {
+  const tbody = document.getElementById("history-body");
+  document.getElementById("history-count").textContent = `${history.length} event${history.length!==1?"s":""}`;
+  if(!history.length){ tbody.innerHTML=`<tr><td colspan="4" class="history-empty">No adaptations yet.<br/>Simulate a failure above to trigger MAPE-K.</td></tr>`; return; }
+  tbody.innerHTML = [...history].reverse().map(h=>{
+    const dt = h.timestamp ? new Date(h.timestamp).toLocaleTimeString() : "—";
+    const delta = h.completeness_change!=null?h.completeness_change:0;
+    const sign  = delta>=0?"+":"";
+    const color = delta>=0?"var(--success)":"var(--danger)";
+    return `<tr>
+      <td style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--muted)">${dt}</td>
+      <td><span style="color:var(--danger)">${h.failing_service||"—"}</span></td>
+      <td><span style="color:var(--success)">→ ${h.chosen_service||"—"}</span></td>
+      <td style="color:${color};font-weight:600">${sign}${delta.toFixed(1)}%</td>
+    </tr>`;
+  }).join("");
+}
+
+// ─── Simulation Controls ───────────────────────────────────────────────────
+function buildSimControls() {
+  if(!archData) return;
+  const el = document.getElementById("sim-controls");
+  const mainSvcs = archData.services.filter(s=>!s.is_alternative);
+  mainSvcs.forEach(s=>{
+    const b = document.createElement("button");
+    b.className = "sim-svc-btn";
+    b.id = "sim-btn-"+s.service_id;
+    b.textContent = "💥 "+s.service_id;
+    b.onclick = ()=>simulateFail(s.service_id, b);
+    el.appendChild(b);
+  });
+}
+
+function updateSimButtons(kb) {
+  if (!kb || !kb.active_services) return;
+  Object.entries(kb.active_services).forEach(([serviceId, status]) => {
+    const btn = document.getElementById("sim-btn-" + serviceId);
+    if (!btn) return;
+    const isFailing = (status === "failed");
+    simStates[serviceId] = isFailing ? "failing" : "ok";
+    if (isFailing) {
+      btn.textContent = "✅ " + serviceId + " (recover)";
+      btn.className = "sim-svc-btn recovering";
+    } else {
+      btn.textContent = "💥 " + serviceId;
+      btn.className = "sim-svc-btn";
+    }
+  });
+}
+
+async function simulateFail(serviceId, btn) {
+  const isFailing = simStates[serviceId]==="failing";
+  if(isFailing){
+    // Recover
+    await fetch(`${API}/api/simulate/recover/${serviceId}`, {method:"POST"});
+    simStates[serviceId]="ok";
+    btn.textContent="💥 "+serviceId;
+    btn.classList.remove("recovering");
+    showToast(`✅ ${serviceId} recovered`, "success");
+  } else {
+    // Fail
+    await fetch(`${API}/api/simulate/fail/${serviceId}`, {method:"POST"});
+    simStates[serviceId]="failing";
+    btn.textContent="✅ "+serviceId+" (recover)";
+    btn.classList.add("recovering");
+    showToast(`⚠️ ${serviceId} failure simulated. MAPE-K will adapt on next cycle (~15s).`, "error");
+  }
+  await refresh();
+}
+
+async function triggerManualCycle() {
+  const btn = document.getElementById("cycle-btn");
+  btn.textContent="⟳ Running...";
+  btn.disabled=true;
+  try {
+    await fetch(`${API}/api/loop/start`, {method:"POST"});
+    showToast("MAPE-K cycle triggered. Monitoring now...", "success");
+    setTimeout(()=>{ btn.textContent="⟳ Run Cycle"; btn.disabled=false; refresh(); }, 3000);
+  } catch(e){ btn.textContent="⟳ Run Cycle"; btn.disabled=false; }
+}
+
+// ─── Utilities ─────────────────────────────────────────────────────────────
+function updateLastUpdated(ts) {
+  const el = document.getElementById("last-update");
+  if(!ts){ el.textContent="—"; return; }
+  const d = new Date(ts);
+  el.textContent = "Updated: "+d.toLocaleTimeString();
+}
+
+function showToast(msg, type="success") {
+  const t = document.getElementById("toast");
+  t.textContent = msg;
+  t.className = "show "+type;
+  clearTimeout(t._timer);
+  t._timer = setTimeout(()=>{ t.className=""; }, 4000);
+}
+</script>
+</body>
+</html>
